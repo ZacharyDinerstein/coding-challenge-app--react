@@ -1,0 +1,14 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 2em;
+}
+
+pre {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-style: normal;
+    font-variant: normal;
+    color: gray;
+}
