@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 export default class Card extends Component {
   render() {
     let card = this.props.cardData;
-    console.log('card links')
-    console.log(card.links[0])
-    
-    console.log(card.links[0] ? 'true' : 'false')
 
     return (
       <div className="card card--question">
@@ -16,14 +12,18 @@ export default class Card extends Component {
           return (
             <div className="card__answer-wrapper">
               <p className="card__answer">{answer.answer}</p>
-              <div className="card__example-wrapper">
-                <p className="card__example-title">For example:</p>
-                <code className="card__example">
-                  <pre>
-                    {answer.example}
-                  </pre>
-                </code>
-              </div>
+
+              {answer.example && 
+                <div className="card__example-wrapper">
+                  <p className="card__example-title">For example:</p>
+                  <code className="card__example">
+                    <pre>
+                      {answer.example}
+                    </pre>
+                  </code>
+                </div>
+              }
+              
             </div>
           )
         })}

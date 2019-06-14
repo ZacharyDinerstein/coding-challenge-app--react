@@ -15,15 +15,20 @@ export default class App extends Component {
               {
                 answer: "Undefined is applied to a variable when it is not assigned any value.",
                 example: "var x;<br/>console.log(x); //Undefined"
-              },{
+              }, {
                 answer: "Null is a value that you assign to a variable that means 'Nothing'.",
                 example: "var x = null;<br />console.log(x); //null"
               }
             ],
-            links: [
-              'https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about',
-              'lkajhsdkfjh'
-            ]
+            links: []
+          }, {
+            question: "Describe React State",
+            answers: [
+              {
+                answer: "State is an object that holds all of our app's data",
+              }
+            ],
+            links: []
           }
         ]
       }
