@@ -1,7 +1,12 @@
-.card, .card__answer-wrapper {
-    margin-bottom: 2em;
+.card {
+    margin-bottom: 8rem;
+    max-width: 70rem;
+}
+
+.card__answer-wrapper {
+    margin-bottom: 4rem;
 }
 
 .card__question {
-    margin-bottom: 1.5em;
+    margin-bottom: 2rem;
 }

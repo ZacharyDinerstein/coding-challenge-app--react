@@ -3,8 +3,8 @@ html {
 }
 
 body {
-  font-size: 2em;
-  padding: 0em 2em;
+  font-size: 2rem;
+  padding: 0em 2rem;
 }
 
 code {
@@ -12,4 +12,8 @@ code {
   font-style: normal;
   font-variant: normal;
   color: gray;
+}
+
+.dashbord__question-type {
+  margin-bottom: 4rem;
 }

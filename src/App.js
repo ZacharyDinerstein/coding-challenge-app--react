@@ -29,6 +29,15 @@ export default class App extends Component {
               }
             ],
             links: []
+          }, {
+            question: "What is a JavaScript Promise?",
+            answers: [
+              {
+                answer: "A JS Promise is essentially a callback that's used in partnership with asyncronous functions. Let's say you have a function that is fetching JSON from an API. You want to fire one response when the data returns and another if the data is not returned. Promises handle this for you.",
+                example: "var greetingPromise = sayHello(); greetingPromise.then(function (greeting) {   console.log(greeting);	// 'hello world’ }, function (error) {   console.error('uh oh: ', error);	 // 'uh oh: something bad happened’ });"
+              }
+            ],
+            links: ["https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about"]
           }
         ]
       }
@@ -38,7 +47,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>JAVASCRIPT</h1>
+        <h1 className="dashbord__question-type">JAVASCRIPT</h1>
         {this.state.data.cards.map((card) => {
 
           return (

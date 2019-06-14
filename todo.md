@@ -1,4 +1,3 @@
-- Build out functionality for Cards
 - Allow cards to reveal answers
 - Style cards
 
