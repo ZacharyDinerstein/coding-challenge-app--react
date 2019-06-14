@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Card from './components/Card/Card';
+import './components/Card/Card.css';
 
 export default class App extends Component {
   constructor(props) {
@@ -18,6 +19,10 @@ export default class App extends Component {
                 answer: "Null is a value that you assign to a variable that means 'Nothing'.",
                 example: "var x = null;<br />console.log(x); //null"
               }
+            ],
+            links: [
+              'https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about',
+              'lkajhsdkfjh'
             ]
           }
         ]
@@ -31,7 +36,6 @@ export default class App extends Component {
         <h1>JAVASCRIPT</h1>
         {this.state.data.cards.map((card) => {
 
-          console.log('card:', card)
           return (
             <Card cardData={card} />
           )

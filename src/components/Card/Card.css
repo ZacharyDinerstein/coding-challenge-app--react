@@ -1,0 +1,7 @@
+.card, .card__answer-wrapper {
+    margin-bottom: 2em;
+}
+
+.card__question {
+    margin-bottom: 1.5em;
+}
