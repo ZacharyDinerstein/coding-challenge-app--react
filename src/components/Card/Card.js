@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import CardMainContent from './CardMainContent';
 
 export default class Card extends Component {
   render() {
-    let card = this.props.cardData;
+    let cardData = this.props.cardData;
 
     return (
       <div className="card card--question">
-        <h3 className="card__question">{card.question}</h3>
+        <h3 className="card__question">{cardData.question}</h3>
 
-        {card.answers.map((answer) => {
+        <CardMainContent cardData={cardData} />
+        {/* {cardData.answers.map((answer) => {
           return (
             <div className="card__answer-wrapper">
               <p className="card__answer">{answer.answer}</p>
@@ -23,18 +25,18 @@ export default class Card extends Component {
                   </code>
                 </div>
               }
-              
+
             </div>
           )
-        })}
+        })} */}
 
-        {card.links.map((link, index) => {
+        {/* {cardData.links.map((link, index) => {
           let content = `Link ${index + 1}`;
 
           return (
             <button> <a href={link}>{content}</a> </button>
           )
-        })}
+        })} */}
       </div>
     )
   }
