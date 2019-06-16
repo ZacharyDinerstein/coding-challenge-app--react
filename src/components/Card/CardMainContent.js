@@ -1,33 +1,37 @@
 import React from 'react';
 
 const CardMainContent = props => {
-  console.log(props)
-  return <h1>My RENDER CARD</h1>
+  const { cardData } = props;
+
+  console.log(cardData.answers[0].answer)
+  return (
+    <h1>{cardData.answers[0].answer}</h1>
 
 
-}
+    )
+  }
 
-// {props.cardData.answers.map((answer) => {
-//     return (
-//       <div className="card__answer-wrapper">
-//         <p className="card__answer">{answer.answer}</p>
+  //   {props.cardData.answers.map((answer) => {
+  //     return (
+  //       <div className="card__answer-wrapper">
+  //         <p className="card__answer">{answer.answer}</p>
 
-//         {answer.example &&
-//           <div className="card__example-wrapper">
-//             <p className="card__example-title">For example:</p>
-//             <code className="card__example">
-//               <pre>
-//                 {answer.example}
-//               </pre>
-//             </code>
-//           </div>
-//         }
+  //         {answer.example &&
+  //           <div className="card__example-wrapper">
+  //             <p className="card__example-title">For example:</p>
+  //             <code className="card__example">
+  //               <pre>
+  //                 {answer.example}
+  //               </pre>
+  //             </code>
+  //           </div>
+  //         }
 
-//       </div>
-//     )
-//   })
-// }
-
+  //       </div>
+  //     )
+  //   })
+  // }
+  
 // {card.links.map((link, index) => {
 //     let content = `Link ${index + 1}`;
 

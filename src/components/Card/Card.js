@@ -3,7 +3,7 @@ import CardMainContent from './CardMainContent';
 
 export default class Card extends Component {
   render() {
-    let cardData = this.props.cardData;
+    let { cardData } = this.props;
 
     return (
       <div className="card card--question">
