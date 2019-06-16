@@ -14,10 +14,10 @@ export default class App extends Component {
             answers: [
               {
                 answer: "Undefined is applied to a variable when it is not assigned any value.",
-                example: "var x;<br/>console.log(x); //Undefined"
+                example: "var x;\nconsole.log(x); //Undefined"
               }, {
                 answer: "Null is a value that you assign to a variable that means 'Nothing'.",
-                example: "var x = null;<br />console.log(x); //null"
+                example: "var x = null;\nconsole.log(x); //null"
               }
             ],
             links: []

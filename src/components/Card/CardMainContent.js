@@ -13,15 +13,15 @@ export default class CardMainContent extends Component {
 
             {answer.example &&
               <div className="card__example-wrapper">
-                <p className="card__example-title">For example:</p>
-                <code className="card__example">
-                  <pre>
+                <p className="card__example-title">Example:</p>
+                <pre>
+                  <code className="card__example">
                     {answer.example}
-                  </pre>
-                </code>
+                  </code>
+                </pre>
               </div>
             }
-            
+
           </div>
         )
       })

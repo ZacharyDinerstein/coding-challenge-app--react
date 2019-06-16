@@ -9,10 +9,13 @@ body {
 
 code {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace; */
   font-style: normal;
   font-variant: normal;
   color: gray;
 }
+
 
 .dashbord__question-type {
   margin-bottom: 4rem;
