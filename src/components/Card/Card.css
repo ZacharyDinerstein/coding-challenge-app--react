@@ -9,4 +9,6 @@
 
 .card__question {
     margin-bottom: 2rem;
+    margin-right: 1rem;
+    display: inline-block;
 }
