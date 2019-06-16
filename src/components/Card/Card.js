@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardMainContent from './CardMainContent';
+import Toggle from '../../Toggle';
 
 export default class Card extends Component {
   render() {
@@ -8,8 +9,9 @@ export default class Card extends Component {
     return (
       <div className="card card--question">
         <h3 className="card__question">{cardData.question}</h3>
-
-        <CardMainContent cardData={cardData} />
+        <Toggle>
+          <CardMainContent cardData={cardData} />
+        </Toggle>
         {/* {cardData.answers.map((answer) => {
           return (
             <div className="card__answer-wrapper">

@@ -1,16 +1,42 @@
-import React, { useState } from "react";
-import CardMainContent from './components/Card/CardMainContent';
+import React, { Component } from 'react';
 
-const Toggle = () => {
-  const [isToggled, setToggle] = useState(false);
+export default class Toggle extends Component {
+  state = {
+    on: false
+  };
 
-  return (
-    <>
-      {isToggled && (
-        <CardMainContent setToggle={setToggle} />
-      )}
-    </>
-  )
+  toggle = () => {
+    this.setState({
+      on: !this.state.on
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.on && this.props.children}
+        <button onClick={this.toggle}>Show/Hide</button>
+      </div>
+    );
+  }
 }
 
-export default Toggle;
+
+
+
+// import React, { useState } from "react";
+// import CardMainContent from './components/Card/CardMainContent';
+
+// const Toggle = () => {
+//   const [isToggled, setToggle] = useState(false);
+
+//   return (
+//     <>
+//       {isToggled && (
+//         <CardMainContent setToggle={setToggle} />
+//       )}
+//     </>
+//   )
+// }
+
+// export default Toggle;
