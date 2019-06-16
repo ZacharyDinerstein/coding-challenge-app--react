@@ -10,8 +10,10 @@ ADDING NEW INFO
 
 
 
-FUNCTION
+FUNCTIONALITY
 - Allow user to click card to show info
+- Allow user to search
+- Allow user to organize by topic, company, etc...
 
 
 ***DONE***
