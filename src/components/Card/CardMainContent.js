@@ -1,37 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const CardMainContent = props => {
-  const { cardData } = props;
+export default class CardMainContent extends Component {
+  // const CardMainContent = props => {
+  render() {
+    const { cardData } = this.props;
+    console.log(cardData.answers[0].answer)
 
-  console.log(cardData.answers[0].answer)
-  return (
-    <h1>{cardData.answers[0].answer}</h1>
-
-
+    return (
+      cardData.answers.map((answer) => {
+        return <h1>{answer.answer}</h1>
+      })
     )
   }
+}
 
-  //   {props.cardData.answers.map((answer) => {
-  //     return (
-  //       <div className="card__answer-wrapper">
-  //         <p className="card__answer">{answer.answer}</p>
+//   {props.cardData.answers.map((answer) => {
+//     return (
+//       <div className="card__answer-wrapper">
+//         <p className="card__answer">{answer.answer}</p>
 
-  //         {answer.example &&
-  //           <div className="card__example-wrapper">
-  //             <p className="card__example-title">For example:</p>
-  //             <code className="card__example">
-  //               <pre>
-  //                 {answer.example}
-  //               </pre>
-  //             </code>
-  //           </div>
-  //         }
+//         {answer.example &&
+//           <div className="card__example-wrapper">
+//             <p className="card__example-title">For example:</p>
+//             <code className="card__example">
+//               <pre>
+//                 {answer.example}
+//               </pre>
+//             </code>
+//           </div>
+//         }
 
-  //       </div>
-  //     )
-  //   })
-  // }
-  
+//       </div>
+//     )
+//   })
+// }
+
 // {card.links.map((link, index) => {
 //     let content = `Link ${index + 1}`;
 
@@ -44,4 +47,4 @@ const CardMainContent = props => {
 
 
 
-export default CardMainContent;
+// export default CardMainContent;
