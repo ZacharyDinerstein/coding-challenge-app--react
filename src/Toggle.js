@@ -11,10 +11,17 @@ export default class Toggle extends Component {
     });
   };
 
+
+  action = () => {
+    this.toggle();
+    this.props.toggleCardFullWidth();
+  }
+
+
   render() {
     return (
       <>
-        <button onClick={this.toggle}>Show/Hide</button>
+        <button onClick={this.action}>Show/Hide</button>
         {this.state.on && this.props.children}
       </>
     );

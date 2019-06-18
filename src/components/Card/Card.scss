@@ -1,0 +1,31 @@
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(5rem, auto);
+    grid-gap: 4rem;
+    h3 {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        margin: 0rem;
+    }
+}
+
+.card {
+  margin-bottom: 8rem;
+  background: #fefefe;
+  padding: 1em;
+  border-radius: .6rem;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,.1);
+  &.card--full-width {
+    grid-column: 1/4;
+  }
+  .card__answer-wrapper {
+    margin-bottom: 4rem;
+  }
+
+  .card__question {
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+    display: inline-block;
+  }
+}
