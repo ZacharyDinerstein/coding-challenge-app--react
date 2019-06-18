@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Card from './components/Card/Card';
+import Form from './components/Form/Form';
 
 
 export default class App extends Component {
@@ -76,6 +77,7 @@ export default class App extends Component {
   render() {
     return (
       <>
+        <Form />
         <h1 className="dashbord__question-type">JAVASCRIPT</h1>
         <div className="cards-container">
 
@@ -84,7 +86,7 @@ export default class App extends Component {
               <Card key={index} cardData={card} />
             )
           })}
-          
+
         </div>
       </>
     );
