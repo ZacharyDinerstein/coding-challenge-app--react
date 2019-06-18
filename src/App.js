@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import Card from './components/Card/Card';
 import './components/Card/Card.css';
 
@@ -46,15 +46,18 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <h1 className="dashbord__question-type">JAVASCRIPT</h1>
-        {this.state.data.cards.map((card) => {
 
+        {this.state.data.cards.map((card, index) => {
           return (
-            <Card cardData={card} />
+            <>
+              <Card key={index} cardData={card} />
+            </>
           )
         })}
-      </div >
+
+      </>
     );
   }
 }
