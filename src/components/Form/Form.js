@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class Form extends Component {
-  
+
   state = {
     question: '',
     answers: [],
@@ -14,7 +14,15 @@ export default class Form extends Component {
     })
   }
 
-  passNewCard = (e) => {
+  resetState = () => {
+    this.setState({
+      question: '',
+      answers: [],
+      links: []
+    })
+  }
+  
+  createCard = (e) => {
     e.preventDefault();
 
     let newCard = {
@@ -22,13 +30,15 @@ export default class Form extends Component {
     };
 
     this.props.createCard(newCard);
+    this.resetState();
   }
-  
+
+
 
   render() {
     return (
       <form
-        onSubmit={this.passNewCard}
+        onSubmit={this.createCard}
         className="">
         <h1>Create New Card</h1>
 
@@ -39,6 +49,7 @@ export default class Form extends Component {
             className="form-control"
             placeholder="Question Here"
             onChange={this.updateQuestion}
+            value={this.state.question}
           />
         </div>
 
