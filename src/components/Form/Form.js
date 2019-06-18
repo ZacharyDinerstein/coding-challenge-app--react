@@ -2,16 +2,33 @@ import React, { Component } from 'react'
 
 export default class Form extends Component {
   
-  createCard = (e) => {
+  state = {
+    question: '',
+    answers: [],
+    links: []
+  }
+
+  updateQuestion = (e) => {
+    this.setState({
+      question: e.target.value
+    })
+  }
+
+  passNewCard = (e) => {
     e.preventDefault();
 
-    let newCard = {};
+    let newCard = {
+      question: this.state.question
+    };
+
+    this.props.createCard(newCard);
   }
   
+
   render() {
     return (
       <form
-        onSubmit={this.createCard}
+        onSubmit={this.passNewCard}
         className="">
         <h1>Create New Card</h1>
 
@@ -21,6 +38,7 @@ export default class Form extends Component {
             type="text"
             className="form-control"
             placeholder="Question Here"
+            onChange={this.updateQuestion}
           />
         </div>
 
