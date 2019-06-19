@@ -81,9 +81,12 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Form createCard={(newCard) => { this.createCard(newCard) }} />
+        <div className="cards-container cards-container--form">
+          <Form createCard={(newCard) => { this.createCard(newCard) }} />
+        </div>
+
         <h1 className="dashbord__question-type">JAVASCRIPT</h1>
-        <div className="cards-container">
+        <div className="cards-container cards-container--questions">
 
           {this.state.cards.map((card, index) => {
             return (

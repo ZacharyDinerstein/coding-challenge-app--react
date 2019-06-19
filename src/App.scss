@@ -6,12 +6,11 @@ body {
   font-size: 2rem;
   padding: 0em 2rem;
   background: #eaeaea;
+  display: grid;
 }
 
 code {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace; */
   font-style: normal;
   font-variant: normal;
   color: #4b4b4bf5;
@@ -19,4 +18,8 @@ code {
 
 .dashbord__question-type {
   margin-bottom: 4rem;
+}
+
+.hidden {
+  display: none;
 }
