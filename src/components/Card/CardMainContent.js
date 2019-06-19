@@ -28,7 +28,7 @@ export default class CardMainContent extends Component {
             {cardData.links.map((link, index) => {
                let linkName = `Link ${index + 1}`
                return (
-                  <a href={link}>{linkName}</a>
+                  <a key={index} href={link}>{linkName}</a>
                )
             })}
          </>
