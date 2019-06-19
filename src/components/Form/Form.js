@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 export default class Form extends Component {
 
   state = {
@@ -52,54 +53,56 @@ export default class Form extends Component {
           onSubmit={this.createCard}
           className="card card--form">
           <h1>Create New Card</h1>
+          <div className="form__inputs-wrapper">
 
-          <div className="form-group">
-            <label htmlFor="">Question</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Question Here"
-              name="question"
-              index={0}
-              onChange={this.updateCardAttribute}
-              value={this.state.question}
-            />
-          </div>
+            {/* <div className="form-group"> */}
+              <label htmlFor="">Question</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Question Here"
+                name="question"
+                index={0}
+                onChange={this.updateCardAttribute}
+                value={this.state.question}
+              />
+            {/* </div> */}
 
-          <div className="form-group">
-            <label htmlFor="">Answer</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Answer Here"
-              name="answer"
-              onChange={this.updateCardAttribute}
-              value={this.state.answer}
-            />
-          </div>
+            {/* <div className="form-group"> */}
+              <label htmlFor="">Answer</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Answer Here"
+                name="answer"
+                onChange={this.updateCardAttribute}
+                value={this.state.answer}
+              />
+            {/* </div> */}
 
-          <div className="form-group">
-            <label htmlFor="">Example</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Example Here"
-              name="example"
-              onChange={this.updateCardAttribute}
-              value={this.state.example}
-            />
-          </div>
+            {/* <div className="form-group"> */}
+              <label htmlFor="">Example</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Example Here"
+                name="example"
+                onChange={this.updateCardAttribute}
+                value={this.state.example}
+              />
+            {/* </div> */}
 
-          <div className="form-group">
-            <label htmlFor="">Link</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Link Here"
-              name="link"
-              onChange={this.updateCardAttribute}
-              value={this.state.link}
-            />
+            {/* <div className="form-group"> */}
+              <label htmlFor="">Link</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Link Here"
+                name="link"
+                onChange={this.updateCardAttribute}
+                value={this.state.link}
+              />
+            {/* // </div> */}
           </div>
 
           <button class="hidden" type="submit">Submit</button>
