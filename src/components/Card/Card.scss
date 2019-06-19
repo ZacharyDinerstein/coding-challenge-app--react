@@ -20,6 +20,12 @@
   }
   &.cards-container--form {
     grid-template-columns: 1fr 3fr 1fr;
+    @media (max-width: 1199px) {
+      grid-template-columns: 1fr 16fr 1fr;
+    }
+    @media (max-width: 992px) {
+      grid-template-columns: 0fr 3fr 0fr;
+    }
   }
 }
 
@@ -63,14 +69,15 @@
   label {
     margin-right: 1rem;
   }
-  input, textarea {
+  input,
+  textarea {
     height: 100%;
     // padding-left: 1rem;
     // border-radius: 1rem;
     background-color: inherit;
     border-left: none;
     border-top: none;
-    border-bottom: .2rem solid #ddd;
+    border-bottom: 0.2rem solid #ddd;
     border-right: none;
     font-size: 1.6rem;
   }
