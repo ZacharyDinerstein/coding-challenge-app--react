@@ -4,29 +4,38 @@ export default class Form extends Component {
 
   state = {
     question: '',
-    answers: [],
-    links: []
+    answer: '',
+    example: '',
+    link: ''
   }
 
-  updateQuestion = (e) => {
+  updateCardAttribute = (e) => {
     this.setState({
-      question: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
   resetState = () => {
     this.setState({
       question: '',
-      answers: [],
-      links: []
+      answer: '',
+      example: '',
+      link: ''
     })
   }
-  
+
   createCard = (e) => {
     e.preventDefault();
 
     let newCard = {
-      question: this.state.question
+      question: this.state.question,
+      answers: [{
+        answer: this.state.answer,
+        example: this.state.example
+      }],
+      links: [
+        this.state.link
+      ]
     };
 
     this.props.createCard(newCard);
@@ -48,18 +57,49 @@ export default class Form extends Component {
             type="text"
             className="form-control"
             placeholder="Question Here"
-            onChange={this.updateQuestion}
+            name="question"
+            index={0}
+            onChange={this.updateCardAttribute}
             value={this.state.question}
           />
         </div>
 
-        {/* <div className="form-group">
-          <label htmlFor="Password">Password</label>
+        <div className="form-group">
+          <label htmlFor="">Answer</label>
           <input
             type="text"
             className="form-control"
-            placeholder="there" />
-        </div> */}
+            placeholder="Answer Here"
+            name="answer"
+            onChange={this.updateCardAttribute}
+            value={this.state.answer}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="">Example</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Example Here"
+            name="example"
+            onChange={this.updateCardAttribute}
+            value={this.state.example}
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="">Link</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Link Here"
+            name="link"
+            onChange={this.updateCardAttribute}
+            value={this.state.link}
+          />
+        </div>
+
         <button type="submit">Submit</button>
       </form>
     )

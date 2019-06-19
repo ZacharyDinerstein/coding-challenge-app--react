@@ -97,15 +97,3 @@ export default class App extends Component {
   }
 }
 
-{/* <div className="card__answer-wrapper">
-  <p className="card__answer"></p>
-  <div className="card__example-wrapper">
-    <p className="card__example-title">For example:</p>
-    <code className="card__example">
-      <pre>
-        var x = null;
-        console.log(x); //null
-    </pre>
-    </code>
-  </div>
-</div> */}
