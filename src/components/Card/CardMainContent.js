@@ -4,7 +4,6 @@ export default class CardMainContent extends Component {
 
    render() {
       let { cardData } = this.props;
-      console.log(cardData);
 
       return (
          <>
@@ -27,8 +26,9 @@ export default class CardMainContent extends Component {
                )
             })}
             {cardData.links.map((link, index) => {
+               let linkName = `Link ${index + 1}`
                return (
-                  <a href={link}>Link 1</a>
+                  <a href={link}>{linkName}</a>
                )
             })}
          </>
