@@ -70,7 +70,7 @@ export default class Form extends Component {
 
             {/* <div className="form-group"> */}
               <label htmlFor="">Answer</label>
-              <input
+              <textarea
                 type="text"
                 className="form-control"
                 placeholder="Answer Here"
@@ -81,7 +81,7 @@ export default class Form extends Component {
             {/* </div> */}
 
             {/* <div className="form-group"> */}
-              <label htmlFor="">Example</label>
+              <label htmlFor="">Code Example</label>
               <input
                 type="text"
                 className="form-control"
@@ -93,7 +93,7 @@ export default class Form extends Component {
             {/* </div> */}
 
             {/* <div className="form-group"> */}
-              <label htmlFor="">Link</label>
+              <label htmlFor="">Link URL</label>
               <input
                 type="text"
                 className="form-control"

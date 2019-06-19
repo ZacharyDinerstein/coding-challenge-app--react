@@ -51,9 +51,11 @@
 
 .card--form {
   margin-top: 2rem;
+  padding: 3rem;
+  padding-right: 6rem;
   .form__inputs-wrapper {
     display: grid;
-    grid-template-columns: 1fr 7fr;
+    grid-template-columns: 2fr 8fr;
     grid-gap: 2rem;
     align-items: center;
     grid-auto-rows: minmax(3rem, auto);
@@ -61,15 +63,15 @@
   label {
     margin-right: 1rem;
   }
-  input {
+  input, textarea {
     height: 100%;
-    padding-left: 1rem;
+    // padding-left: 1rem;
     // border-radius: 1rem;
     background-color: inherit;
     border-left: none;
     border-top: none;
     border-bottom: .2rem solid #ddd;
     border-right: none;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 }
