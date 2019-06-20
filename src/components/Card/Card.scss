@@ -53,6 +53,13 @@
     margin-right: 1rem;
     display: inline-block;
   }
+  .card__code-wrapper {
+    border-radius: 1rem;
+    padding: 2rem;
+    background: #222;
+    color: white;
+    font-weight: 500;
+  }
 }
 
 .card--form {

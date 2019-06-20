@@ -88,7 +88,7 @@ export default class Form extends Component {
               onChange={this.updateCardAttribute}
               value={this.state.answer}
               onKeyDown={this.allowTabs}
-            />
+              />
 
             <label htmlFor="">Code Example</label>
             <textarea
@@ -98,6 +98,7 @@ export default class Form extends Component {
               name="example"
               onChange={this.updateCardAttribute}
               value={this.state.example}
+              onKeyDown={this.allowTabs}
             />
             <label htmlFor="">Link URL</label>
             <input
