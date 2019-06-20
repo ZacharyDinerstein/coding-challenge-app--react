@@ -7,7 +7,11 @@ export default class Form extends Component {
     question: '',
     answer: '',
     example: '',
-    link: ''
+    link: '',
+    addCodeExample: false,
+    codeExampleNum: 1,
+    addLinkExample: false,
+    linkExampleNum: 1
   }
 
   updateCardAttribute = (e) => {
@@ -57,7 +61,13 @@ export default class Form extends Component {
     }
   }
 
+  toggleStateBool = (e) => {
+    let stateKey = e.target.name;
 
+    this.setState({
+      [stateKey] : !this.state[stateKey] 
+    })
+  }
 
   render() {
     return (
@@ -72,7 +82,6 @@ export default class Form extends Component {
             <label htmlFor="">Question</label>
             <input
               type="text"
-              className="form-control"
               placeholder="Question Here"
               name="question"
               index={0}
@@ -82,7 +91,6 @@ export default class Form extends Component {
             <label htmlFor="">Answer</label>
             <textarea
               type="text"
-              className="form-control"
               placeholder="Answer Here"
               name="answer"
               onChange={this.updateCardAttribute}
@@ -90,20 +98,25 @@ export default class Form extends Component {
               onKeyDown={this.allowTabs}
               />
 
-            <label htmlFor="">Code Example</label>
+            <button type="radio" name="addCodeExample" onClick={this.toggleStateBool}>Add Code Example?</button>
+            <div></div>
+            <label htmlFor="" className={this.state.addCodeExample ? "":"hidden"}>Code Example</label>
             <textarea
               type="text"
-              className="form-control"
+              className={this.state.addCodeExample ? "":"hidden"}
               placeholder="Example Here"
               name="example"
               onChange={this.updateCardAttribute}
               value={this.state.example}
               onKeyDown={this.allowTabs}
             />
-            <label htmlFor="">Link URL</label>
+
+            <button type="radio" name="addLinkExample" onClick={this.toggleStateBool}>Add Link Example?</button>
+            <div></div>
+            <label htmlFor="" className={this.state.addLinkExample ? "":"hidden"}>Link URL</label>
             <input
               type="text"
-              className="form-control"
+              className={this.state.addLinkExample ? "":"hidden"}
               placeholder="Link Here"
               name="link"
               onChange={this.updateCardAttribute}
