@@ -54,8 +54,6 @@ export default class Form extends Component {
           className="card card--form">
           <h1>Create New Card</h1>
           <div className="form__inputs-wrapper">
-
-            {/* <div className="form-group"> */}
               <label htmlFor="">Question</label>
               <input
                 type="text"
@@ -66,9 +64,6 @@ export default class Form extends Component {
                 onChange={this.updateCardAttribute}
                 value={this.state.question}
               />
-            {/* </div> */}
-
-            {/* <div className="form-group"> */}
               <label htmlFor="">Answer</label>
               <textarea
                 type="text"
@@ -78,9 +73,7 @@ export default class Form extends Component {
                 onChange={this.updateCardAttribute}
                 value={this.state.answer}
               />
-            {/* </div> */}
-
-            {/* <div className="form-group"> */}
+              
               <label htmlFor="">Code Example</label>
               <textarea
                 type="text"
@@ -90,9 +83,6 @@ export default class Form extends Component {
                 onChange={this.updateCardAttribute}
                 value={this.state.example}
               />
-            {/* </div> */}
-
-            {/* <div className="form-group"> */}
               <label htmlFor="">Link URL</label>
               <input
                 type="text"
@@ -102,7 +92,6 @@ export default class Form extends Component {
                 onChange={this.updateCardAttribute}
                 value={this.state.link}
               />
-            {/* // </div> */}
           </div>
 
           <button class="hidden" type="submit">Submit</button>

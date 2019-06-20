@@ -10,7 +10,7 @@ export default class CardMainContent extends Component {
             {cardData.answers.map((answer, index) => {
                return (
                   <div key={index} className="card__answer-wrapper">
-                     <p className="card__answer">{answer.answer}</p>
+                     <pre className="card__answer">{answer.answer}</pre>
 
                      {answer.example &&
                         <div className="card__example-wrapper">
