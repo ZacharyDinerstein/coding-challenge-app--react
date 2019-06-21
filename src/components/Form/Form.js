@@ -12,8 +12,8 @@ export default class Form extends Component {
     link: '',
     addCodeExample: false,
     codeExampleNum: 1,
-    addLinkExample: false,
-    linkExampleNum: 1
+    addLink: false,
+    linkNum: 1
   }
 
   updateCardAttribute = (e) => {
@@ -99,6 +99,7 @@ export default class Form extends Component {
               value={this.state.answer}
               onKeyDown={this.allowTabs}
             />
+
             <div className="card__checkbox-wrapper">
               <input type="checkbox" id="addCodeExample" name="addCodeExample" onClick={this.toggleStateBool} />
               <label htmlFor="addCodeExample">Add Code Example</label>
@@ -115,13 +116,17 @@ export default class Form extends Component {
               value={this.state.example}
               onKeyDown={this.allowTabs}
             />
-
-            <button type="radio" name="addLinkExample" onClick={this.toggleStateBool}>Add Link Example?</button>
+            
+            <div className="card__checkbox-wrapper">
+              <input type="checkbox" id="addLink" name="addLink" onClick={this.toggleStateBool} />
+              <label htmlFor="addLink">Add Link</label>
+            </div>
             <div></div>
-            <label htmlFor="" className={this.state.addLinkExample ? "" : "hidden"}>Link URL</label>
+
+            <label htmlFor="" className={this.state.addLink ? "" : "hidden"}>Link URL</label>
             <input
               type="text"
-              className={this.state.addLinkExample ? "" : "hidden"}
+              className={this.state.addLink ? "" : "hidden"}
               placeholder="Link Here"
               name="link"
               onChange={this.updateCardAttribute}
