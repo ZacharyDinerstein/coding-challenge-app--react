@@ -60,12 +60,14 @@
     color: white;
     font-weight: 500;
   }
+
 }
 
 .card--form {
   margin-top: 2rem;
   padding: 3rem;
   padding-right: 6rem;
+
   .form__inputs-wrapper {
     display: grid;
     grid-template-columns: 2fr 8fr;
@@ -76,7 +78,8 @@
   label {
     margin-right: 1rem;
   }
-  input, textarea {
+  input:not([type='checkbox']),
+  textarea {
     height: 100%;
     background-color: inherit;
     border-left: none;
@@ -85,4 +88,34 @@
     border-right: none;
     font-size: 1.6rem;
   }
+  .card__checkbox-wrapper {
+    label {
+      font-size: 1.2rem;
+      margin-right: 0rem;
+      margin-left: .5rem;
+    }
+  }
 }
+
+  // padding: 1rem;
+  // h1 {
+  //   text-align: center;
+  //   margin-bottom: 1rem;
+  // }
+  // input,
+  // button {
+  //   display: block;
+  // }
+  // .form-control {
+  //   font-size: 1.6rem;
+  // }
+
+// }
+
+// .form-wrapper {
+//   width: 100%;
+//   border-radius: 10px;
+//   overflow: hidden;
+//   background-color: white;
+//   margin-bottom: 2rem;
+// }

@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './Form.scss';
+
 
 
 export default class Form extends Component {
@@ -49,12 +51,12 @@ export default class Form extends Component {
 
   allowTabs = (e) => {
     let t = e.target;
-    
+
     if (e.keyCode === 91) {
       let v = t.value,
-      s = t.selectionStart,
-      e = t.selectionEnd;
-      
+        s = t.selectionStart,
+        e = t.selectionEnd;
+
       t.value = v.substring(0, s) + '\t' + v.substring(e);
       t.selectionStart = t.selectionEnd = s + 1;
       return false;
@@ -65,7 +67,7 @@ export default class Form extends Component {
     let stateKey = e.target.name;
 
     this.setState({
-      [stateKey] : !this.state[stateKey] 
+      [stateKey]: !this.state[stateKey]
     })
   }
 
@@ -96,14 +98,17 @@ export default class Form extends Component {
               onChange={this.updateCardAttribute}
               value={this.state.answer}
               onKeyDown={this.allowTabs}
-              />
-
-            <button type="radio" name="addCodeExample" onClick={this.toggleStateBool}>Add Code Example?</button>
+            />
+            <div className="card__checkbox-wrapper">
+              <input type="checkbox" id="addCodeExample" name="addCodeExample" onClick={this.toggleStateBool} />
+              <label htmlFor="addCodeExample">Add Code Example</label>
+            </div>
             <div></div>
-            <label htmlFor="" className={this.state.addCodeExample ? "":"hidden"}>Code Example</label>
+
+            <label htmlFor="" className={this.state.addCodeExample ? "" : "hidden"}>Code Example</label>
             <textarea
               type="text"
-              className={this.state.addCodeExample ? "":"hidden"}
+              className={this.state.addCodeExample ? "" : "hidden"}
               placeholder="Example Here"
               name="example"
               onChange={this.updateCardAttribute}
@@ -113,10 +118,10 @@ export default class Form extends Component {
 
             <button type="radio" name="addLinkExample" onClick={this.toggleStateBool}>Add Link Example?</button>
             <div></div>
-            <label htmlFor="" className={this.state.addLinkExample ? "":"hidden"}>Link URL</label>
+            <label htmlFor="" className={this.state.addLinkExample ? "" : "hidden"}>Link URL</label>
             <input
               type="text"
-              className={this.state.addLinkExample ? "":"hidden"}
+              className={this.state.addLinkExample ? "" : "hidden"}
               placeholder="Link Here"
               name="link"
               onChange={this.updateCardAttribute}
