@@ -84,7 +84,6 @@ export default class Form extends Component {
             <label htmlFor="">Question</label>
             <input
               type="text"
-              placeholder="Question Here"
               name="question"
               index={0}
               onChange={this.updateCardAttribute}
@@ -93,24 +92,16 @@ export default class Form extends Component {
             <label htmlFor="">Answer</label>
             <textarea
               type="text"
-              placeholder="Answer Here"
               name="answer"
               onChange={this.updateCardAttribute}
               value={this.state.answer}
               onKeyDown={this.allowTabs}
             />
 
-            <div className="card__checkbox-wrapper">
-              <input type="checkbox" id="addCodeExample" name="addCodeExample" onClick={this.toggleStateBool} />
-              <label htmlFor="addCodeExample">Add Code Example</label>
-            </div>
-            <div></div>
-
-            <label htmlFor="" className={this.state.addCodeExample ? "" : "hidden"}>Code Example</label>
+            <label htmlFor="">Code Example</label>
             <textarea
               type="text"
-              className={this.state.addCodeExample ? "" : "hidden"}
-              placeholder="Example Here"
+              placeholder="Optional"
               name="example"
               onChange={this.updateCardAttribute}
               value={this.state.example}
