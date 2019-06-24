@@ -12,7 +12,7 @@ export default class Form extends Component {
     link: '',
     addCodeExample: false,
     codeExampleNum: 1,
-    addLink: false,
+    includeLink: false,
     linkNum: 1
   }
 
@@ -109,15 +109,15 @@ export default class Form extends Component {
             />
             
             <div className="card__checkbox-wrapper">
-              <input type="checkbox" id="addLink" name="addLink" onClick={this.toggleStateBool} />
-              <label htmlFor="addLink">Add Link</label>
+              <input type="checkbox" id="includeLink" name="includeLink" onClick={this.toggleStateBool} />
+              <label htmlFor="includeLink">Include Link</label>
             </div>
             <div></div>
 
-            <label htmlFor="" className={this.state.addLink ? "" : "hidden"}>Link URL</label>
+            <label htmlFor="" className={this.state.includeLink ? "" : "hidden"}>Link URL</label>
             <input
               type="text"
-              className={this.state.addLink ? "" : "hidden"}
+              className={this.state.includeLink ? "" : "hidden"}
               placeholder="Link Here"
               name="link"
               onChange={this.updateCardAttribute}
