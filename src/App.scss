@@ -6,17 +6,25 @@ body {
   font-size: 2rem;
   padding: 0em 2rem;
   background: #eaeaea;
+  display: grid;
+  padding-bottom: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+pre {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 code {
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace; */
+  font-family: 'Courier New', Courier, monospace;
   font-style: normal;
   font-variant: normal;
-  color: #4b4b4bf5;
 }
 
 .dashbord__question-type {
   margin-bottom: 4rem;
+}
+
+.hidden {
+  display: none;
 }

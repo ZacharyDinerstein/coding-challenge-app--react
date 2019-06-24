@@ -2,47 +2,36 @@ import React, { Component } from 'react';
 
 export default class CardMainContent extends Component {
 
-  render() {
-    const { cardData } = this.props;
+   render() {
+      let { cardData } = this.props;
 
-    return (
-      cardData.answers.map((answer) => {
-        return (
-          <div className="card__answer-wrapper">
-            <p className="card__answer">{answer.answer}</p>
+      return (
+         <>
+            {cardData.answers.map((answer, index) => {
+               return (
+                  <div key={index} className="card__answer-wrapper">
+                     <pre className="card__answer">{answer.answer}</pre>
 
-            {answer.example &&
-              <div className="card__example-wrapper">
-                <p className="card__example-title">Example:</p>
-                <pre>
-                  <code className="card__example">
-                    {answer.example}
-                  </code>
-                </pre>
-              </div>
-            }
-
-          </div>
-        )
-      })
-    )
-  }
+                     {answer.example &&
+                        <div className="card__example-wrapper">
+                           <p className="card__example-title">Example:</p>
+                           <pre className="card__code-wrapper">
+                              <code className="card__example">
+                                 {answer.example}
+                              </code>
+                           </pre>
+                        </div>
+                     }
+                  </div>
+               )
+            })}
+            {cardData.links.map((link, index) => {
+               let linkName = `Link ${index + 1}`
+               return (
+                  <a key={index} href={link}>{linkName}</a>
+               )
+            })}
+         </>
+      )
+   }
 }
-
-//   {props.cardData.answers.map((answer) => {
-//   })
-// }
-
-// {card.links.map((link, index) => {
-//     let content = `Link ${index + 1}`;
-
-//     return (
-//       <button> <a href={link}>{content}</a> </button>
-//     )
-//   })
-// }
-// }
-
-
-
-// export default CardMainContent;
