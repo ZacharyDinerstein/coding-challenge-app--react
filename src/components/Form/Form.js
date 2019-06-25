@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddAnswerBtn from '../Button/AddAnswerBtn';
 import './Form.scss';
 
 
@@ -10,16 +11,18 @@ export default class Form extends Component {
     answer: '',
     example: '',
     link: '',
-    addCodeExample: false,
-    codeExampleNum: 1,
-    includeLink: false,
-    linkNum: 1
+    answerNum: 0,
+    linkNum: 0
   }
 
   updateCardAttribute = (e) => {
+    console.log(e.target.value);
+    console.log(e.target.name);
+
     this.setState({
       [e.target.name]: e.target.value
     })
+    console.log(this.state)
   }
 
   resetState = () => {
@@ -81,6 +84,7 @@ export default class Form extends Component {
           <h1>Create New Card</h1>
           <p className="sub-header">(Use COMMAND key to indent)</p>
           <div className="form__inputs-wrapper">
+
             <label htmlFor="">Question</label>
             <input
               type="text"
@@ -89,6 +93,7 @@ export default class Form extends Component {
               onChange={this.updateCardAttribute}
               value={this.state.question}
             />
+
             <label htmlFor="">Answer</label>
             <textarea
               type="text"
@@ -107,18 +112,14 @@ export default class Form extends Component {
               value={this.state.example}
               onKeyDown={this.allowTabs}
             />
-            
-            <div className="card__checkbox-wrapper">
-              <input type="checkbox" id="includeLink" name="includeLink" onClick={this.toggleStateBool} />
-              <label htmlFor="includeLink">Include Link</label>
-            </div>
-            <div></div>
 
-            <label htmlFor="" className={this.state.includeLink ? "" : "hidden"}>Link URL</label>
+            <AddAnswerBtn />
+
+
+            <label htmlFor="">Link URL</label>
             <input
               type="text"
-              className={this.state.includeLink ? "" : "hidden"}
-              placeholder="Link Here"
+              placeholder="Optional"
               name="link"
               onChange={this.updateCardAttribute}
               value={this.state.link}
@@ -132,3 +133,6 @@ export default class Form extends Component {
     )
   }
 }
+
+
+
