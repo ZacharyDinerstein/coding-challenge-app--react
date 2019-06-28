@@ -11,26 +11,22 @@ export default class Form extends Component {
     answer: [
       ''
     ],
-    example: '',
+    example: [''],
     link: '',
     answerNum: 1,
     linkNum: 0
   }
 
   updateCardAttribute = (e) => {
-    let { answer } = this.state,
-        currentState = answer,
-        { value }  = e.target,
+    let { name, value }  = e.target,    
+        stateValue = this.state[name],
         index = 0;
 
-    console.log(answer)
-
-    currentState[index] = value;
+    stateValue[index] = value;
 
     this.setState({
-      answer: currentState
+      [name]: stateValue
     })
-    console.log(this.state)
   }
 
   resetState = () => {
@@ -104,7 +100,7 @@ export default class Form extends Component {
 
             <AnswerAndExampleInputs 
               answer={this.state.answer[0]}
-              example={this.state.example}
+              example={this.state.example[0]}
               updateCardAttribute={this.updateCardAttribute}
               allowTabs={this.allowTabs}
             />
