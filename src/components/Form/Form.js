@@ -1,39 +1,40 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import './Form.scss';
+import { objectTypeSpreadProperty } from '@babel/types';
 
+
+// TODO
+// - Tailor the array updates for state
+// - Change the array state to update an array of objects 
+// - Use a map function to create all of the input fields on the page
 
 
 export default class Form extends Component {
 
   state = {
     question: '',
-    answer: [
-      ''
-    ],
-    example: [''],
+    answer: ['Optional'],
+    example: ['Optional'],
     link: '',
-    answerNum: 1,
-    linkNum: 0
   }
 
   updateCardAttribute = (e) => {
-    let { name, value }  = e.target,    
-        stateValue = this.state[name],
-        index = 0;
+    let { name, value, index } = e.target,
+      stateArray = this.state[name];
 
-    stateValue[index] = value;
+    stateArray[index] = value;
 
     this.setState({
-      [name]: stateValue
+      [name]: stateArray
     })
   }
 
   resetState = () => {
     this.setState({
       question: '',
-      answer: [''],
-      example: '',
+      answer: ['Optional'],
+      example: ['Optional'],
       link: ''
     })
   }
@@ -98,13 +99,18 @@ export default class Form extends Component {
               value={this.state.question}
             />
 
-            <AnswerAndExampleInputs 
-              answer={this.state.answer[0]}
-              example={this.state.example[0]}
-              updateCardAttribute={this.updateCardAttribute}
-              allowTabs={this.allowTabs}
-            />
-            
+            {this.state.answer.map((answer, index) => {
+              return (
+                <AnswerAndExampleInputs
+                  answer={answer}
+                  example={this.state.example[0]}
+                  updateCardAttribute={this.updateCardAttribute}
+                  allowTabs={this.allowTabs}
+                  index={index}
+                />
+              )
+            })}
+
             <label htmlFor="">Link URL</label>
             <input
               type="text"
