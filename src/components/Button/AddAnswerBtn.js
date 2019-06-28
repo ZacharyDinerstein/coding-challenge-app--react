@@ -24,7 +24,7 @@ export default class AddAnswerBtn extends Component {
             <input type="checkbox" id="addAnswerBtn" name="checked" onClick={this.toggleStateBool} />
             <label htmlFor="addAnswerBtn">Add Answer</label>
           </div>
-          <div></div>
+          <div className={classes}></div>
         </>
       )
     }
