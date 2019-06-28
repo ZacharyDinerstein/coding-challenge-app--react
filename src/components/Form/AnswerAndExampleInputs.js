@@ -5,7 +5,9 @@ export default class AnswerAndExampleInputs extends Component {
     render() {
         let {
             answer,
-            example
+            example,
+            updateCardAttribute,
+            allowTabs
         } = this.props;
 
         return (
@@ -14,9 +16,9 @@ export default class AnswerAndExampleInputs extends Component {
                 <textarea
                     type="text"
                     name="answer"
-                    onChange={this.updateCardAttribute}
+                    onChange={updateCardAttribute}
                     value={answer}
-                    onKeyDown={this.allowTabs}
+                    onKeyDown={allowTabs}
                 />
 
                 <label htmlFor="">Code Example</label>
@@ -24,9 +26,9 @@ export default class AnswerAndExampleInputs extends Component {
                     type="text"
                     placeholder="Optional"
                     name="example"
-                    onChange={this.updateCardAttribute}
+                    onChange={updateCardAttribute}
                     value={example}
-                    onKeyDown={this.allowTabs}
+                    onKeyDown={allowTabs}
                 />
                 <AddAnswerBtn />
             </>

@@ -16,13 +16,9 @@ export default class Form extends Component {
   }
 
   updateCardAttribute = (e) => {
-    console.log(e.target.value);
-    console.log(e.target.name);
-
     this.setState({
       [e.target.name]: e.target.value
     })
-    console.log(this.state)
   }
 
   resetState = () => {
@@ -116,6 +112,8 @@ export default class Form extends Component {
             <AnswerAndExampleInputs 
               answer={this.state.answer}
               example={this.state.example}
+              updateCardAttribute={this.updateCardAttribute}
+              allowTabs={this.allowTabs}
             />
             
 
