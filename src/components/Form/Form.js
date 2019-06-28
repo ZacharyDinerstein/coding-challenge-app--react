@@ -8,7 +8,9 @@ export default class Form extends Component {
 
   state = {
     question: '',
-    answer: '',
+    answer: [
+      ''
+    ],
     example: '',
     link: '',
     answerNum: 1,
@@ -16,15 +18,25 @@ export default class Form extends Component {
   }
 
   updateCardAttribute = (e) => {
+    let { answer } = this.state,
+        currentState = answer,
+        { value }  = e.target,
+        index = 0;
+
+    console.log(answer)
+
+    currentState[index] = value;
+
     this.setState({
-      [e.target.name]: e.target.value
+      answer: currentState
     })
+    console.log(this.state)
   }
 
   resetState = () => {
     this.setState({
       question: '',
-      answer: '',
+      answer: [''],
       example: '',
       link: ''
     })
@@ -36,7 +48,7 @@ export default class Form extends Component {
     let newCard = {
       question: this.state.question,
       answers: [{
-        answer: this.state.answer,
+        answer: this.state.answer[0],
         example: this.state.example
       }],
       links: [
@@ -91,7 +103,7 @@ export default class Form extends Component {
             />
 
             <AnswerAndExampleInputs 
-              answer={this.state.answer}
+              answer={this.state.answer[0]}
               example={this.state.example}
               updateCardAttribute={this.updateCardAttribute}
               allowTabs={this.allowTabs}
