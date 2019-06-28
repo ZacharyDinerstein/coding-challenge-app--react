@@ -11,7 +11,7 @@ export default class Form extends Component {
     answer: '',
     example: '',
     link: '',
-    answerNum: 0,
+    answerNum: 1,
     linkNum: 0
   }
 
@@ -63,10 +63,10 @@ export default class Form extends Component {
   }
 
   toggleStateBool = (e) => {
-    let stateKey = e.target.name;
+    let name = e.target.name;
 
     this.setState({
-      [stateKey]: !this.state[stateKey]
+      [name]: !this.state[name]
     })
   }
 
@@ -90,25 +90,6 @@ export default class Form extends Component {
               value={this.state.question}
             />
 
-            {/* <label htmlFor="">Answer</label>
-            <textarea
-              type="text"
-              name="answer"
-              onChange={this.updateCardAttribute}
-              value={this.state.answer}
-              onKeyDown={this.allowTabs}
-            />
-
-            <label htmlFor="">Code Example</label>
-            <textarea
-              type="text"
-              placeholder="Optional"
-              name="example"
-              onChange={this.updateCardAttribute}
-              value={this.state.example}
-              onKeyDown={this.allowTabs}
-            /> */}
-
             <AnswerAndExampleInputs 
               answer={this.state.answer}
               example={this.state.example}
@@ -116,8 +97,6 @@ export default class Form extends Component {
               allowTabs={this.allowTabs}
             />
             
-
-
             <label htmlFor="">Link URL</label>
             <input
               type="text"
