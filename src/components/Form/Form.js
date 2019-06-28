@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddAnswerBtn from '../Button/AddAnswerBtn';
+import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import './Form.scss';
 
 
@@ -94,7 +94,7 @@ export default class Form extends Component {
               value={this.state.question}
             />
 
-            <label htmlFor="">Answer</label>
+            {/* <label htmlFor="">Answer</label>
             <textarea
               type="text"
               name="answer"
@@ -111,9 +111,13 @@ export default class Form extends Component {
               onChange={this.updateCardAttribute}
               value={this.state.example}
               onKeyDown={this.allowTabs}
-            />
+            /> */}
 
-            <AddAnswerBtn />
+            <AnswerAndExampleInputs 
+              answer={this.state.answer}
+              example={this.state.example}
+            />
+            
 
 
             <label htmlFor="">Link URL</label>
