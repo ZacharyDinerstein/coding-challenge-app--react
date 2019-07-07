@@ -6,10 +6,11 @@ import './Form.scss';
 
 
 // TODO
-// - Allow answer input field to update the answer array.
-    //  - Understand the issue 
+// - Update state object as an object
+//     - Convert answer first
+//          - 
 
-// - Use a map function to create all of the input fields on the page
+
 
 
 export default class Form extends Component {
@@ -79,14 +80,6 @@ export default class Form extends Component {
       t.selectionStart = t.selectionEnd = s + 1;
       return false;
     }
-  }
-
-  toggleStateBool = (e) => {
-    let name = e.target.name;
-
-    this.setState({
-      [name]: !this.state[name]
-    })
   }
 
   render() {
