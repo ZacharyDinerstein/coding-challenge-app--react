@@ -111,7 +111,7 @@ export default class Form extends Component {
               return (
                 <AnswerAndExampleInputs
                   answer={answer}
-                  example={this.state.example[0]}
+                  example={this.state.example[index]}
                   updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                   allowTabs={this.allowTabs}
                   index={index}

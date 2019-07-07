@@ -17,19 +17,17 @@ export default class AnswerAndExampleInputs extends Component {
                 <textarea
                     type="text"
                     name="answer"
-                    onChange={updateCardArrayAttribute}
                     value={answer}
-                    index={index}
+                    onChange={updateCardArrayAttribute}
                     onKeyDown={allowTabs}
                 />
 
                 <label htmlFor="">Code Example</label>
                 <textarea
                     type="text"
-                    placeholder="Optional"
                     name="example"
-                    onChange={updateCardArrayAttribute}
                     value={example}
+                    onChange={updateCardArrayAttribute}
                     onKeyDown={allowTabs}
                 />
                 <AddAnswerBtn />
