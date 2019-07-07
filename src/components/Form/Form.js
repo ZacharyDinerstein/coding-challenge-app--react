@@ -11,8 +11,6 @@ import './Form.scss';
 //          - 
 
 
-
-
 export default class Form extends Component {
 
   state = {
@@ -68,11 +66,13 @@ export default class Form extends Component {
   createCard = (e) => {
     e.preventDefault();
 
+    let { question, answers, links } = this.state;
+
     let newCard = {
-      question: this.state.question,
-      answers: this.state.answers,
+      question: question,
+      answers: answers,
       links: [
-        this.state.links[0]
+        links
       ]
     };
 
@@ -143,6 +143,3 @@ export default class Form extends Component {
     )
   }
 }
-
-
-
