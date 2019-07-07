@@ -69,10 +69,7 @@ export default class Form extends Component {
 
     let newCard = {
       question: this.state.question,
-      answers: [{
-        answer: this.state.answer[0],
-        example: this.state.example[0]
-      }],
+      answers: this.state.answers,
       links: [
         this.state.link[0]
       ]
