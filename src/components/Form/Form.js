@@ -5,8 +5,9 @@ import { objectTypeSpreadProperty } from '@babel/types';
 
 
 // TODO
-// - Tailor the array updates for state
-// - Change the array state to update an array of objects 
+// - Allow answer input field to update the answer array.
+    //  - Understand the issue 
+
 // - Use a map function to create all of the input fields on the page
 
 
@@ -27,14 +28,14 @@ export default class Form extends Component {
     })
   }
   
-  updateCardArrayAttribute = (e) => {
-    let { name, value, index } = e.target,
-        stateArray = this.state[name];
+  updateCardArrayAttribute = (e, index) => {
+    let { name, value } = e.target,
+        newArray = [...this.state[name]];
 
-    stateArray[index] = value;
+    newArray[index] = value;
 
     this.setState({
-      [name]: stateArray
+      [name]: newArray
     })
   }
 
@@ -111,7 +112,7 @@ export default class Form extends Component {
                 <AnswerAndExampleInputs
                   answer={answer}
                   example={this.state.example[0]}
-                  updateCardAttribute={this.updateCardArrayAttribute}
+                  updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                   allowTabs={this.allowTabs}
                   index={index}
                   key={index}
