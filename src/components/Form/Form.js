@@ -6,13 +6,10 @@ import './Form.scss';
 
 
 // TODO
-// - Update state object as an object
-//     - Convert answer first
-//          - 
+// - Allow app to create additional Answer fields
 
 
 export default class Form extends Component {
-
   state = {
     question: '',
     answers: [{
@@ -46,6 +43,21 @@ export default class Form extends Component {
       object = newArray[index];
 
     object[name] = value
+
+    this.setState({
+      answers: newArray
+    })
+  }
+
+  addAdditionalFields = (e) => {
+    let { action } = e.target,
+        newFields,
+        newArray;
+
+    if (action === "answerFields") {
+      newFields = { answer: 'Add answer', example: 'Optional' };
+      newArray = [...this.state.answers, newFields];
+    }
 
     this.setState({
       answers: newArray

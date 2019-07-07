@@ -6,11 +6,16 @@ export default class AddAnswerBtn extends Component {
   }
 
   toggleStateBool = (e) => {
-    let key = e.target.name;
+    let { name } = e.target;
 
     this.setState({
-      [key]: !this.state[key]
+      [name]: !this.state[name]
     })
+  }
+
+  handleBtnClick = (e) => {
+    this.toggleStateBool(e);
+    this.props.addAdditionalFields(e);
   }
 
   render() {
@@ -19,7 +24,12 @@ export default class AddAnswerBtn extends Component {
     return (
       <>
         <div className={classes}>
-          <input type="checkbox" id="addAnswerBtn" name="checked" onClick={this.toggleStateBool} />
+          <input
+            id="addAnswerBtn"
+            type="checkbox"
+            name="checked"
+            onClick={this.handleBtnClick}
+          />
           <label htmlFor="addAnswerBtn">Add Answer</label>
         </div>
         <div className={classes}></div>
