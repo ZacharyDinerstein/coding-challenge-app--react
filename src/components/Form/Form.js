@@ -58,8 +58,10 @@ export default class Form extends Component {
   resetState = () => {
     this.setState({
       question: '',
-      answer: ['Add Answer'],
-      example: ['Optional'],
+      answers: [{
+        answer: 'Add answer',
+        example: 'Optional'
+      }],
       link: ['Optional']
     })
   }
