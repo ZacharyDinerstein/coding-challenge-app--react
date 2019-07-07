@@ -17,7 +17,7 @@ export default class Form extends Component {
     question: '',
     answer: ['Add answer'],
     example: ['Optional'],
-    link: ['Add link'],
+    link: ['Optional'],
   }
 
   updateCardAttribute = (e) => {
@@ -42,9 +42,9 @@ export default class Form extends Component {
   resetState = () => {
     this.setState({
       question: '',
-      answer: ['Optional'],
+      answer: ['Add Answer'],
       example: ['Optional'],
-      link: ['Add Link']
+      link: ['Optional']
     })
   }
 
