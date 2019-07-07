@@ -15,9 +15,9 @@ export default class Form extends Component {
 
   state = {
     question: '',
-    answer: ['Optional'],
+    answer: ['Add answer'],
     example: ['Optional'],
-    link: '',
+    link: ['Add link'],
   }
 
   updateCardAttribute = (e) => {
@@ -44,7 +44,7 @@ export default class Form extends Component {
       question: '',
       answer: ['Optional'],
       example: ['Optional'],
-      link: ''
+      link: ['Add Link']
     })
   }
 
@@ -55,10 +55,10 @@ export default class Form extends Component {
       question: this.state.question,
       answers: [{
         answer: this.state.answer[0],
-        example: this.state.example
+        example: this.state.example[0]
       }],
       links: [
-        this.state.link
+        this.state.link[0]
       ]
     };
 
@@ -120,14 +120,21 @@ export default class Form extends Component {
               )
             })}
 
-            <label htmlFor="">Link URL</label>
-            <input
-              type="text"
-              placeholder="Optional"
-              name="link"
-              onChange={this.updateCardArrayAttribute}
-              value={this.state.link}
-            />
+            {this.state.link.map((link, index) => {
+              return (
+                <>
+                  <label htmlFor="">Link URL</label>
+                  <input
+                    type="text"
+                    placeholder="Optional"
+                    name="link"
+                    onChange={(e) => this.updateCardArrayAttribute(e, index)}
+                    value={this.state.link[index]}
+                  />
+                </>
+              )
+            })}
+            
           </div>
 
           <button className="hidden" type="submit">Submit</button>

@@ -8,7 +8,6 @@ export default class AnswerAndExampleInputs extends Component {
             example,
             updateCardArrayAttribute,
             allowTabs,
-            index
         } = this.props;
 
         return (
