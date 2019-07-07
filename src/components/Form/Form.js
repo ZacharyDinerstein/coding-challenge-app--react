@@ -17,8 +17,10 @@ export default class Form extends Component {
 
   state = {
     question: '',
-    answer: ['Add answer'],
-    example: ['Optional'],
+    answers: [{
+      answer: 'Add answer',
+      example: 'Optional'
+    }],
     link: ['Optional'],
   }
 
@@ -29,10 +31,10 @@ export default class Form extends Component {
       [name]: value
     })
   }
-  
+
   updateCardArrayAttribute = (e, index) => {
     let { name, value } = e.target,
-        newArray = [...this.state[name]];
+      newArray = [...this.state[name]];
 
     newArray[index] = value;
 
@@ -101,17 +103,17 @@ export default class Form extends Component {
               value={this.state.question}
             />
 
-            {this.state.answer.map((answer, index) => {
+            {this.state.answers.map((answerObj, index) => {
               return (
                 <AnswerAndExampleInputs
-                  answer={answer}
-                  example={this.state.example[index]}
+                  answer={answerObj['answer']}
+                  example={answerObj['example']}
                   updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                   allowTabs={this.allowTabs}
                   key={index}
                 />
-                )
-              })}
+              )
+            })}
 
             {this.state.link.map((link, index) => {
               return (
