@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
+import LinkInput from './LinkInput';
 import './Form.scss';
-import { objectTypeSpreadProperty } from '@babel/types';
+
 
 
 // TODO
@@ -114,27 +115,20 @@ export default class Form extends Component {
                   example={this.state.example[index]}
                   updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                   allowTabs={this.allowTabs}
-                  index={index}
+                  key={index}
+                />
+                )
+              })}
+
+            {this.state.link.map((link, index) => {
+              return (
+                <LinkInput
+                  link={link}
+                  updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                   key={index}
                 />
               )
             })}
-
-            {this.state.link.map((link, index) => {
-              return (
-                <>
-                  <label htmlFor="">Link URL</label>
-                  <input
-                    type="text"
-                    placeholder="Optional"
-                    name="link"
-                    onChange={(e) => this.updateCardArrayAttribute(e, index)}
-                    value={this.state.link[index]}
-                  />
-                </>
-              )
-            })}
-            
           </div>
 
           <button className="hidden" type="submit">Submit</button>
