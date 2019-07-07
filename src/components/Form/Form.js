@@ -43,6 +43,18 @@ export default class Form extends Component {
     })
   }
 
+  updateObjectAttributeWithinCardsArray = (e, index) => {
+    let { name, value } = e.target,
+      newArray = [...this.state.answers],
+      object = newArray[index];
+
+    object[name] = value
+
+    this.setState({
+      answers: newArray
+    })
+  }
+
   resetState = () => {
     this.setState({
       question: '',
@@ -108,7 +120,7 @@ export default class Form extends Component {
                 <AnswerAndExampleInputs
                   answer={answerObj['answer']}
                   example={answerObj['example']}
-                  updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                  updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
                   allowTabs={this.allowTabs}
                   key={index}
                 />

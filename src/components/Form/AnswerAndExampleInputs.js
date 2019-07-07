@@ -6,7 +6,7 @@ export default class AnswerAndExampleInputs extends Component {
         let {
             answer,
             example,
-            updateCardArrayAttribute,
+            updateObjectAttributeWithinCardsArray,
             allowTabs,
         } = this.props;
 
@@ -17,7 +17,7 @@ export default class AnswerAndExampleInputs extends Component {
                     type="text"
                     name="answer"
                     value={answer}
-                    onChange={updateCardArrayAttribute}
+                    onChange={updateObjectAttributeWithinCardsArray}
                     onKeyDown={allowTabs}
                 />
 
@@ -26,7 +26,7 @@ export default class AnswerAndExampleInputs extends Component {
                     type="text"
                     name="example"
                     value={example}
-                    onChange={updateCardArrayAttribute}
+                    onChange={updateObjectAttributeWithinCardsArray}
                     onKeyDown={allowTabs}
                 />
                 <AddAnswerBtn />
