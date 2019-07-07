@@ -21,7 +21,7 @@ export default class Form extends Component {
       answer: 'Add answer',
       example: 'Optional'
     }],
-    link: ['Optional'],
+    links: ['Optional']
   }
 
   updateCardAttribute = (e) => {
@@ -31,7 +31,6 @@ export default class Form extends Component {
       [name]: value
     })
   }
-
   updateCardArrayAttribute = (e, index) => {
     let { name, value } = e.target,
       newArray = [...this.state[name]];
@@ -62,7 +61,7 @@ export default class Form extends Component {
         answer: 'Add answer',
         example: 'Optional'
       }],
-      link: ['Optional']
+      links: ['Optional']
     })
   }
 
@@ -73,7 +72,7 @@ export default class Form extends Component {
       question: this.state.question,
       answers: this.state.answers,
       links: [
-        this.state.link[0]
+        this.state.links[0]
       ]
     };
 
@@ -126,7 +125,7 @@ export default class Form extends Component {
               )
             })}
 
-            {this.state.link.map((link, index) => {
+            {this.state.links.map((link, index) => {
               return (
                 <LinkInput
                   link={link}

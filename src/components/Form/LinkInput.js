@@ -13,7 +13,7 @@ export default class LinkInputs extends Component {
                 <input
                     type="text"
                     placeholder="Optional"
-                    name="link"
+                    name="links"
                     onChange={updateCardArrayAttribute}
                     value={link}
                 />
