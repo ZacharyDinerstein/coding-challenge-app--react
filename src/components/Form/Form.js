@@ -20,8 +20,16 @@ export default class Form extends Component {
   }
 
   updateCardAttribute = (e) => {
+    let { name, value } = e.target;
+
+    this.setState({
+      [name]: value
+    })
+  }
+  
+  updateCardArrayAttribute = (e) => {
     let { name, value, index } = e.target,
-      stateArray = this.state[name];
+        stateArray = this.state[name];
 
     stateArray[index] = value;
 
@@ -94,7 +102,6 @@ export default class Form extends Component {
             <input
               type="text"
               name="question"
-              index={0}
               onChange={this.updateCardAttribute}
               value={this.state.question}
             />
@@ -104,9 +111,10 @@ export default class Form extends Component {
                 <AnswerAndExampleInputs
                   answer={answer}
                   example={this.state.example[0]}
-                  updateCardAttribute={this.updateCardAttribute}
+                  updateCardAttribute={this.updateCardArrayAttribute}
                   allowTabs={this.allowTabs}
                   index={index}
+                  key={index}
                 />
               )
             })}
@@ -116,7 +124,7 @@ export default class Form extends Component {
               type="text"
               placeholder="Optional"
               name="link"
-              onChange={this.updateCardAttribute}
+              onChange={this.updateCardArrayAttribute}
               value={this.state.link}
             />
           </div>
