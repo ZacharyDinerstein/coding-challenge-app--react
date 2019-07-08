@@ -30,7 +30,7 @@ export default class AnswerAndExampleInputs extends Component {
                     onKeyDown={allowTabs}
                 />
                 <AddAnswerBtn 
-                    addAdditionalFields={this.props.addAdditionalFields}
+                    addAdditionalFields={(e) => this.props.addAdditionalFields(e)}
                 />
             </>
         )

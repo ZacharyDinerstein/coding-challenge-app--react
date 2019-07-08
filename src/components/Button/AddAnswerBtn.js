@@ -28,6 +28,7 @@ export default class AddAnswerBtn extends Component {
             id="addAnswerBtn"
             type="checkbox"
             name="checked"
+            className="answerFields"
             onClick={this.handleBtnClick}
           />
           <label htmlFor="addAnswerBtn">Add Answer</label>
