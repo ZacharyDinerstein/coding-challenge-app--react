@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default class AddAnswerBtn extends Component {
   state = {
     checked: false
   }
 
-  hideComponent = (e) => {
-    let { name } = e.target;
-
+  hideComponent = () => {
     this.setState({
-      [name]: true
+      checked: true
     })
   }
 
-  handleBtnClick = (e) => {
-    this.hideComponent(e);
-    this.props.addAdditionalFields(e);
+  handleBtnClick = (elemToCreate) => {
+    this.hideComponent();
+    this.props.addAdditionalFields(elemToCreate);
   }
 
   render() {
@@ -23,15 +23,12 @@ export default class AddAnswerBtn extends Component {
 
     return (
       <>
-        <div className={classes}>
-          <input
-            id="addAnswerBtn"
-            type="checkbox"
-            name="checked"
-            className="answerFields"
-            onClick={this.handleBtnClick}
-          />
-          <label htmlFor="addAnswerBtn">Add Answer</label>
+        <div
+          className={classes}
+          onClick={() => this.handleBtnClick("answerField")}
+        >
+          <FontAwesomeIcon icon={faPlusCircle} />
+          <span>Add Answer</span>
         </div>
         <div className={classes}></div>
       </>

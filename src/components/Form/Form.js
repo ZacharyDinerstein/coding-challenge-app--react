@@ -50,12 +50,13 @@ export default class Form extends Component {
     })
   }
 
-  addAdditionalFields = (e) => {
-    let { className } = e.target,
-      newFields,
+  addAdditionalFields = (elemToCreate) => {
+    let newFields,
       newArray;
 
-    if (className === "answerFields") {
+      console.log(elemToCreate)
+
+    if (elemToCreate === "answerField") {
       newFields = { answer: 'Add answer', example: 'Optional' };
       newArray = [...this.state.answers, newFields];
     }
@@ -134,7 +135,7 @@ export default class Form extends Component {
                   updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
                   allowTabs={this.allowTabs}
                   key={index}
-                  addAdditionalFields={(e) => this.addAdditionalFields(e)}
+                  addAdditionalFields={(elemToCreate) => this.addAdditionalFields(elemToCreate)}
                 />
               )
             })}
