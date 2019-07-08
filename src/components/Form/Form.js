@@ -50,27 +50,18 @@ export default class Form extends Component {
   }
 
   addAdditionalFields = (e) => {
-    console.log("hi")
-    console.log(e)
-
     let { className } = e.target,
-        newFields,
-        newArray;
-
-        console.log(className)
-        
+      newFields,
+      newArray;
 
     if (className === "answerFields") {
       newFields = { answer: 'Add answer', example: 'Optional' };
       newArray = [...this.state.answers, newFields];
-
-      console.log(newFields)
-      console.log(newArray)
-
-      this.setState({
-        answers: newArray
-      })
     }
+
+    this.setState({
+      answers: newArray
+    })
   }
 
   resetState = () => {
