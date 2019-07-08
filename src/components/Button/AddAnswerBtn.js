@@ -5,16 +5,16 @@ export default class AddAnswerBtn extends Component {
     checked: false
   }
 
-  toggleStateBool = (e) => {
+  hideComponent = (e) => {
     let { name } = e.target;
 
     this.setState({
-      [name]: !this.state[name]
+      [name]: true
     })
   }
 
   handleBtnClick = (e) => {
-    this.toggleStateBool(e);
+    this.hideComponent(e);
     this.props.addAdditionalFields(e);
   }
 

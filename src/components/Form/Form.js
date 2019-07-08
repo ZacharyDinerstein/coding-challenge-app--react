@@ -6,7 +6,8 @@ import './Form.scss';
 
 
 // TODO
-// - Allow app to create additional Answer fields
+// - Fix the add button toggle 
+// - Refactor all components to functional components that can be
 
 
 export default class Form extends Component {
