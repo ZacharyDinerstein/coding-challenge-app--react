@@ -29,7 +29,9 @@ export default class AnswerAndExampleInputs extends Component {
                     onChange={updateObjectAttributeWithinCardsArray}
                     onKeyDown={allowTabs}
                 />
-                <AddAnswerBtn />
+                <AddAnswerBtn 
+                    addAdditionalFields={this.props.addAdditionalFields}
+                />
             </>
         )
     }
