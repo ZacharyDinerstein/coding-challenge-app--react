@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import AddAnswerBtn from '../Button/AddAnswerBtn';
+import RemoveAnswerBtn from '../Button/RemoveAnswerBtn';
 
 const AnswerAndExampleInputs = (props) => {
     
-    const [btnChecked, hideComponent] = useState(false);
+    const [addBtnChecked, hideComponent] = useState(false);
 
     let {
         answer,
@@ -34,7 +35,11 @@ const AnswerAndExampleInputs = (props) => {
             <AddAnswerBtn
                 addAdditionalFields={(elemToCreate) => props.addAdditionalFields(elemToCreate)}
                 hideComponent={() => hideComponent(true)}
-                btnChecked={btnChecked}
+                addBtnChecked={addBtnChecked}
+            />
+            <RemoveAnswerBtn 
+                hideComponent={() => hideComponent(true)}
+                removeFields={(elemToRemove) => props.removeFields(elemToRemove)}
             />
         </>
     )

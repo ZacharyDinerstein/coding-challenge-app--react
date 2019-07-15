@@ -63,6 +63,21 @@ export default class Form extends Component {
     })
   }
 
+  removeFields = (elemToRemove) => {
+    let newFields,
+      newArray;
+
+    if (elemToRemove === "answerField") {
+      newFields = { answer: 'Add answer', example: 'Optional' };
+      newArray = [...this.state.answers, newFields];
+    }
+
+    this.setState({
+      answers: newArray
+    })
+  }
+
+
   resetState = () => {
     this.setState({
       question: '',

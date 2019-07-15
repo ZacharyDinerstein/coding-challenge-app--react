@@ -9,7 +9,7 @@ const AddAnswerBtn = (props) => {
     props.addAdditionalFields(elemToCreate);
   }
 
-  let classes = props.btnChecked ? "card__checkbox-wrapper hidden" : "card__checkbox-wrapper";
+  let classes = props.addBtnChecked ? "card__checkbox-wrapper hidden" : "card__checkbox-wrapper";
 
   return (
     <>
@@ -20,7 +20,7 @@ const AddAnswerBtn = (props) => {
         <FontAwesomeIcon icon={faPlusCircle} />
         <span>Add Answer</span>
       </div>
-      <div className={classes}></div>
+      <div></div>
     </>
   )
 }
