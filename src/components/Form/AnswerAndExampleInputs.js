@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import AddAnswerBtn from '../Button/AddAnswerBtn';
 
 export default class AnswerAndExampleInputs extends Component {
+    state = {
+        btnChecked: false
+    }
+
+    hideComponent = () => {
+        this.setState({
+            btnChecked: true
+        })
+    }
+
     render() {
         let {
             answer,
@@ -9,6 +19,7 @@ export default class AnswerAndExampleInputs extends Component {
             updateObjectAttributeWithinCardsArray,
             allowTabs,
         } = this.props;
+
 
         return (
             <>
@@ -29,8 +40,10 @@ export default class AnswerAndExampleInputs extends Component {
                     onChange={updateObjectAttributeWithinCardsArray}
                     onKeyDown={allowTabs}
                 />
-                <AddAnswerBtn 
+                <AddAnswerBtn
                     addAdditionalFields={(elemToCreate) => this.props.addAdditionalFields(elemToCreate)}
+                    hideComponent={this.hideComponent}
+                    btnChecked={this.state.btnChecked}
                 />
             </>
         )

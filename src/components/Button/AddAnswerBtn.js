@@ -1,37 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
-export default class AddAnswerBtn extends Component {
-  state = {
-    checked: false
+const AddAnswerBtn = (props) => {
+  
+  const handleBtnClick = (elemToCreate) => {
+    props.hideComponent();
+    props.addAdditionalFields(elemToCreate);
   }
 
-  hideComponent = () => {
-    this.setState({
-      checked: true
-    })
-  }
+  let classes = props.btnChecked ? "card__checkbox-wrapper hidden" : "card__checkbox-wrapper";
 
-  handleBtnClick = (elemToCreate) => {
-    this.hideComponent();
-    this.props.addAdditionalFields(elemToCreate);
-  }
-
-  render() {
-    let classes = this.state.checked ? "card__checkbox-wrapper hidden" : "card__checkbox-wrapper";
-
-    return (
-      <>
-        <div
-          className={classes}
-          onClick={() => this.handleBtnClick("answerField")}
-        >
-          <FontAwesomeIcon icon={faPlusCircle} />
-          <span>Add Answer</span>
-        </div>
-        <div className={classes}></div>
-      </>
-    )
-  }
+  return (
+    <>
+      <div
+        className={classes}
+        onClick={() => handleBtnClick("answerField")}
+      >
+        <FontAwesomeIcon icon={faPlusCircle} />
+        <span>Add Answer</span>
+      </div>
+      <div className={classes}></div>
+    </>
+  )
 }
+
+export default AddAnswerBtn;
