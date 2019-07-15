@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
-
-export default class Toggle extends Component {
-  state = {
-    on: false
-  };
-
-  toggle = () => {
-    this.setState({
-      on: !this.state.on
-    });
-  };
+import React, { useState } from 'react';
 
 
-  action = () => {
-    this.toggle();
-    this.props.toggleCardFullWidth();
+const Toggle = (props) => {
+  const [on, toggle] = useState(false);
+
+  const action = () => {
+    toggle(!on);
+    props.toggleCardFullWidth();
   }
 
-  render() {
-    return (
-      <>
-        <button onClick={this.action}>Show/Hide</button>
-        {this.state.on && this.props.children}
-      </>
-    );
-  }
+  return (
+    <>
+      <button onClick={action}>Show/Hide</button>
+      {on && props.children}
+    </>
+  );
 }
+
+export default Toggle;
