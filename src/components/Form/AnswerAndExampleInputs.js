@@ -1,52 +1,43 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
 import AddAnswerBtn from '../Button/AddAnswerBtn';
 
-export default class AnswerAndExampleInputs extends Component {
-    state = {
-        btnChecked: false
-    }
+const AnswerAndExampleInputs = (props) => {
+    
+    const [btnChecked, hideComponent] = useState(false);
 
-    hideComponent = () => {
-        this.setState({
-            btnChecked: true
-        })
-    }
+    let {
+        answer,
+        example,
+        updateObjectAttributeWithinCardsArray,
+        allowTabs,
+    } = props;
 
-    render() {
-        let {
-            answer,
-            example,
-            updateObjectAttributeWithinCardsArray,
-            allowTabs,
-        } = this.props;
+    return (
+        <>
+            <label htmlFor="">Answer</label>
+            <textarea
+                type="text"
+                name="answer"
+                value={answer}
+                onChange={updateObjectAttributeWithinCardsArray}
+                onKeyDown={allowTabs}
+            />
 
-
-        return (
-            <>
-                <label htmlFor="">Answer</label>
-                <textarea
-                    type="text"
-                    name="answer"
-                    value={answer}
-                    onChange={updateObjectAttributeWithinCardsArray}
-                    onKeyDown={allowTabs}
-                />
-
-                <label htmlFor="">Code Example</label>
-                <textarea
-                    type="text"
-                    name="example"
-                    value={example}
-                    onChange={updateObjectAttributeWithinCardsArray}
-                    onKeyDown={allowTabs}
-                />
-                <AddAnswerBtn
-                    addAdditionalFields={(elemToCreate) => this.props.addAdditionalFields(elemToCreate)}
-                    hideComponent={this.hideComponent}
-                    btnChecked={this.state.btnChecked}
-                />
-            </>
-        )
-    }
+            <label htmlFor="">Code Example</label>
+            <textarea
+                type="text"
+                name="example"
+                value={example}
+                onChange={updateObjectAttributeWithinCardsArray}
+                onKeyDown={allowTabs}
+            />
+            <AddAnswerBtn
+                addAdditionalFields={(elemToCreate) => props.addAdditionalFields(elemToCreate)}
+                hideComponent={() => hideComponent(true)}
+                btnChecked={btnChecked}
+            />
+        </>
+    )
 }
 
+export default AnswerAndExampleInputs;
