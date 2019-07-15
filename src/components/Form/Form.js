@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import LinkInput from './LinkInput';
-import './Form.scss';
 
 
 
@@ -148,7 +147,7 @@ export default class Form extends Component {
                 />
               )
             })}
-            
+
           </div>
 
           <button className="hidden" type="submit">Submit</button>
