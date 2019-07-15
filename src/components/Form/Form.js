@@ -54,8 +54,6 @@ export default class Form extends Component {
     let newFields,
       newArray;
 
-      console.log(elemToCreate)
-
     if (elemToCreate === "answerField") {
       newFields = { answer: 'Add answer', example: 'Optional' };
       newArray = [...this.state.answers, newFields];
@@ -75,6 +73,7 @@ export default class Form extends Component {
       }],
       links: ['Optional']
     })
+    
   }
 
   createCard = (e) => {
@@ -149,6 +148,7 @@ export default class Form extends Component {
                 />
               )
             })}
+            
           </div>
 
           <button className="hidden" type="submit">Submit</button>
