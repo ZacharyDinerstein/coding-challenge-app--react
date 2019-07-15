@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CardMainContent from './CardMainContent';
-import Toggle from '../../Toggle';
+import Toggle from '../Helper/Toggle';
 import './Card.scss';
 
 export default class Card extends Component {

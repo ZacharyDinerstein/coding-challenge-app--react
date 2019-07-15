@@ -17,7 +17,6 @@ export default class Toggle extends Component {
     this.props.toggleCardFullWidth();
   }
 
-
   render() {
     return (
       <>
