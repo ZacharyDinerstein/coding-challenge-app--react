@@ -14,10 +14,8 @@ export default class Card extends Component {
     })
   }
 
-
   render() {
     let { cardData } = this.props;
-
     let classes = this.state.fullWidth ? "card card--question card--full-width" : "card card--question";
 
     return (
