@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Card from './components/Card/Card';
-import Form from './components/Form/Form';
+import Card from '../Card/Card';
+import Form from '../Form/Form';
 
 
 export default class App extends Component {
