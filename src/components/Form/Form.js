@@ -81,29 +81,16 @@ export default class Form extends Component {
     })
   }
 
-  removeFields = (elemToRemove, index) => {
-    let newFields,
-      newArray;
+  removeFields = (category, indexOfClickedBtn) => {
+    let newArray;
 
-    console.log("HI THERE")
-    console.log(index)
-    console.log(elemToRemove)
-
-
-    if (elemToRemove === "answerFields") {
-      newArray = this.state.answers.filter((answer) => {
-        console.log(answer)
-        // return answer 
-      });
+    if (category === "answerFields") {
+      newArray = this.state.answers.filter((answer, answerIndex) => answerIndex !== indexOfClickedBtn);
     }
 
-    // this.state.people.filter(function (person) {
-    //   return person !== e.target.value
-    // });
-
-    // this.setState({
-    //   answers: newArray
-    // })
+    this.setState({
+      answers: newArray
+    })
   }
 
 
@@ -179,7 +166,7 @@ export default class Form extends Component {
                     allowTabs={this.allowTabs}
                     key={index}
                     addAdditionalFields={(category) => this.addAdditionalFields(category, index)}
-                    removeFields={(elemToRemove) => this.removeFields(elemToRemove, index)}
+                    removeFields={(category) => this.removeFields(category, index)}
                   />
                 )
               })}

@@ -13,7 +13,7 @@ const RemoveAnswerBtn = (props) => {
     <>
       <div
         className="form__button-wrapper"
-        onClick={() => handleBtnClick("answerField")}
+        onClick={() => handleBtnClick("answerFields")}
       >
         <FontAwesomeIcon 
           icon={faMinusCircle} 
