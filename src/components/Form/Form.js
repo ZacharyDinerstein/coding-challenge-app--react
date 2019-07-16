@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import LinkInput from './LinkInput';
-
+import shortid from 'shortid';
 
 
 // TODO
@@ -56,6 +56,9 @@ export default class Form extends Component {
 
       console.log(index);
       console.log(answers);
+      console.log(answers.slice(0, index))
+
+
 
     if (elemToCreate === "answerFields") {
 
@@ -157,7 +160,7 @@ export default class Form extends Component {
                     example={answerObj['example']}
                     updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
                     allowTabs={this.allowTabs}
-                    key={index}
+                    key={shortid.generate()}
                     addAdditionalFields={(elemToCreate) => this.addAdditionalFields(elemToCreate, index)}
                   />
                 )
@@ -168,7 +171,7 @@ export default class Form extends Component {
                   <LinkInput
                     link={link}
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
-                    key={index}
+                    key={shortid.generate()}
                   />
                 )
               })}

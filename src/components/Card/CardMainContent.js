@@ -1,4 +1,5 @@
 import React from 'react';
+import shortid from 'shortid';
 
 const CardMainContent = (props) => {
    let { cardData } = props;
@@ -7,7 +8,7 @@ const CardMainContent = (props) => {
       <>
          {cardData.answers.map((answer, index) => {
             return (
-               <div key={index} className="card__answer-wrapper">
+               <div key={shortid.generate()} className="card__answer-wrapper">
                   <pre className="card__answer">{answer.answer}</pre>
 
                   {answer.example &&
@@ -26,7 +27,7 @@ const CardMainContent = (props) => {
          {cardData.links.map((link, index) => {
             let linkName = `Link ${index + 1}`
             return (
-               <a key={index} href={link}>{linkName}</a>
+               <a key={shortid.generate()} href={link}>{linkName}</a>
             )
          })}
       </>
