@@ -9,16 +9,14 @@ const AddAnswerBtn = (props) => {
     props.addAdditionalFields(elemToCreate);
   }
 
-  let classes = props.addBtnChecked ? "form__button-wrapper hidden" : "form__button-wrapper";
-
   return (
     <>
       <div
-        className={classes}
-        onClick={() => handleBtnClick("answerField")}
+        className="form__button-wrapper"
+        onClick={() => handleBtnClick("answerFields")}
       >
         <FontAwesomeIcon 
-          icon={faPlusCircle} 
+          icon={faPlusCircle}
           className="form__icon"
         />
         <span>Add Answer</span>

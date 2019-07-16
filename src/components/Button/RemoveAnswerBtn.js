@@ -9,12 +9,10 @@ const RemoveAnswerBtn = (props) => {
     props.removeFields(elemToRemove);
   }
 
-  let classes = props.btnChecked ? "form__button-wrapper hidden" : "form__button-wrapper";
-
   return (
     <>
       <div
-        className={classes}
+        className="form__button-wrapper"
         onClick={() => handleBtnClick("answerField")}
       >
         <FontAwesomeIcon 
