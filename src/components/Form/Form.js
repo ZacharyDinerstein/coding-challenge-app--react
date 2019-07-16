@@ -13,10 +13,10 @@ export default class Form extends Component {
   state = {
     question: '',
     answers: [{
-      answer: 'Add answer',
-      example: 'Optional'
+      answer: '',
+      example: ''
     }],
-    links: ['Optional']
+    links: ['']
   }
 
   updateCardAttribute = (e) => {
@@ -98,10 +98,10 @@ export default class Form extends Component {
     this.setState({
       question: '',
       answers: [{
-        answer: 'Add answer',
-        example: 'Optional'
+        answer: '',
+        example: ''
       }],
-      links: ['Optional']
+      links: ['']
     })
 
   }

@@ -32,6 +32,7 @@ const AnswerAndExampleInputs = (props) => {
                 value={example}
                 onChange={updateObjectAttributeWithinCardsArray}
                 onKeyDown={allowTabs}
+                placeholder="Optional"
             />
             <div className="form__buttons-wrapper">
                 <AddAnswerBtn
