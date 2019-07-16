@@ -9,7 +9,7 @@ const AddAnswerBtn = (props) => {
     props.addAdditionalFields(elemToCreate);
   }
 
-  let classes = props.addBtnChecked ? "card__checkbox-wrapper hidden" : "card__checkbox-wrapper";
+  let classes = props.addBtnChecked ? "form__button-wrapper hidden" : "form__button-wrapper";
 
   return (
     <>

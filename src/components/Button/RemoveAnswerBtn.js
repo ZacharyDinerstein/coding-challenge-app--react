@@ -9,7 +9,7 @@ const RemoveAnswerBtn = (props) => {
     props.removeFields(elemToRemove);
   }
 
-  let classes = props.btnChecked ? "card__button-wrapper hidden" : "card__button-wrapper";
+  let classes = props.btnChecked ? "form__button-wrapper hidden" : "form__button-wrapper";
 
   return (
     <>
