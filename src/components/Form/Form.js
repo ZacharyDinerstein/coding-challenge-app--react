@@ -87,7 +87,7 @@ export default class Form extends Component {
       }],
       links: ['Optional']
     })
-    
+
   }
 
   createCard = (e) => {
@@ -124,50 +124,51 @@ export default class Form extends Component {
   render() {
     return (
       <>
-        <div></div>
-        <form
-          onSubmit={this.createCard}
-          className="card card--form">
-          <h1>Create New Card</h1>
-          <p className="sub-header">(Use COMMAND key to indent)</p>
-          <div className="form__inputs-wrapper">
+        <div className="card card--form">
+          <form
+            className="form"
+            onSubmit={this.createCard} 
+          >
+            <h1>Create New Card</h1>
+            <p className="sub-header">(Use COMMAND key to indent)</p>
+            <div className="form__inputs-wrapper">
 
-            <label htmlFor="">Question</label>
-            <input
-              type="text"
-              name="question"
-              onChange={this.updateCardAttribute}
-              value={this.state.question}
-            />
+              <label htmlFor="">Question</label>
+              <input
+                type="text"
+                name="question"
+                onChange={this.updateCardAttribute}
+                value={this.state.question}
+              />
 
-            {this.state.answers.map((answerObj, index) => {
-              return (
-                <AnswerAndExampleInputs
-                  answer={answerObj['answer']}
-                  example={answerObj['example']}
-                  updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
-                  allowTabs={this.allowTabs}
-                  key={index}
-                  addAdditionalFields={(elemToCreate) => this.addAdditionalFields(elemToCreate)}
-                />
-              )
-            })}
+              {this.state.answers.map((answerObj, index) => {
+                return (
+                  <AnswerAndExampleInputs
+                    answer={answerObj['answer']}
+                    example={answerObj['example']}
+                    updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
+                    allowTabs={this.allowTabs}
+                    key={index}
+                    addAdditionalFields={(elemToCreate) => this.addAdditionalFields(elemToCreate)}
+                  />
+                )
+              })}
 
-            {this.state.links.map((link, index) => {
-              return (
-                <LinkInput
-                  link={link}
-                  updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
-                  key={index}
-                />
-              )
-            })}
+              {this.state.links.map((link, index) => {
+                return (
+                  <LinkInput
+                    link={link}
+                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    key={index}
+                  />
+                )
+              })}
 
-          </div>
+            </div>
 
-          <button className="hidden" type="submit">Submit</button>
-        </form>
-        <div></div>
+            <button className="hidden" type="submit">Submit</button>
+          </form>
+        </div>
       </>
     )
   }

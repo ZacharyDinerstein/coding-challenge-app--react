@@ -17,10 +17,12 @@ const AddAnswerBtn = (props) => {
         className={classes}
         onClick={() => handleBtnClick("answerField")}
       >
-        <FontAwesomeIcon icon={faPlusCircle} />
+        <FontAwesomeIcon 
+          icon={faPlusCircle} 
+          className="form__icon"
+        />
         <span>Add Answer</span>
       </div>
-      <div></div>
     </>
   )
 }

@@ -3,7 +3,7 @@ import AddAnswerBtn from '../Button/AddAnswerBtn';
 import RemoveAnswerBtn from '../Button/RemoveAnswerBtn';
 
 const AnswerAndExampleInputs = (props) => {
-    
+
     const [addBtnChecked, hideComponent] = useState(false);
 
     let {
@@ -32,15 +32,17 @@ const AnswerAndExampleInputs = (props) => {
                 onChange={updateObjectAttributeWithinCardsArray}
                 onKeyDown={allowTabs}
             />
-            <AddAnswerBtn
-                addAdditionalFields={(elemToCreate) => props.addAdditionalFields(elemToCreate)}
-                hideComponent={() => hideComponent(true)}
-                addBtnChecked={addBtnChecked}
-            />
-            <RemoveAnswerBtn 
-                hideComponent={() => hideComponent(true)}
-                removeFields={(elemToRemove) => props.removeFields(elemToRemove)}
-            />
+            <div className="form__buttons-wrapper">
+                <AddAnswerBtn
+                    addAdditionalFields={(elemToCreate) => props.addAdditionalFields(elemToCreate)}
+                    hideComponent={() => hideComponent(true)}
+                    addBtnChecked={addBtnChecked}
+                />
+                <RemoveAnswerBtn
+                    hideComponent={() => hideComponent(true)}
+                    removeFields={(elemToRemove) => props.removeFields(elemToRemove)}
+                />
+            </div>
         </>
     )
 }

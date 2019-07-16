@@ -17,7 +17,10 @@ const RemoveAnswerBtn = (props) => {
         className={classes}
         onClick={() => handleBtnClick("answerField")}
       >
-        <FontAwesomeIcon icon={faMinusCircle} />
+        <FontAwesomeIcon 
+          icon={faMinusCircle} 
+          className="form__icon"  
+        />
         <span>Remove</span>
       </div>
     </>
