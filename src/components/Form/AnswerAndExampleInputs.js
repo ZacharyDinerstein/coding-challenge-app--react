@@ -11,6 +11,7 @@ const AnswerAndExampleInputs = (props) => {
         example,
         updateObjectAttributeWithinCardsArray,
         allowTabs,
+        index
     } = props;
 
     return (
@@ -40,6 +41,7 @@ const AnswerAndExampleInputs = (props) => {
                 />
                 <RemoveAnswerBtn
                     hideComponent={() => hideComponent(true)}
+                    index={index}
                     removeFields={(elemToRemove) => props.removeFields(elemToRemove)}
                 />
             </div>

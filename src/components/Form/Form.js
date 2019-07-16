@@ -165,6 +165,7 @@ export default class Form extends Component {
                     updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
                     allowTabs={this.allowTabs}
                     key={index}
+                    index={index}
                     addAdditionalFields={(category) => this.addAdditionalFields(category, index)}
                     removeFields={(category) => this.removeFields(category, index)}
                   />
