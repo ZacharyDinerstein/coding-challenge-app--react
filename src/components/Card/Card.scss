@@ -68,6 +68,7 @@
   padding-right: 6rem;
   grid-column: 2 / 3;
   .form {
+    
     .form__inputs-wrapper {
       display: grid;
       grid-template-columns: 2fr 8fr;
@@ -77,10 +78,14 @@
     }
     .form__buttons-wrapper {
       grid-column: 1 / 3;
-      
+
       .form__button-wrapper {
         display: inline-flex;
         margin-right: 2rem;
+
+        &.hidden {
+          display: none;
+        }
         span {
           font-size: 1.55rem;
         }
