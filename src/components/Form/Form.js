@@ -26,6 +26,7 @@ export default class Form extends Component {
       [name]: value
     })
   }
+
   updateCardArrayAttribute = (e, index) => {
     let { name, value } = e.target,
       newArray = [...this.state[name]];
@@ -42,7 +43,18 @@ export default class Form extends Component {
       newArray = [...this.state.answers],
       object = newArray[index];
 
+      
+      console.log(e.target)
+      console.log(index)
+      console.log(name)
+      console.log(object)
+
+      console.log(value)
+      console.log(object[name])
+
     object[name] = value
+
+    console.log(newArray)
 
     this.setState({
       answers: newArray
@@ -54,17 +66,9 @@ export default class Form extends Component {
       newFields,
       newArray;
       
-
-      console.log(answers.slice(0, index + 1));
-      console.log(answers.slice(index + 1));
-
-
-
     if (elemToCreate === "answerFields") {
 
       newFields = { answer: 'Add answer', example: 'Optional' };
-
-      // Add additional fields below the add button that was clicked
       newArray = [
         ...answers.slice(0, index + 1),
         newFields,
@@ -162,7 +166,7 @@ export default class Form extends Component {
                     example={answerObj['example']}
                     updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
                     allowTabs={this.allowTabs}
-                    key={shortid.generate()}
+                    key={index}
                     addAdditionalFields={(elemToCreate) => this.addAdditionalFields(elemToCreate, index)}
                   />
                 )
@@ -173,7 +177,7 @@ export default class Form extends Component {
                   <LinkInput
                     link={link}
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
-                    key={shortid.generate()}
+                    key={index}
                   />
                 )
               })}
