@@ -4,9 +4,9 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 const AddAnswerBtn = (props) => {
   
-  const handleBtnClick = (elemToCreate) => {
+  const handleBtnClick = (category) => {
     props.hideComponent();
-    props.addAdditionalFields(elemToCreate);
+    props.addAdditionalFields(category);
   }
 
   return (

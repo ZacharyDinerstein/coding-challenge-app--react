@@ -43,14 +43,14 @@ export default class Form extends Component {
       newArray = [...this.state.answers],
       object = newArray[index];
 
-      
-      console.log(e.target)
-      console.log(index)
-      console.log(name)
-      console.log(object)
 
-      console.log(value)
-      console.log(object[name])
+    console.log(e.target)
+    console.log(index)
+    console.log(name)
+    console.log(object)
+
+    console.log(value)
+    console.log(object[name])
 
     object[name] = value
 
@@ -61,12 +61,12 @@ export default class Form extends Component {
     })
   }
 
-  addAdditionalFields = (elemToCreate, index) => {
+  addAdditionalFields = (category, index) => {
     let { answers } = this.state,
       newFields,
       newArray;
-      
-    if (elemToCreate === "answerFields") {
+
+    if (category === "answerFields") {
 
       newFields = { answer: 'Add answer', example: 'Optional' };
       newArray = [
@@ -81,18 +81,29 @@ export default class Form extends Component {
     })
   }
 
-  removeFields = (elemToRemove) => {
+  removeFields = (elemToRemove, index) => {
     let newFields,
       newArray;
 
-    if (elemToRemove === "answerField") {
-      newFields = { answer: 'Add answer', example: 'Optional' };
-      newArray = [...this.state.answers, newFields];
+    console.log("HI THERE")
+    console.log(index)
+    console.log(elemToRemove)
+
+
+    if (elemToRemove === "answerFields") {
+      newArray = this.state.answers.filter((answer) => {
+        console.log(answer)
+        // return answer 
+      });
     }
 
-    this.setState({
-      answers: newArray
-    })
+    // this.state.people.filter(function (person) {
+    //   return person !== e.target.value
+    // });
+
+    // this.setState({
+    //   answers: newArray
+    // })
   }
 
 
@@ -145,7 +156,7 @@ export default class Form extends Component {
         <div className="card card--form">
           <form
             className="form"
-            onSubmit={this.createCard} 
+            onSubmit={this.createCard}
           >
             <h1>Create New Card</h1>
             <p className="sub-header">(Use COMMAND key to indent)</p>
@@ -167,7 +178,8 @@ export default class Form extends Component {
                     updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
                     allowTabs={this.allowTabs}
                     key={index}
-                    addAdditionalFields={(elemToCreate) => this.addAdditionalFields(elemToCreate, index)}
+                    addAdditionalFields={(category) => this.addAdditionalFields(category, index)}
+                    removeFields={(elemToRemove) => this.removeFields(elemToRemove, index)}
                   />
                 )
               })}

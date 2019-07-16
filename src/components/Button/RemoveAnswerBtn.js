@@ -4,9 +4,9 @@ import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
 const RemoveAnswerBtn = (props) => {
   
-  const handleBtnClick = (elemToRemove) => {
+  const handleBtnClick = (category) => {
     props.hideComponent();
-    props.removeFields(elemToRemove);
+    props.removeFields(category);
   }
 
   return (
