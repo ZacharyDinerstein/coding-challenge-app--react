@@ -50,23 +50,25 @@ export default class Form extends Component {
   }
 
   addAdditionalFields = (elemToCreate, index) => {
-    let newFields,
-      newArray,
-      { answers } = this.state;
+    let { answers } = this.state,
+      newFields,
+      newArray;
+      
 
-      console.log(index);
-      console.log(answers);
-      console.log(answers.slice(0, index))
+      console.log(answers.slice(0, index + 1));
+      console.log(answers.slice(index + 1));
 
 
 
     if (elemToCreate === "answerFields") {
 
       newFields = { answer: 'Add answer', example: 'Optional' };
+
+      // Add additional fields below the add button that was clicked
       newArray = [
-        ...answers.slice(0, index),
+        ...answers.slice(0, index + 1),
         newFields,
-        ...answers.slice(index)
+        ...answers.slice(index + 1)
       ];
     }
 
