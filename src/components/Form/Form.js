@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import LinkInput from './LinkInput';
-import shortid from 'shortid';
+// import shortid from 'shortid';
 
 
 // TODO
@@ -43,18 +43,7 @@ export default class Form extends Component {
       newArray = [...this.state.answers],
       object = newArray[index];
 
-
-    console.log(e.target)
-    console.log(index)
-    console.log(name)
-    console.log(object)
-
-    console.log(value)
-    console.log(object[name])
-
-    object[name] = value
-
-    console.log(newArray)
+    object[name] = value;
 
     this.setState({
       answers: newArray
