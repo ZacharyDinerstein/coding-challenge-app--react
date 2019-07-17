@@ -92,8 +92,7 @@ export default class Form extends Component {
     })
   }
 
-  
-  handleRemoveFields = (category, indexOfClickedBtn) => {
+  handleRemoveInputs = (category, indexOfClickedBtn) => {
     let newArray;
 
     if (category === "answerFields") {
@@ -177,7 +176,7 @@ export default class Form extends Component {
                     key={index}
                     index={index}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
-                    handleRemoveFields={(category) => this.handleRemoveFields(category, index)}
+                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />
                 )
               })}
@@ -190,7 +189,7 @@ export default class Form extends Component {
                     link={link}
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
-                    handleRemoveFields={(category) => this.handleRemoveFields(category, index)}
+                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />
                 )
               })}

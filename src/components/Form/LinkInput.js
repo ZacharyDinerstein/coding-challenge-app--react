@@ -1,6 +1,6 @@
 import React from 'react';
 import AddInputsBtn from '../Button/AddInputsBtn';
-import RemoveAnswerBtn from '../Button/RemoveAnswerBtn';
+import RemoveInputsBtn from '../Button/RemoveInputsBtn';
 
 const LinkInputs = (props) => {
     let {
@@ -26,12 +26,12 @@ const LinkInputs = (props) => {
                 >
                     Add Link
                 </AddInputsBtn>
-                <RemoveAnswerBtn
+                <RemoveInputsBtn
                     index={index}
-                    handleRemoveFields={(elemToRemove) => props.handleRemoveFields(elemToRemove)}
+                    handleRemoveInputs={(elemToRemove) => props.handleRemoveInputs(elemToRemove)}
                 >
                     Remove
-                </RemoveAnswerBtn>
+                </RemoveInputsBtn>
             </div>
         </>
     )

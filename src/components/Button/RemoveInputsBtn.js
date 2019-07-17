@@ -14,7 +14,7 @@ const RemoveAnswerBtn = (props) => {
     <>
       <div
         className={classes}
-        onClick={() => props.handleRemoveFields(category)}
+        onClick={() => props.handleRemoveInputs(category)}
       >
         <FontAwesomeIcon
           icon={faMinusCircle} 
