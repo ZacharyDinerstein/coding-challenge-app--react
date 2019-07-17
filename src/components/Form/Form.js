@@ -45,25 +45,8 @@ export default class Form extends Component {
   }
 
   handleAddNewInputs = (category, index) => {
-    switch (category) {
-      case "answerFields": {
-        this.addAdditionalAnswers("answers", index);
-        break;
-      }
-      case "linkFields": {
-        this.addAdditionalAnswers("links", index);
-        break;
-      }
-      default: {
-        console.log("Invalid choice");
-        break;
-      }
-    }
-  }
-
-  addAdditionalAnswers = (name, index) => {
-    let field = this.state[name],
-        newFields = (name === "answers") ? { answer: '', example: '' } : '',
+    let field = this.state[category],
+        newFields = (category === "answers") ? { answer: '', example: '' } : '',
         newArray;
       
     newArray = [
@@ -73,22 +56,7 @@ export default class Form extends Component {
     ];
 
     this.setState({
-      [name]: newArray
-    })
-  }
-
-  addAdditionalLinks = (index) => {
-    let { links } = this.state,
-      newArray;
-
-    newArray = [
-      ...links.slice(0, index + 1),
-      "",
-      ...links.slice(index + 1)
-    ];
-
-    this.setState({
-      links: newArray
+      [category]: newArray
     })
   }
 

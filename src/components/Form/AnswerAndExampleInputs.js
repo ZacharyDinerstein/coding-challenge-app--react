@@ -10,7 +10,7 @@ const AnswerAndExampleInputs = (props) => {
         allowTabs,
         index
     } = props,
-    category = "answerFields";
+    category = "answers";
 
     return (
         <>

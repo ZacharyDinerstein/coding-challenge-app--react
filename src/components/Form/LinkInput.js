@@ -8,7 +8,7 @@ const LinkInputs = (props) => {
         updateCardArrayAttribute,
         index
     } = props,
-    category = "linkFields";
+    category = "links";
 
     return (
         <>
