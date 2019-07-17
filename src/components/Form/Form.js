@@ -47,11 +47,11 @@ export default class Form extends Component {
   handleAddNewInputs = (category, index) => {
     switch (category) {
       case "answerFields": {
-        this.addAdditionalAnswers(index);
+        this.addAdditionalAnswers("answers", index);
         break;
       }
       case "linkFields": {
-        this.addAdditionalLinks(index);
+        this.addAdditionalAnswers("links", index);
         break;
       }
       default: {
@@ -61,19 +61,19 @@ export default class Form extends Component {
     }
   }
 
-  addAdditionalAnswers = (index) => {
-    let { answers } = this.state,
-      newFields = { answer: '', example: '' },
-      newArray;
-
+  addAdditionalAnswers = (name, index) => {
+    let field = this.state[name],
+        newFields = (name === "answers") ? { answer: '', example: '' } : '',
+        newArray;
+      
     newArray = [
-      ...answers.slice(0, index + 1),
+      ...field.slice(0, index + 1),
       newFields,
-      ...answers.slice(index + 1)
+      ...field.slice(index + 1)
     ];
 
     this.setState({
-      answers: newArray
+      [name]: newArray
     })
   }
 
