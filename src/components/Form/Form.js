@@ -50,20 +50,49 @@ export default class Form extends Component {
     })
   }
 
-  addAdditionalFields = (category, index) => {
+  handleAddNewInputFields = (category, index) => {
+    switch (category) {
+      case "answerFields": {
+        this.addAdditionalAnswerFields(category, index);
+        break;
+      }
+      case "newLink": {
+        this.addAdditionalLinks(category, index);
+        break;
+      }
+      default: {
+        console.log("Invalid choice");
+        break;
+      }
+    }
+  }
+
+  addAdditionalAnswerFields = (category, index) => {
     let { answers } = this.state,
-      newFields,
+      newFields = { answer: '', example: '' },
       newArray;
 
-    if (category === "answerFields") {
+    newArray = [
+      ...answers.slice(0, index + 1),
+      newFields,
+      ...answers.slice(index + 1)
+    ];
 
-      newFields = { answer: 'Add answer', example: 'Optional' };
-      newArray = [
-        ...answers.slice(0, index + 1),
-        newFields,
-        ...answers.slice(index + 1)
-      ];
-    }
+    this.setState({
+      answers: newArray
+    })
+  }
+
+  addAdditionalLinks = (category, index) => {
+    let { answers } = this.state,
+      newFields = { answer: '', example: '' },
+      newArray;
+
+    newArray = [
+      ...answers.slice(0, index + 1),
+      newFields,
+      ...answers.slice(index + 1)
+    ];
 
     this.setState({
       answers: newArray
@@ -155,7 +184,7 @@ export default class Form extends Component {
                     allowTabs={this.allowTabs}
                     key={index}
                     index={index}
-                    addAdditionalFields={(category) => this.addAdditionalFields(category, index)}
+                    handleAddNewInputFields={(category) => this.handleAddNewInputFields(category, index)}
                     removeFields={(category) => this.removeFields(category, index)}
                   />
                 )

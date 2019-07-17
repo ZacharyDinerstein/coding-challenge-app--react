@@ -36,7 +36,7 @@ const AnswerAndExampleInputs = (props) => {
             />
             <div className="form__buttons-wrapper">
                 <AddAnswerBtn
-                    addAdditionalFields={(category) => props.addAdditionalFields(category)}
+                    handleAddNewInputFields={(category) => props.handleAddNewInputFields(category)}
                     hideComponent={() => hideComponent(true)}
                     addBtnChecked={addBtnChecked}
                 />
