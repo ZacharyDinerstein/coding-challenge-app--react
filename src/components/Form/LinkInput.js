@@ -1,4 +1,5 @@
 import React from 'react';
+import AddInputsBtn from '../Button/AddInputsBtn';
 
 const LinkInputs = (props) => {
     let {
@@ -16,9 +17,9 @@ const LinkInputs = (props) => {
                 onChange={updateCardArrayAttribute}
                 value={link}
             />
-            <addButton 
-
-            />
+            <AddInputsBtn>
+                Add Link    
+            </AddInputsBtn> 
         </>
     )
 }

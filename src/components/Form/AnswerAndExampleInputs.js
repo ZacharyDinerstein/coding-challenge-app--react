@@ -3,9 +3,6 @@ import AddInputsBtn from '../Button/AddInputsBtn';
 import RemoveAnswerBtn from '../Button/RemoveAnswerBtn';
 
 const AnswerAndExampleInputs = (props) => {
-
-    const [addBtnChecked, hideComponent] = useState(false);
-
     let {
         answer,
         example,
@@ -37,13 +34,11 @@ const AnswerAndExampleInputs = (props) => {
             <div className="form__buttons-wrapper">
                 <AddInputsBtn
                     handleAddNewInputs={(category) => props.handleAddNewInputs(category)}
-                    hideComponent={() => hideComponent(true)}
-                    addBtnChecked={addBtnChecked}
+                    category="answerFields"
                 >
                     Add Answer
                 </AddInputsBtn>
                 <RemoveAnswerBtn
-                    hideComponent={() => hideComponent(true)}
                     index={index}
                     removeFields={(elemToRemove) => props.removeFields(elemToRemove)}
                 />
