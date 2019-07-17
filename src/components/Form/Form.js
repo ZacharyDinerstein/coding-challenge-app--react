@@ -53,11 +53,11 @@ export default class Form extends Component {
   handleAddNewInputs = (category, index) => {
     switch (category) {
       case "answerFields": {
-        this.addAdditionalAnswerFields(category, index);
+        this.addAdditionalAnswerFields(index);
         break;
       }
       case "addLink": {
-        this.addAdditionalLinks(category, index);
+        this.addAdditionalLinks(index);
         break;
       }
       default: {
@@ -67,7 +67,7 @@ export default class Form extends Component {
     }
   }
 
-  addAdditionalAnswerFields = (category, index) => {
+  addAdditionalAnswerFields = (index) => {
     let { answers } = this.state,
       newFields = { answer: '', example: '' },
       newArray;
@@ -84,18 +84,13 @@ export default class Form extends Component {
   }
 
   addAdditionalLinks = (category, index) => {
-    let { answers } = this.state,
-      newFields = { answer: '', example: '' },
-      newArray;
+    let { links } = this.state,
+        newArray;     
 
-    newArray = [
-      ...answers.slice(0, index + 1),
-      newFields,
-      ...answers.slice(index + 1)
-    ];
+    newArray = [...links, ''];
 
     this.setState({
-      answers: newArray
+      links: newArray
     })
   }
 
@@ -192,9 +187,10 @@ export default class Form extends Component {
               {this.state.links.map((link, index) => {
                 return (
                   <LinkInput
+                    key={index}
                     link={link}
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
-                    key={index}
+                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                   />
                 )
               })}
