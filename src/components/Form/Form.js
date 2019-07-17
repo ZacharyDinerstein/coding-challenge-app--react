@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import LinkInput from './LinkInput';
-// import shortid from 'shortid';
-
-
-// TODO
-// - Fix the add button toggle 
-// - Refactor all components to functional components that can be
 
 
 export default class Form extends Component {
@@ -85,7 +79,7 @@ export default class Form extends Component {
 
   addAdditionalLinks = (index) => {
     let { links } = this.state,
-        newArray;     
+      newArray;
 
     newArray = [
       ...links.slice(0, index + 1),
@@ -98,7 +92,8 @@ export default class Form extends Component {
     })
   }
 
-  removeFields = (category, indexOfClickedBtn) => {
+  
+  handleRemoveFields = (category, indexOfClickedBtn) => {
     let newArray;
 
     if (category === "answerFields") {
@@ -109,7 +104,6 @@ export default class Form extends Component {
       answers: newArray
     })
   }
-
 
   resetState = () => {
     this.setState({
@@ -183,7 +177,7 @@ export default class Form extends Component {
                     key={index}
                     index={index}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
-                    removeFields={(category) => this.removeFields(category, index)}
+                    handleRemoveFields={(category) => this.handleRemoveFields(category, index)}
                   />
                 )
               })}
@@ -192,9 +186,11 @@ export default class Form extends Component {
                 return (
                   <LinkInput
                     key={index}
+                    index={index}
                     link={link}
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
+                    handleRemoveFields={(category) => this.handleRemoveFields(category, index)}
                   />
                 )
               })}

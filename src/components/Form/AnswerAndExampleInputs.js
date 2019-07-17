@@ -9,7 +9,8 @@ const AnswerAndExampleInputs = (props) => {
         updateObjectAttributeWithinCardsArray,
         allowTabs,
         index
-    } = props;
+    } = props,
+    category = "answerFields";
 
     return (
         <>
@@ -33,15 +34,18 @@ const AnswerAndExampleInputs = (props) => {
             />
             <div className="form__buttons-wrapper">
                 <AddInputsBtn
-                    category="answerFields"
+                    category={category}
                     handleAddNewInputs={(category) => props.handleAddNewInputs(category)}
                 >
                     Add Answer
                 </AddInputsBtn>
                 <RemoveAnswerBtn
                     index={index}
-                    removeFields={(elemToRemove) => props.removeFields(elemToRemove)}
-                />
+                    category={category}
+                    handleRemoveFields={(category) => props.handleRemoveFields(category)}
+                >
+                    Remove
+                </RemoveAnswerBtn>
             </div>
         </>
     )

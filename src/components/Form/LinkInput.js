@@ -1,10 +1,12 @@
 import React from 'react';
 import AddInputsBtn from '../Button/AddInputsBtn';
+import RemoveAnswerBtn from '../Button/RemoveAnswerBtn';
 
 const LinkInputs = (props) => {
     let {
         link,
-        updateCardArrayAttribute
+        updateCardArrayAttribute,
+        index
     } = props;
 
     return (
@@ -24,6 +26,12 @@ const LinkInputs = (props) => {
                 >
                     Add Link
                 </AddInputsBtn>
+                <RemoveAnswerBtn
+                    index={index}
+                    handleRemoveFields={(elemToRemove) => props.handleRemoveFields(elemToRemove)}
+                >
+                    Remove
+                </RemoveAnswerBtn>
             </div>
         </>
     )
