@@ -50,7 +50,7 @@ export default class Form extends Component {
     })
   }
 
-  handleAddNewInputFields = (category, index) => {
+  handleAddNewInputs = (category, index) => {
     switch (category) {
       case "answerFields": {
         this.addAdditionalAnswerFields(category, index);
@@ -183,7 +183,7 @@ export default class Form extends Component {
                     allowTabs={this.allowTabs}
                     key={index}
                     index={index}
-                    handleAddNewInputFields={(category) => this.handleAddNewInputFields(category, index)}
+                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     removeFields={(category) => this.removeFields(category, index)}
                   />
                 )

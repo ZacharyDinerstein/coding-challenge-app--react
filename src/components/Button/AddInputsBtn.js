@@ -7,7 +7,7 @@ const AddInputsBtn = (props) => {
 
   const handleBtnClick = (category) => {
     props.hideComponent();
-    props.handleAddNewInputFields(category);
+    props.handleAddNewInputs(category);
   }
 
   return (
