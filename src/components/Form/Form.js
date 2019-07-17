@@ -62,11 +62,11 @@ export default class Form extends Component {
 
   handleRemoveInputs = (category, indexOfClickedBtn) => {
     switch (category) {
-      case "answerFields": {
+      case "answers": {
         this.removeAnswers(indexOfClickedBtn);
         break;
       }
-      case "linkFields": {
+      case "links": {
         this.removeLinks(indexOfClickedBtn);
         break;
       }
