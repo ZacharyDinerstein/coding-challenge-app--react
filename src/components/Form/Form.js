@@ -61,44 +61,14 @@ export default class Form extends Component {
   }
 
   handleRemoveInputs = (category, indexOfClickedBtn) => {
-    switch (category) {
-      case "answers": {
-        this.removeAnswers(indexOfClickedBtn);
-        break;
-      }
-      case "links": {
-        this.removeLinks(indexOfClickedBtn);
-        break;
-      }
-      default: {
-        console.log("Invalid choice");
-        break;
-      }
-    }
-  }
-
-  removeAnswers = (indexOfClickedBtn) => {
-    let newArray;
-
-    newArray = this.state.answers.filter((answer, answerIndex) => answerIndex !== indexOfClickedBtn);
+    let newArray = this.state[category].filter((item, itemIndex) =>
+      itemIndex !== indexOfClickedBtn
+    );
 
     this.setState({
-      answers: newArray
+      [category]: newArray
     })
   }
-
-  removeLinks = (indexOfClickedBtn) => {
-    let newArray;
-
-    newArray = this.state.links.filter((link, linkIndex) => linkIndex !== indexOfClickedBtn);
-
-    this.setState({
-      links: newArray
-    })
-  }
-
-
-
 
   resetState = () => {
     this.setState({
