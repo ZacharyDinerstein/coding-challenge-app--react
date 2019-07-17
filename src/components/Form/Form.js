@@ -47,10 +47,10 @@ export default class Form extends Component {
   handleAddNewInputs = (category, index) => {
     switch (category) {
       case "answerFields": {
-        this.addAdditionalAnswerFields(index);
+        this.addAdditionalAnswers(index);
         break;
       }
-      case "addLink": {
+      case "linkFields": {
         this.addAdditionalLinks(index);
         break;
       }
@@ -61,7 +61,7 @@ export default class Form extends Component {
     }
   }
 
-  addAdditionalAnswerFields = (index) => {
+  addAdditionalAnswers = (index) => {
     let { answers } = this.state,
       newFields = { answer: '', example: '' },
       newArray;
@@ -93,16 +93,44 @@ export default class Form extends Component {
   }
 
   handleRemoveInputs = (category, indexOfClickedBtn) => {
+    switch (category) {
+      case "answerFields": {
+        this.removeAnswers(indexOfClickedBtn);
+        break;
+      }
+      case "linkFields": {
+        this.removeLinks(indexOfClickedBtn);
+        break;
+      }
+      default: {
+        console.log("Invalid choice");
+        break;
+      }
+    }
+  }
+
+  removeAnswers = (indexOfClickedBtn) => {
     let newArray;
 
-    if (category === "answerFields") {
-      newArray = this.state.answers.filter((answer, answerIndex) => answerIndex !== indexOfClickedBtn);
-    }
+    newArray = this.state.answers.filter((answer, answerIndex) => answerIndex !== indexOfClickedBtn);
 
     this.setState({
       answers: newArray
     })
   }
+
+  removeLinks = (indexOfClickedBtn) => {
+    let newArray;
+
+    newArray = this.state.links.filter((link, linkIndex) => linkIndex !== indexOfClickedBtn);
+
+    this.setState({
+      links: newArray
+    })
+  }
+
+
+
 
   resetState = () => {
     this.setState({

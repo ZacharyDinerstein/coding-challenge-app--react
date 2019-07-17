@@ -7,7 +7,8 @@ const LinkInputs = (props) => {
         link,
         updateCardArrayAttribute,
         index
-    } = props;
+    } = props,
+    category = "linkFields";
 
     return (
         <>
@@ -21,13 +22,14 @@ const LinkInputs = (props) => {
             />
             <div className="form__buttons-wrapper">
                 <AddInputsBtn
-                    category="addLink"
+                    category={category}
                     handleAddNewInputs={(category) => props.handleAddNewInputs(category)}
                 >
                     Add Link
                 </AddInputsBtn>
                 <RemoveInputsBtn
                     index={index}
+                    category={category}
                     handleRemoveInputs={(elemToRemove) => props.handleRemoveInputs(elemToRemove)}
                 >
                     Remove
