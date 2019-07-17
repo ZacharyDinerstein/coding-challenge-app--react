@@ -83,11 +83,15 @@ export default class Form extends Component {
     })
   }
 
-  addAdditionalLinks = (category, index) => {
+  addAdditionalLinks = (index) => {
     let { links } = this.state,
         newArray;     
 
-    newArray = [...links, ''];
+    newArray = [
+      ...links.slice(0, index + 1),
+      "",
+      ...links.slice(index + 1)
+    ];
 
     this.setState({
       links: newArray
