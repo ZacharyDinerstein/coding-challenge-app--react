@@ -33,8 +33,8 @@ const AnswerAndExampleInputs = (props) => {
             />
             <div className="form__buttons-wrapper">
                 <AddInputsBtn
-                    handleAddNewInputs={(category) => props.handleAddNewInputs(category)}
                     category="answerFields"
+                    handleAddNewInputs={(category) => props.handleAddNewInputs(category)}
                 >
                     Add Answer
                 </AddInputsBtn>

@@ -56,7 +56,7 @@ export default class Form extends Component {
         this.addAdditionalAnswerFields(category, index);
         break;
       }
-      case "newLink": {
+      case "addLink": {
         this.addAdditionalLinks(category, index);
         break;
       }

@@ -17,9 +17,14 @@ const LinkInputs = (props) => {
                 onChange={updateCardArrayAttribute}
                 value={link}
             />
-            <AddInputsBtn>
-                Add Link    
-            </AddInputsBtn> 
+            <div className="form__buttons-wrapper">
+                <AddInputsBtn
+                    category="addLink"
+                    handleAddNewInputs={(category) => props.handleAddNewInputs(category)}
+                >
+                    Add Link
+                </AddInputsBtn>
+            </div>
         </>
     )
 }
