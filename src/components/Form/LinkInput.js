@@ -16,6 +16,9 @@ const LinkInputs = (props) => {
                 onChange={updateCardArrayAttribute}
                 value={link}
             />
+            <addButton 
+
+            />
         </>
     )
 }

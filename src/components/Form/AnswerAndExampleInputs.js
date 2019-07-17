@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddAnswerBtn from '../Button/AddAnswerBtn';
+import AddInputsBtn from '../Button/AddInputsBtn';
 import RemoveAnswerBtn from '../Button/RemoveAnswerBtn';
 
 const AnswerAndExampleInputs = (props) => {
@@ -35,11 +35,13 @@ const AnswerAndExampleInputs = (props) => {
                 placeholder="Optional"
             />
             <div className="form__buttons-wrapper">
-                <AddAnswerBtn
+                <AddInputsBtn
                     handleAddNewInputFields={(category) => props.handleAddNewInputFields(category)}
                     hideComponent={() => hideComponent(true)}
                     addBtnChecked={addBtnChecked}
-                />
+                >
+                    Add Answer
+                </AddInputsBtn>
                 <RemoveAnswerBtn
                     hideComponent={() => hideComponent(true)}
                     index={index}

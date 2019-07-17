@@ -2,8 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
-const AddAnswerBtn = (props) => {
-  
+const AddInputsBtn = (props) => {
+  let { children } = props;
+
   const handleBtnClick = (category) => {
     props.hideComponent();
     props.handleAddNewInputFields(category);
@@ -19,10 +20,10 @@ const AddAnswerBtn = (props) => {
           icon={faPlusCircle}
           className="form__icon"
         />
-        <span>Add Answer</span>
+        <span>{children}</span>
       </div>
     </>
   )
 }
 
-export default AddAnswerBtn;
+export default AddInputsBtn;

@@ -121,7 +121,6 @@ export default class Form extends Component {
       }],
       links: ['']
     })
-
   }
 
   createCard = (e) => {
