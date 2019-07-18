@@ -30,6 +30,11 @@ const CardMainContent = (props) => {
                <a key={shortid.generate()} href={link}>{linkName}</a>
             )
          })}
+         {cardData.tags.map((tag) => {
+            return (
+               <p>{tag}</p>
+            )
+         })}
       </>
    )
 }
