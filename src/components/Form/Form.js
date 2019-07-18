@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import LinkInput from './LinkInput';
+import TagInput from './TagInput';
 
+let INITIALSTATE = {
+  question: '',
+  answers: [{
+    answer: '',
+    example: ''
+  }],
+  links: [''],
+  tags: ['']
+}
 
 export default class Form extends Component {
-  state = {
-    question: '',
-    answers: [{
-      answer: '',
-      example: ''
-    }],
-    links: ['']
-  }
+  state = INITIALSTATE;
 
   updateCardAttribute = (e) => {
     let { name, value } = e.target;
@@ -46,9 +49,9 @@ export default class Form extends Component {
 
   handleAddNewInputs = (category, index) => {
     let field = this.state[category],
-        newFields = (category === "answers") ? { answer: '', example: '' } : '',
-        newArray;
-      
+      newFields = (category === "answers") ? { answer: '', example: '' } : '',
+      newArray;
+
     newArray = [
       ...field.slice(0, index + 1),
       newFields,
@@ -71,14 +74,9 @@ export default class Form extends Component {
   }
 
   resetState = () => {
-    this.setState({
-      question: '',
-      answers: [{
-        answer: '',
-        example: ''
-      }],
-      links: ['']
-    })
+    this.setState(
+      INITIALSTATE
+    )
   }
 
   createCard = (e) => {
@@ -153,6 +151,7 @@ export default class Form extends Component {
                     key={index}
                     index={index}
                     link={link}
+                    label="Link"
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
@@ -160,8 +159,20 @@ export default class Form extends Component {
                 )
               })}
 
+              {this.state.tags.map((item, index) => {
+                return (
+                  <TagInput
+                    key={index}
+                    index={index}
+                    item={item}
+                    label="Tag"
+                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
+                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
+                  />
+                )
+              })}
             </div>
-
             <button className="hidden" type="submit">Submit</button>
           </form>
         </div>
