@@ -20,7 +20,8 @@ export default class App extends Component {
               example: "var x = null;\nconsole.log(x);\t//null"
             }
           ],
-          links: []
+          links: [],
+          tags: ["JavaScript"]
         }, {
           question: "Describe React State",
           answers: [
@@ -69,7 +70,7 @@ export default class App extends Component {
           links: ["https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about"]
         }
       ],
-      showFirstFormButotns: true
+      cardsOrderedByTag: {}
     };
   }
 
