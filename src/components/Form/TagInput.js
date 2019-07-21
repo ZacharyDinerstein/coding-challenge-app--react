@@ -20,6 +20,7 @@ const TagInput = (props) => {
                 name={category}
                 onChange={updateCardArrayAttribute}
                 value={item}
+                required
             />
             <div className="form__buttons-wrapper">
                 <AddInputsBtn

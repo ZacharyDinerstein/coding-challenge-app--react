@@ -21,6 +21,7 @@ const AnswerAndExampleInputs = (props) => {
                 value={answer}
                 onChange={updateObjectAttributeWithinCardsArray}
                 onKeyDown={allowTabs}
+                required
             />
 
             <label htmlFor="">Code Example</label>

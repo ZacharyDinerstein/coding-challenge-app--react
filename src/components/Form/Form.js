@@ -123,6 +123,7 @@ export default class Form extends Component {
                 name="question"
                 onChange={this.updateCardAttribute}
                 value={this.state.question}
+                required
               />
 
               {this.state.answers.map((answerObj, index) => {

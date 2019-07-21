@@ -2,11 +2,18 @@ import React from 'react';
 import shortid from 'shortid';
 
 const CardMainContent = (props) => {
-   let { cardData } = props;
+   let { cardData } = props,
+      {
+         answers,
+         links,
+         tags
+      } = cardData;
+
+   console.log(cardData.links && "hi");
 
    return (
       <>
-         {cardData.answers.map((answer, index) => {
+         {answers.map((answer, index) => {
             return (
                <div key={shortid.generate()} className="card__answer-wrapper">
                   <pre className="card__answer">{answer.answer}</pre>
@@ -24,13 +31,13 @@ const CardMainContent = (props) => {
                </div>
             )
          })}
-         {cardData.links.map((link, index) => {
+         {!links.length && cardData.links.map((link, index) => {
             let linkName = `Link ${index + 1}`
             return (
                <a key={shortid.generate()} href={link}>{linkName}</a>
             )
          })}
-         {cardData.tags.map((tag) => {
+         {tags && cardData.tags.map((tag) => {
             return (
                <p>{tag}</p>
             )
