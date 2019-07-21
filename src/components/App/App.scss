@@ -11,17 +11,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-pre {
+code {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   font-style: normal;
   font-variant: normal;
-  color: gray;
+  color: #fff;
 }
 
-code {
-  font-family: 'Courier New', Courier, monospace;
-  font-style: normal;
-  font-variant: normal;
+pre {
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .dashbord__question-type {
