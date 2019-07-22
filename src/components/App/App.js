@@ -27,9 +27,9 @@ export default class App extends Component {
   organizeCards = (cards) => {
     let organizedCards = {};
 
-    cards.map((card, index) => {
+    cards.map(card => {
 
-      card.tags && card.tags.map((tag, index) => {
+      card.tags && card.tags.map(tag => {
         tag = tag.toLowerCase();
 
         if (organizedCards[tag]) {
@@ -50,10 +50,7 @@ export default class App extends Component {
   }
 
   render() {
-    let {
-      cards,
-      organizedCards
-    } = this.state;
+    let { organizedCards } = this.state;
 
     return (
       <>
@@ -78,17 +75,12 @@ export default class App extends Component {
                     <Card key={index} cardData={card} />
                   )
                 })}
-                
+
               </div>
             </>
           )
         })}
-
-
-
-
-
-
+        
       </>
     );
   }
