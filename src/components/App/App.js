@@ -14,9 +14,12 @@ export default class App extends Component {
     }
   }
 
+ 
   createCard = (newCard) => {
     this.setState({
       cards: [...this.state.cards, newCard]
+    }, () => {
+      this.organizeCards(this.state.cards)
     })
   }
 
@@ -49,6 +52,7 @@ export default class App extends Component {
     this.organizeCards(this.state.cards)
   }
 
+
   render() {
     let { organizedCards } = this.state;
 
@@ -80,7 +84,7 @@ export default class App extends Component {
             </>
           )
         })}
-        
+
       </>
     );
   }
