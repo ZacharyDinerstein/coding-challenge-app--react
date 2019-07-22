@@ -3,7 +3,8 @@ import React from 'react';
 const CompanyInputs = (props) => {
     let {
         updateCardAttribute,
-        label
+        label,
+        item
     } = props,
     category = "company";
 
@@ -14,6 +15,7 @@ const CompanyInputs = (props) => {
                 type="text"
                 placeholder="Optional"
                 name={category}
+                value={item}
                 onChange={updateCardAttribute}
             />
         </>

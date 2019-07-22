@@ -36,10 +36,10 @@ const CardMainContent = (props) => {
                <a key={shortid.generate()} href={link}>{linkName}</a>
             )
          })}
-         {company &&  <p>{company}</p>}
-         {tags && cardData.tags.map((tag) => {
+         {company && <p>{company}</p>}
+         {tags && cardData.tags.map((tag, index) => {
             return (
-               <p>{tag}</p>
+               <p key={index}>{tag}</p>
             )
          })}
       </>

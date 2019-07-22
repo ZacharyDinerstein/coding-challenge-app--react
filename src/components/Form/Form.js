@@ -177,6 +177,7 @@ export default class Form extends Component {
 
               <CompanyInput
                 label="Company"
+                item={this.state.company}
                 updateCardAttribute={(e) => this.updateCardAttribute(e)}
               />
 
