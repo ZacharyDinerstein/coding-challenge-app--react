@@ -23,10 +23,6 @@ export default class App extends Component {
     })
   }
 
-  checkState = () => {
-    console.log(this.state);
-  }
-
   organizeCards = (cards) => {
     let organizedCards = {};
 
@@ -58,17 +54,14 @@ export default class App extends Component {
 
     return (
       <>
-        <button onClick={this.checkState}>Check State</button>
         <div className="cards-container cards-container--form">
           <Form createCard={(newCard) => { this.createCard(newCard) }} />
         </div>
 
         {organizedCards && Object.keys(organizedCards).map(tag => {
-          var cards = organizedCards[tag];
-          console.log(tag)
-          console.log(cards);
-
+          let cards = organizedCards[tag];
           tag = tag.toUpperCase();
+
           return (
             <>
               <h1 className="dashbord__question-type">{tag}</h1>
