@@ -20,9 +20,29 @@ export default class App extends Component {
     })
   }
 
+  checkState = () => {
+    console.log(this.state);
+  }
+
   organizeCards = (cards) => {
-    console.log("hi there");
-    console.log(this.state.cards);
+    let organizedCards = {};
+
+    cards.map((card, index) => {
+
+      card.tags && card.tags.map((tag, index) => {
+        tag = tag.toLowerCase();
+
+        if (organizedCards[tag]) {
+          organizedCards[tag].push(card);
+        } else {
+          organizedCards[tag] = [card];
+        }
+      })
+    })
+
+    this.setState({
+      organizedCards: organizedCards
+    })
   }
 
   componentDidMount = () => {
@@ -30,22 +50,42 @@ export default class App extends Component {
   }
 
   render() {
+    let {
+      cards,
+      organizedCards
+    } = this.state;
+
     return (
       <>
+        <button onClick={this.checkState}>Check State</button>
         <div className="cards-container cards-container--form">
           <Form createCard={(newCard) => { this.createCard(newCard) }} />
         </div>
 
-        <h1 className="dashbord__question-type">JAVASCRIPT</h1>
-        <div className="cards-container cards-container--questions">
+        {organizedCards && Object.keys(organizedCards).map(tag => {
+          var cards = organizedCards[tag];
+          console.log(tag)
+          console.log(cards);
 
-          {this.state.cards.map((card, index) => {
+          tag = tag.toUpperCase();
+          return (
+            <>
+              <h1 className="dashbord__question-type">{tag}</h1>
+              <div className="cards-container cards-container--questions"></div>
+            </>
+          )
+        })}
+
+
+
+
+
+        {/* {cards.map((card, index) => {
             return (
               <Card key={index} cardData={card} />
             )
-          })}
+          })} */}
 
-        </div>
       </>
     );
   }

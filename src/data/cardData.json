@@ -23,7 +23,12 @@
                 "answer": "State is an object that holds all of our app's data"
             }
         ],
-        "links": []
+        "links": [],
+        "tags": [
+            "JavaScript",
+            "React",
+            "State"
+        ]
     },
     {
         "question": "What is a JavaScript Promise?",
@@ -35,6 +40,10 @@
         ],
         "links": [
             "https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about"
+        ],
+        "tags": [
+            "JavaScript",
+            "ES6"
         ]
     }
 ]
