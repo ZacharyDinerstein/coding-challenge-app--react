@@ -80,13 +80,14 @@ export default class Form extends Component {
   createCard = (e) => {
     e.preventDefault();
 
-    let { question, answers, links, tags } = this.state;
+    let { question, answers, links, tags, categories } = this.state;
 
     let newCard = {
       question: question,
       answers: answers,
       links: links,
-      tags: tags
+      tags: tags,
+      categories: categories
     };
 
     this.props.createCard(newCard);

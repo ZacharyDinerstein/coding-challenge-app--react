@@ -48,12 +48,18 @@ export default class App extends Component {
     this.organizeCards(this.state.cards)
   }
 
+  checkState = () => {
+    console.log(this.state)
+  }
+
+
 
   render() {
     let { organizedCards } = this.state;
 
     return (
       <>
+        <button onClick={this.checkState}>Check State</button>
         <div className="cards-container cards-container--form">
           <Form createCard={(newCard) => { this.createCard(newCard) }} />
         </div>
