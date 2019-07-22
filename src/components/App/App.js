@@ -71,7 +71,15 @@ export default class App extends Component {
           return (
             <>
               <h1 className="dashbord__question-type">{tag}</h1>
-              <div className="cards-container cards-container--questions"></div>
+              <div className="cards-container cards-container--questions">
+
+                {cards.map((card, index) => {
+                  return (
+                    <Card key={index} cardData={card} />
+                  )
+                })}
+                
+              </div>
             </>
           )
         })}
@@ -80,11 +88,6 @@ export default class App extends Component {
 
 
 
-        {/* {cards.map((card, index) => {
-            return (
-              <Card key={index} cardData={card} />
-            )
-          })} */}
 
       </>
     );
