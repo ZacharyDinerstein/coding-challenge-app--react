@@ -36,7 +36,9 @@ export default class App extends Component {
         } else {
           organizedCards[category] = [card];
         }
+        return '';
       })
+      return '';
     })
 
     this.setState({

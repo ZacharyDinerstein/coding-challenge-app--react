@@ -37,9 +37,10 @@ const CardMainContent = (props) => {
             )
          })}
          {company && <p>{company}</p>}
-         {tags && cardData.tags.map((tag) => {
+
+         {tags && cardData.tags.map((tag, index) => {
             return (
-               <p>{tag}</p>
+               <p key={index}>{tag}</p>
             )
          })}
       </>
