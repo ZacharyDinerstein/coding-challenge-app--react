@@ -3,6 +3,7 @@ import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import LinkInput from './LinkInput';
 import TagInput from './TagInput';
 import CategoryInput from './CategoryInput';
+import CompanyInput from './CompanyInput';
 
 let INITIALSTATE = {
   question: '',
@@ -11,8 +12,9 @@ let INITIALSTATE = {
     example: ''
   }],
   links: [''],
-  tags: [''],
-  categories: ['']
+  categories: [''],
+  company: '',
+  tags: ['']
 }
 
 export default class Form extends Component {
@@ -80,14 +82,15 @@ export default class Form extends Component {
   createCard = (e) => {
     e.preventDefault();
 
-    let { question, answers, links, tags, categories } = this.state;
+    let { question, answers, links, tags, categories, company } = this.state;
 
     let newCard = {
       question: question,
       answers: answers,
       links: links,
-      tags: tags,
-      categories: categories
+      categories: categories,
+      company: company,
+      tags: tags
     };
 
     this.props.createCard(newCard);
@@ -171,6 +174,11 @@ export default class Form extends Component {
                   />
                 )
               })}
+
+              <CompanyInput
+                label="Company"
+                updateCardAttribute={(e) => this.updateCardAttribute(e)}
+              />
 
               {this.state.tags.map((item, index) => {
                 return (
