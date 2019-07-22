@@ -22,7 +22,7 @@ const CategoryInput = (props) => {
                 value={item}
                 required
             >
-                <option value="javascript">JavaScript</option>
+                <option value="javascript" selected>JavaScript</option>
                 <option value="react">React</option>
                 <option value="css">CSS</option>
                 <option value="html">HTML</option>
