@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
-import LinkInput from './LinkInput';
-import TagInput from './TagInput';
+import Input from './Input';
 import CategoryInput from './CategoryInput';
 import CompanyInput from './CompanyInput';
 
@@ -20,22 +19,19 @@ let INITIALSTATE = {
 export default class Form extends Component {
   state = INITIALSTATE;
 
-  updateCardAttribute = (e) => {
-    let { name, value } = e.target;
-
-    this.setState({
-      [name]: value
-    })
-  }
-
-  updateCardArrayAttribute = (e, index) => {
+  updateCardAttribute = (e, category, index) => {
     let { name, value } = e.target,
-      newArray = [...this.state[name]];
+      newEntry;
 
-    newArray[index] = value;
+    if (Array.isArray(this.state[category])) {
+      newEntry = [...this.state[name]];
+      newEntry[index] = value;
+    } else {
+      newEntry = value;
+    }
 
     this.setState({
-      [name]: newArray
+      [name]: newEntry
     })
   }
 
@@ -147,14 +143,16 @@ export default class Form extends Component {
                 )
               })}
 
-              {this.state.links.map((link, index) => {
+              {this.state.links.map((item, index) => {
                 return (
-                  <LinkInput
+                  <Input
+                    category="links"
+                    label="Link"
+                    afterLabel="URL"
                     key={index}
                     index={index}
-                    link={link}
-                    label="Link"
-                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    item={item}
+                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />
@@ -168,7 +166,7 @@ export default class Form extends Component {
                     index={index}
                     item={item}
                     label="Category"
-                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    updateCardAttribute={(e) => this.updateCardAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />
@@ -183,12 +181,13 @@ export default class Form extends Component {
 
               {this.state.tags.map((item, index) => {
                 return (
-                  <TagInput
+                  <Input
+                    category="tags"
+                    label="Tag"
                     key={index}
                     index={index}
                     item={item}
-                    label="Tag"
-                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />
