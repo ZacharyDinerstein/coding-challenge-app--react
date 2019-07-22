@@ -9,19 +9,25 @@ const CategoryInput = (props) => {
         index,
         label
     } = props,
-    category = "categories";
+        category = "categories";
 
     return (
         <>
             <label htmlFor="">{label}</label>
-            <input
+            <select
                 type="text"
                 placeholder="Optional"
                 name={category}
                 onChange={updateCardArrayAttribute}
                 value={item}
                 required
-            />
+            >
+                <option value="javascript">JavaScript</option>
+                <option value="react">React</option>
+                <option value="css">CSS</option>
+                <option value="html">HTML</option>
+                <option value="ruby">Ruby</option>
+            </select>
             <div className="form__buttons-wrapper">
                 <AddInputsBtn
                     category={category}
