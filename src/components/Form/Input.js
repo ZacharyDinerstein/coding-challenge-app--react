@@ -2,24 +2,29 @@ import React from 'react';
 import AddInputsBtn from '../Button/AddInputsBtn';
 import RemoveInputsBtn from '../Button/RemoveInputsBtn';
 
-const LinkInputs = (props) => {
+const Inputs = (props) => {
     let {
-        link,
+        item,
         updateCardArrayAttribute,
         index,
-        label
-    } = props,
-    category = "links";
+        label,
+        afterLabel,
+        category,
+        required,
+        state
+    } = props;
+
+    let placeholder = required ? "":"Optional";
 
     return (
         <>
-            <label htmlFor="">{label} URL</label>
+            <label htmlFor="">{label} {afterLabel}</label>
             <input
                 type="text"
-                placeholder="Optional"
+                placeholder={placeholder}
                 name={category}
                 onChange={updateCardArrayAttribute}
-                value={link}
+                value={item}
             />
             <div className="form__buttons-wrapper">
                 <AddInputsBtn
@@ -40,4 +45,4 @@ const LinkInputs = (props) => {
     )
 }
 
-export default LinkInputs;
+export default Inputs;

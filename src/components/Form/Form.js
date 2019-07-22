@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
-import LinkInput from './LinkInput';
+import Input from './Input';
 import TagInput from './TagInput';
 import CategoryInput from './CategoryInput';
 import CompanyInput from './CompanyInput';
@@ -147,13 +147,15 @@ export default class Form extends Component {
                 )
               })}
 
-              {this.state.links.map((link, index) => {
+              {this.state.links.map((item, index) => {
                 return (
-                  <LinkInput
+                  <Input
+                    category="links"
+                    label="Link"
+                    afterLabel="URL"
                     key={index}
                     index={index}
-                    link={link}
-                    label="Link"
+                    item={item}
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
@@ -183,11 +185,12 @@ export default class Form extends Component {
 
               {this.state.tags.map((item, index) => {
                 return (
-                  <TagInput
+                  <Input
+                    category="tags"
+                    label="Tag"
                     key={index}
                     index={index}
                     item={item}
-                    label="Tag"
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
