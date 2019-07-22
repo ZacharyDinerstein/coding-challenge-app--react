@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import Input from './Input';
-import TagInput from './TagInput';
 import CategoryInput from './CategoryInput';
 import CompanyInput from './CompanyInput';
 
@@ -20,22 +19,19 @@ let INITIALSTATE = {
 export default class Form extends Component {
   state = INITIALSTATE;
 
-  updateCardAttribute = (e) => {
-    let { name, value } = e.target;
-
-    this.setState({
-      [name]: value
-    })
-  }
-
-  updateCardArrayAttribute = (e, index) => {
+  updateCardAttribute = (e, category, index) => {
     let { name, value } = e.target,
-      newArray = [...this.state[name]];
+      newEntry;
 
-    newArray[index] = value;
+    if (Array.isArray(this.state[category])) {
+      newEntry = [...this.state[name]];
+      newEntry[index] = value;
+    } else {
+      newEntry = value;
+    }
 
     this.setState({
-      [name]: newArray
+      [name]: newEntry
     })
   }
 
@@ -156,7 +152,7 @@ export default class Form extends Component {
                     key={index}
                     index={index}
                     item={item}
-                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />
@@ -170,7 +166,7 @@ export default class Form extends Component {
                     index={index}
                     item={item}
                     label="Category"
-                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    updateCardAttribute={(e) => this.updateCardAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />
@@ -191,7 +187,7 @@ export default class Form extends Component {
                     key={index}
                     index={index}
                     item={item}
-                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />

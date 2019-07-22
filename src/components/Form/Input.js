@@ -5,13 +5,12 @@ import RemoveInputsBtn from '../Button/RemoveInputsBtn';
 const Inputs = (props) => {
     let {
         item,
-        updateCardArrayAttribute,
         index,
         label,
         afterLabel,
         category,
         required,
-        state
+        updateCardAttribute
     } = props;
 
     let placeholder = required ? "":"Optional";
@@ -23,7 +22,7 @@ const Inputs = (props) => {
                 type="text"
                 placeholder={placeholder}
                 name={category}
-                onChange={updateCardArrayAttribute}
+                onChange={(e) => updateCardAttribute(e, category)}
                 value={item}
             />
             <div className="form__buttons-wrapper">
