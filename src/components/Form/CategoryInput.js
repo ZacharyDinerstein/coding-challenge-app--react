@@ -2,14 +2,14 @@ import React from 'react';
 import AddInputsBtn from '../Button/AddInputsBtn';
 import RemoveInputsBtn from '../Button/RemoveInputsBtn';
 
-const TagInput = (props) => {
+const CategoryInput = (props) => {
     let {
         item,
         updateCardArrayAttribute,
         index,
         label
     } = props,
-    category = "tags";
+    category = "categories";
 
     return (
         <>
@@ -20,6 +20,7 @@ const TagInput = (props) => {
                 name={category}
                 onChange={updateCardArrayAttribute}
                 value={item}
+                required
             />
             <div className="form__buttons-wrapper">
                 <AddInputsBtn
@@ -40,4 +41,4 @@ const TagInput = (props) => {
     )
 }
 
-export default TagInput;
+export default CategoryInput;

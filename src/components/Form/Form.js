@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import LinkInput from './LinkInput';
 import TagInput from './TagInput';
+import CategoryInput from './CategoryInput';
 
 let INITIALSTATE = {
   question: '',
@@ -10,7 +11,8 @@ let INITIALSTATE = {
     example: ''
   }],
   links: [''],
-  tags: ['']
+  tags: [''],
+  categories: ['']
 }
 
 export default class Form extends Component {
@@ -148,6 +150,20 @@ export default class Form extends Component {
                     index={index}
                     link={link}
                     label="Link"
+                    updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
+                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
+                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
+                  />
+                )
+              })}
+
+              {this.state.categories.map((item, index) => {
+                return (
+                  <CategoryInput
+                    key={index}
+                    index={index}
+                    item={item}
+                    label="Category"
                     updateCardArrayAttribute={(e) => this.updateCardArrayAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}

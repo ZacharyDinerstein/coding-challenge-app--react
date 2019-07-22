@@ -28,13 +28,13 @@ export default class App extends Component {
 
     cards.map(card => {
 
-      card.tags && card.tags.map(tag => {
-        tag = tag.toLowerCase();
+      card.categories && card.categories.map(category => {
+        category = category.toLowerCase();
 
-        if (organizedCards[tag]) {
-          organizedCards[tag].push(card);
+        if (organizedCards[category]) {
+          organizedCards[category].push(card);
         } else {
-          organizedCards[tag] = [card];
+          organizedCards[category] = [card];
         }
       })
     })
@@ -58,13 +58,13 @@ export default class App extends Component {
           <Form createCard={(newCard) => { this.createCard(newCard) }} />
         </div>
 
-        {organizedCards && Object.keys(organizedCards).map(tag => {
-          let cards = organizedCards[tag];
-          tag = tag.toUpperCase();
+        {organizedCards && Object.keys(organizedCards).map(category => {
+          let cards = organizedCards[category];
+          category = category.toUpperCase();
 
           return (
             <>
-              <h1 className="dashbord__question-type">{tag}</h1>
+              <h1 className="dashbord__question-type">{category}</h1>
               <div className="cards-container cards-container--questions">
 
                 {cards.map((card, index) => {

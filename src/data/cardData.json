@@ -12,7 +12,7 @@
             }
         ],
         "links": [],
-        "tags": [
+        "categories": [
             "JavaScript"
         ]
     },
@@ -24,7 +24,7 @@
             }
         ],
         "links": [],
-        "tags": [
+        "categories": [
             "JavaScript",
             "React",
             "State"
@@ -41,7 +41,7 @@
         "links": [
             "https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about"
         ],
-        "tags": [
+        "categories": [
             "JavaScript",
             "ES6"
         ]
