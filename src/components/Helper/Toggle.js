@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const Toggle = (props) => {
   const [on, toggle] = useState(false);
 
