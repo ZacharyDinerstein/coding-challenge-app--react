@@ -29,12 +29,12 @@ export default class Form extends Component {
       object = newEntry[index];
       object[name] = value;
 
-    //Add new value to a string that's part of an Array within state
+      //Add new value to a string that's part of an Array within state
     } else if (Array.isArray(this.state[category])) {
       newEntry = [...this.state[name]];
       newEntry[index] = value;
 
-    //Add new value to a string within state
+      //Add new value to a string within state
     } else {
       newEntry = value;
     }
@@ -115,13 +115,12 @@ export default class Form extends Component {
             <h1>Create New Card</h1>
             <p className="sub-header">(Use COMMAND key to indent)</p>
             <div className="form__inputs-wrapper">
-
-              <label htmlFor="">Question</label>
-              <input
-                type="text"
-                name="question"
-                onChange={this.updateCardAttribute}
+              <Input
+                label="Question"
+                category="question"
                 value={this.state.question}
+                includeAddRemoveButtons={false}
+                updateCardAttribute={(e) => this.updateCardAttribute(e)}
                 required
               />
 
@@ -144,12 +143,12 @@ export default class Form extends Component {
               {this.state.links.map((item, index) => {
                 return (
                   <Input
-                    category="links"
                     label="Link"
+                    category="links"
                     afterLabel="URL"
                     key={index}
                     index={index}
-                    item={item}
+                    value={item}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
@@ -163,7 +162,7 @@ export default class Form extends Component {
                     label="Category"
                     key={index}
                     index={index}
-                    item={item}
+                    value={item}
                     updateCardAttribute={(e) => this.updateCardAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
@@ -174,6 +173,7 @@ export default class Form extends Component {
               <Input
                 label="Company"
                 category="company"
+                includeAddRemoveButtons={false}
                 updateCardAttribute={(e) => this.updateCardAttribute(e)}
               />
 
@@ -184,7 +184,7 @@ export default class Form extends Component {
                     category="tags"
                     key={index}
                     index={index}
-                    item={item}
+                    value={item}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}

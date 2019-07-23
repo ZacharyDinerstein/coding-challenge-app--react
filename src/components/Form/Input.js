@@ -4,16 +4,20 @@ import RemoveInputsBtn from '../Button/RemoveInputsBtn';
 
 const Inputs = (props) => {
     let {
-        item,
+        value,
         index,
         label,
         afterLabel,
         category,
         required,
-        updateCardAttribute
+        updateCardAttribute,
+        includeAddRemoveButtons
     } = props;
 
-    let placeholder = required ? "":"Optional";
+    let placeholder = required ? "" : "Optional",
+        includeButtons = true;
+
+    if (includeAddRemoveButtons === false) { includeButtons = false };
 
     return (
         <>
@@ -23,23 +27,25 @@ const Inputs = (props) => {
                 placeholder={placeholder}
                 name={category}
                 onChange={(e) => updateCardAttribute(e, category)}
-                value={item}
+                value={value}
             />
-            <div className="form__buttons-wrapper">
-                <AddInputsBtn
-                    category={category}
-                    handleAddNewInputs={(category) => props.handleAddNewInputs(category)}
-                >
-                    Add {label}
-                </AddInputsBtn>
-                <RemoveInputsBtn
-                    index={index}
-                    category={category}
-                    handleRemoveInputs={(elemToRemove) => props.handleRemoveInputs(elemToRemove)}
-                >
-                    Remove
-                </RemoveInputsBtn>
-            </div>
+            {includeButtons &&
+                <div className="form__buttons-wrapper">
+                    <AddInputsBtn
+                        category={category}
+                        handleAddNewInputs={(category) => props.handleAddNewInputs(category)}
+                    >
+                        Add {label}
+                    </AddInputsBtn>
+                    <RemoveInputsBtn
+                        index={index}
+                        category={category}
+                        handleRemoveInputs={(elemToRemove) => props.handleRemoveInputs(elemToRemove)}
+                    >
+                        Remove
+                    </RemoveInputsBtn>
+                </div>
+            }
         </>
     )
 }
