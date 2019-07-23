@@ -50,7 +50,7 @@
   }
   &.card--full-width {
     grid-column: 1 / -1;
-    grid-row-start: 1;
+    // grid-row-start: 1;
   }
   .card__answer-wrapper {
     margin-bottom: 4rem;
