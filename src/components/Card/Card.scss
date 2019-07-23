@@ -17,6 +17,13 @@
       margin-bottom: 0rem;
       margin: 0rem;
     }
+    .card {
+      &:hover {
+        cursor: pointer;
+        background: #dcdcdc;
+        transition: 0.5s;
+      }
+    }
   }
   &.cards-container--form {
     grid-template-columns: 1fr 3fr 1fr;
@@ -69,7 +76,6 @@
   padding-right: 6rem;
   grid-column: 2 / 3;
   .form {
-    
     .form__inputs-wrapper {
       display: grid;
       grid-template-columns: 2fr 8fr;
