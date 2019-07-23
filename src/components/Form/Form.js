@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import Input from './Input';
 import CategoryInput from './CategoryInput';
-import CompanyInput from './CompanyInput';
 
 let INITIALSTATE = {
   question: '',
@@ -21,29 +20,27 @@ export default class Form extends Component {
 
   updateCardAttribute = (e, category, index) => {
     let { name, value } = e.target,
-      newEntry;
+      newEntry,
+      object;
 
-    if (Array.isArray(this.state[category])) {
+    //Add new value to a string that's part of an object that's part of an Array within state
+    if (category && typeof this.state[category][index] === "object") {
+      newEntry = [...this.state.answers];
+      object = newEntry[index];
+      object[name] = value;
+
+    //Add new value to a string that's part of an Array within state
+    } else if (Array.isArray(this.state[category])) {
       newEntry = [...this.state[name]];
       newEntry[index] = value;
+
+    //Add new value to a string within state
     } else {
       newEntry = value;
     }
 
     this.setState({
       [name]: newEntry
-    })
-  }
-
-  updateObjectAttributeWithinCardsArray = (e, index) => {
-    let { name, value } = e.target,
-      newArray = [...this.state.answers],
-      object = newArray[index];
-
-    object[name] = value;
-
-    this.setState({
-      answers: newArray
     })
   }
 
@@ -131,9 +128,10 @@ export default class Form extends Component {
               {this.state.answers.map((answerObj, index) => {
                 return (
                   <AnswerAndExampleInputs
+                    category="answers"
                     answer={answerObj['answer']}
                     example={answerObj['example']}
-                    updateObjectAttributeWithinCardsArray={(e) => this.updateObjectAttributeWithinCardsArray(e, index)}
+                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     allowTabs={this.allowTabs}
                     key={index}
                     index={index}
@@ -162,10 +160,10 @@ export default class Form extends Component {
               {this.state.categories.map((item, index) => {
                 return (
                   <CategoryInput
+                    label="Category"
                     key={index}
                     index={index}
                     item={item}
-                    label="Category"
                     updateCardAttribute={(e) => this.updateCardAttribute(e, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
@@ -173,17 +171,17 @@ export default class Form extends Component {
                 )
               })}
 
-              <CompanyInput
+              <Input
                 label="Company"
-                item={this.state.company}
+                category="company"
                 updateCardAttribute={(e) => this.updateCardAttribute(e)}
               />
 
               {this.state.tags.map((item, index) => {
                 return (
                   <Input
-                    category="tags"
                     label="Tag"
+                    category="tags"
                     key={index}
                     index={index}
                     item={item}

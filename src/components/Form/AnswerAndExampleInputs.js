@@ -6,11 +6,11 @@ const AnswerAndExampleInputs = (props) => {
     let {
         answer,
         example,
-        updateObjectAttributeWithinCardsArray,
+        updateCardAttribute,
         allowTabs,
-        index
-    } = props,
-    category = "answers";
+        index,
+        category
+    } = props;
 
     return (
         <>
@@ -19,7 +19,7 @@ const AnswerAndExampleInputs = (props) => {
                 type="text"
                 name="answer"
                 value={answer}
-                onChange={updateObjectAttributeWithinCardsArray}
+                onChange={(e) => updateCardAttribute(e, category)}
                 onKeyDown={allowTabs}
                 required
             />
@@ -29,7 +29,7 @@ const AnswerAndExampleInputs = (props) => {
                 type="text"
                 name="example"
                 value={example}
-                onChange={updateObjectAttributeWithinCardsArray}
+                onChange={(e) => updateCardAttribute(e, category)}
                 onKeyDown={allowTabs}
                 placeholder="Optional"
             />
