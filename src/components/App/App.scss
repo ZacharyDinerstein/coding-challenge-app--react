@@ -22,7 +22,6 @@ html {
 
 body {
   font-size: 2rem;
-  padding: 0em 2rem;
   display: grid;
   padding-bottom: 4rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -30,7 +29,6 @@ body {
   background-image: url("./imgs/topography.svg"), linear-gradient(110deg, #f93df6, #1d47d9);
   background-size: 340px, auto;
   min-height: calc(100vh - 100px);
-  margin: 50px;
   /* background: white; */
   background-attachment: fixed;
   letter-spacing: -1px;
