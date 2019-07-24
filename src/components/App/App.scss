@@ -22,6 +22,12 @@
   src: local("Adam"), url(./fonts/Adam.otf) format("opentype");
 }
 
+@font-face {
+  font-family: "Novar";
+  font-style: normal;
+  src: local("Novar"), url(./fonts/Novar.ttf) format("truetype");
+}
+
 html {
   font-size: 10px;
 }
@@ -30,7 +36,7 @@ body {
   font-size: 2rem;
   display: grid;
   padding-bottom: 4rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, Arial,  sans-serif;
 
   background-image: url("./imgs/topography.svg"), linear-gradient(110deg, #f93df6, #1d47d9);
   background-size: 340px, auto;
@@ -74,6 +80,10 @@ header {
       letter-spacing: 0.6rem;
     }
   }
+}
+
+main {
+  padding: 0rem 4rem;
 }
 
 .dashbord__question-type {

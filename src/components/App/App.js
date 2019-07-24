@@ -73,25 +73,27 @@ export default class App extends Component {
           <Form createCard={(newCard) => { this.createCard(newCard) }} />
         </div>
 
-        {organizedCards && Object.keys(organizedCards).map(category => {
-          let cards = organizedCards[category];
-          category = category.toUpperCase();
+        <main>
+          {organizedCards && Object.keys(organizedCards).map(category => {
+            let cards = organizedCards[category];
+            category = category.toUpperCase();
 
-          return (
-            <>
-              <h1 className="dashbord__question-type">{category}</h1>
-              <div className="cards-container cards-container--questions">
+            return (
+              <>
+                <h1 className="dashbord__question-type">{category}</h1>
+                <div className="cards-container cards-container--questions">
 
-                {cards.map((card, index) => {
-                  return (
-                    <Card key={index} cardData={card} />
-                  )
-                })}
+                  {cards.map((card, index) => {
+                    return (
+                      <Card key={index} cardData={card} />
+                    )
+                  })}
 
-              </div>
-            </>
-          )
-        })}
+                </div>
+              </>
+            )
+          })}
+        </main>
 
       </>
     );
