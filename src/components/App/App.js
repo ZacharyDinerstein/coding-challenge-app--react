@@ -14,7 +14,7 @@ export default class App extends Component {
     }
   }
 
- 
+
   createCard = (newCard) => {
     this.setState({
       cards: [...this.state.cards, newCard]
@@ -63,7 +63,10 @@ export default class App extends Component {
       <>
         {/* <button onClick={this.checkState}>Check State</button> */}
         <header>
-          <h1 className="header__banner-text">Learn From Interview Fails</h1>
+          <div className="banner-text-container">
+            <h1 className="banner-text">Learn From Interview</h1>
+            <h1 className="banner-text banner-text--larger">Fails</h1>
+          </div>
         </header>
 
         <div className="cards-container cards-container--form">
