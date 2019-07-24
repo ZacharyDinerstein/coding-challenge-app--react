@@ -16,6 +16,12 @@
   src: local("Vontens"), url(./fonts/Vontens.otf) format("opentype");
 }
 
+@font-face {
+  font-family: "Adam";
+  font-style: normal;
+  src: local("Adam"), url(./fonts/Adam.otf) format("opentype");
+}
+
 html {
   font-size: 10px;
 }
@@ -72,6 +78,7 @@ header {
 
 .dashbord__question-type {
   margin-bottom: 4rem;
+  font-family: Adam;
 }
 
 .hidden {
