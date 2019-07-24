@@ -62,6 +62,10 @@ export default class App extends Component {
     return (
       <>
         {/* <button onClick={this.checkState}>Check State</button> */}
+        <header>
+          <h1 className="header__banner-text">Learn From Interview Fails</h1>
+        </header>
+
         <div className="cards-container cards-container--form">
           <Form createCard={(newCard) => { this.createCard(newCard) }} />
         </div>
