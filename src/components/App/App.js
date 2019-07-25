@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './App.scss';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
@@ -10,10 +10,18 @@ export default class App extends Component {
     super(props);
     this.state = {
       cards: cardData,
-      organizedCards: {}
+      organizedCards: {},
+      formVisible: false
     }
   }
 
+  componentDidMount = () => {
+    this.organizeCards(this.state.cards)
+  }
+
+  checkState = () => {
+    console.log(this.state)
+  }
 
   createCard = (newCard) => {
     this.setState({
@@ -22,6 +30,16 @@ export default class App extends Component {
       this.organizeCards(this.state.cards)
     })
   }
+
+  toggleComponent = () => {
+    let { formVisible } = this.state;
+
+    this.setState({
+      formVisible: !formVisible
+    })
+  }
+
+
 
   organizeCards = (cards) => {
     let organizedCards = {};
@@ -46,18 +64,11 @@ export default class App extends Component {
     })
   }
 
-  componentDidMount = () => {
-    this.organizeCards(this.state.cards)
-  }
-
-  checkState = () => {
-    console.log(this.state)
-  }
 
 
 
   render() {
-    let { organizedCards } = this.state;
+    let { organizedCards, formVisible } = this.state;
 
     return (
       <>
@@ -66,12 +77,16 @@ export default class App extends Component {
           <div className="banner-text-container">
             <h1 className="banner-text">Learn From Interview</h1>
             <h1 className="banner-text banner-text--larger">Fails</h1>
+            <button onClick={this.toggleComponent}>Create New Card</button>
           </div>
         </header>
 
-        <div className="cards-container cards-container--form">
-          <Form createCard={(newCard) => { this.createCard(newCard) }} />
-        </div>
+
+        <Form
+          createCard={(newCard) => { this.createCard(newCard) }}
+          toggleComponent={this.toggleComponent}
+          formVisible={formVisible}
+        />
 
         <main>
           {organizedCards && Object.keys(organizedCards).map(category => {

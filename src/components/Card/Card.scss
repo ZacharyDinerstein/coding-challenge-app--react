@@ -76,6 +76,7 @@
   padding-right: 6rem;
   grid-column: 2 / 3;
   .form {
+    position: relative;
     .form__inputs-wrapper {
       display: grid;
       grid-template-columns: 2fr 8fr;
@@ -101,7 +102,15 @@
         }
       }
     }
-    h1, label {
+    .form__close-button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: darkslategray;
+      cursor: pointer;
+    }
+    h1,
+    label {
       font-family: Adam;
     }
     label {
@@ -118,4 +127,8 @@
       font-size: 1.6rem;
     }
   }
+}
+
+.hidden {
+  display: none;
 }

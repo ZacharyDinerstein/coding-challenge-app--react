@@ -15,6 +15,7 @@ let INITIALSTATE = {
   tags: ['']
 }
 
+
 export default class Form extends Component {
   state = INITIALSTATE;
 
@@ -75,7 +76,8 @@ export default class Form extends Component {
   createCard = (e) => {
     e.preventDefault();
 
-    let { question, answers, links, tags, categories, company } = this.state;
+    let { question, answers, links, tags, categories, company } = this.state,
+      { createCard, toggleComponent } = this.props;
 
     let newCard = {
       question: question,
@@ -86,7 +88,8 @@ export default class Form extends Component {
       tags: tags
     };
 
-    this.props.createCard(newCard);
+    createCard(newCard);
+    toggleComponent();
     this.resetState();
   }
 
@@ -104,15 +107,26 @@ export default class Form extends Component {
     }
   }
 
+
   render() {
+    let { formVisible, toggleComponent } = this.props,
+      classes = formVisible ? 'cards-container cards-container--form' : 'cards-container cards-container--form hidden';
+
+
     return (
-      <>
+      <div className={classes}>
+
         <div className="card card--form">
           <form
             className="form"
             onSubmit={this.createCard}
           >
             <h1>Create New Card</h1>
+            <h1
+              className="form__close-button"
+              onClick={toggleComponent}>
+              X
+            </h1>
             <p className="sub-header">(Use COMMAND key to indent)</p>
             <div className="form__inputs-wrapper">
               <Input
@@ -195,7 +209,7 @@ export default class Form extends Component {
             <button className="hidden" type="submit">Submit</button>
           </form>
         </div>
-      </>
+      </div>
     )
   }
 }
