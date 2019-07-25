@@ -22,13 +22,9 @@ const CardMainContent = (props) => {
                   {answer.example &&
                      <div className="card__example-wrapper">
                         <p className="card__example-title">Example:</p>
-                        {/* <pre className="card__code-wrapper prettyprint">
-                           <code className="card__example"> */}
                         <SyntaxHighlighter language="javascript" style={atomOneDarkReasonable}>
                            {answer.example}
                         </SyntaxHighlighter>
-                        {/* </code>
-                        </pre> */}
                      </div>
                   }
                </div>

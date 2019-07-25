@@ -55,6 +55,12 @@
   }
   .card__answer-wrapper {
     margin-bottom: 4rem;
+    .card__answer {
+      max-width: 82rem;
+      background: #f2f2f2;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
   }
 
   .card__question {
