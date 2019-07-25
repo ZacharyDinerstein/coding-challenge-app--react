@@ -3,8 +3,6 @@ import './App.scss';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
 import cardData from '../../data/cardData.json';
-// import prettify from '../../assets/google-code-prettify/run_prettify';
-// import prettifyCss from '../../assets/google-code-prettify/prettify.css';
 
 
 export default class App extends Component {
@@ -13,7 +11,7 @@ export default class App extends Component {
     this.state = {
       cards: cardData,
       organizedCards: {},
-      formVisible: false
+      formVisible: true
     }
   }
 

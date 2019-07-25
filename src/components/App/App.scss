@@ -36,19 +36,25 @@ body {
   font-size: 2rem;
   display: grid;
   padding-bottom: 4rem;
-  font-family: Helvetica, Arial,  sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   
   background-image: url("./imgs/topography.svg"), linear-gradient(110deg, #f93df6, #1d47d9);
   background-size: 340px, auto;
   min-height: calc(100vh - 100px);
   /* background: white; */
   background-attachment: fixed;
-  letter-spacing: -1px;
 }
   
 pre {
   font-size: 2rem;
   font-family: Helvetica, Arial,  sans-serif;
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+code {
+  font-size: 1.8rem;
+  font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
 }
 
 header {

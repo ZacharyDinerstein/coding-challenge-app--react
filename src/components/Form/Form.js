@@ -96,7 +96,9 @@ export default class Form extends Component {
   allowTabs = (e) => {
     let t = e.target;
 
-    if (e.keyCode === 91) {
+    console.log(e.keyCode)
+
+    if (e.keyCode === 18) {
       let v = t.value,
         s = t.selectionStart,
         e = t.selectionEnd;
@@ -127,7 +129,7 @@ export default class Form extends Component {
               onClick={toggleComponent}>
               X
             </h1>
-            <p className="sub-header">(Use COMMAND key to indent)</p>
+            <p className="sub-header">(Use OPTION key to indent)</p>
             <div className="form__inputs-wrapper">
               <Input
                 label="Question"
