@@ -28,6 +28,7 @@ const Inputs = (props) => {
                 name={category}
                 onChange={(e) => updateCardAttribute(e, category)}
                 value={value}
+                required={required}
             />
             {includeButtons &&
                 <div className="form__buttons-wrapper">

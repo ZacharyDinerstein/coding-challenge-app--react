@@ -20,10 +20,10 @@ const CardMainContent = (props) => {
                   {answer.example &&
                      <div className="card__example-wrapper">
                         <p className="card__example-title">Example:</p>
-                        <pre className="card__code-wrapper">
-                           <code className="card__example">
+                        <pre className="card__code-wrapper prettyprint">
+                           {/* <code className="card__example"> */}
                               {answer.example}
-                           </code>
+                           {/* </code> */}
                         </pre>
                      </div>
                   }

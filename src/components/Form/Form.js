@@ -135,7 +135,7 @@ export default class Form extends Component {
                 value={this.state.question}
                 includeAddRemoveButtons={false}
                 updateCardAttribute={(e) => this.updateCardAttribute(e)}
-                required
+                required={true}
               />
 
               {this.state.answers.map((answerObj, index) => {
@@ -191,7 +191,7 @@ export default class Form extends Component {
                   />
                 )
               })}
-              
+
               {this.state.tags.map((item, index) => {
                 return (
                   <Input
