@@ -154,21 +154,6 @@ export default class Form extends Component {
                 )
               })}
 
-              {this.state.links.map((item, index) => {
-                return (
-                  <Input
-                    label="Link"
-                    category="links"
-                    afterLabel="URL"
-                    key={index}
-                    index={index}
-                    value={item}
-                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
-                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
-                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
-                  />
-                )
-              })}
 
               {this.state.categories.map((item, index) => {
                 return (
@@ -191,6 +176,22 @@ export default class Form extends Component {
                 updateCardAttribute={(e) => this.updateCardAttribute(e)}
               />
 
+              {this.state.links.map((item, index) => {
+                return (
+                  <Input
+                    label="Link"
+                    category="links"
+                    afterLabel="URL"
+                    key={index}
+                    index={index}
+                    value={item}
+                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
+                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
+                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
+                  />
+                )
+              })}
+              
               {this.state.tags.map((item, index) => {
                 return (
                   <Input
