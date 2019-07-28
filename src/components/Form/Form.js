@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import Input from './Input';
 import CategoryInput from './CategoryInput';
-import shortid from 'shortid';
 
 let INITIALSTATE = {
   question: '',
@@ -72,7 +71,11 @@ export default class Form extends Component {
     })
   }
 
-  resetState = () => { this.setState(INITIALSTATE) }
+  resetState = () => { 
+    this.setState(
+      INITIALSTATE
+    ) 
+  }
 
   createCard = (e) => {
     e.preventDefault();
@@ -108,6 +111,10 @@ export default class Form extends Component {
     }
   }
 
+  showState = () => {
+    console.log(this.state)
+  }
+
 
   render() {
     let { formVisible, toggleComponent } = this.props,
@@ -118,6 +125,7 @@ export default class Form extends Component {
       <div className={classes}>
 
         <div className="card card--form">
+          <button onClick={this.showState}>SHOW STATE</button>
           <form
             className="form"
             onSubmit={this.createCard}
@@ -173,6 +181,7 @@ export default class Form extends Component {
               <Input
                 label="Company"
                 category="company"
+                value={this.state.company}
                 includeAddRemoveButtons={false}
                 updateCardAttribute={(e) => this.updateCardAttribute(e)}
               />
