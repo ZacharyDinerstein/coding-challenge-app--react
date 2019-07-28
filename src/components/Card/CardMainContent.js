@@ -15,7 +15,7 @@ const CardMainContent = (props) => {
 
    return (
       <>
-         {answers.map((answer) => {
+         {answers.map((answer, index) => {
             return (
                <div key={shortid.generate()} className="card__answer-wrapper">
                   <pre className="card__answer">{answer.answer}</pre>

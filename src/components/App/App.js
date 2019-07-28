@@ -3,6 +3,7 @@ import './App.scss';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
 import cardData from '../../data/cardData.json';
+import shortid from 'shortid';
 
 
 export default class App extends Component {
@@ -89,23 +90,23 @@ export default class App extends Component {
         />
 
         <main>
-          {organizedCards && Object.keys(organizedCards).map(category => {
+          {organizedCards && Object.keys(organizedCards).map((category, index) => {
             let cards = organizedCards[category];
             category = category.toUpperCase();
 
             return (
-              <>
+              <div key={shortid.generate()} className="dashbord__question-section">
                 <h1 className="dashbord__question-type">{category}</h1>
                 <div className="cards-container cards-container--questions">
 
                   {cards.map((card, index) => {
                     return (
-                      <Card key={index} cardData={card} />
+                      <Card key={shortid.generate()} cardData={card} />
                     )
                   })}
 
                 </div>
-              </>
+              </div>
             )
           })}
         </main>
