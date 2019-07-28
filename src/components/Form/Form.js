@@ -11,7 +11,7 @@ let INITIALSTATE = {
     example: ''
   }],
   links: [''],
-  categories: [''],
+  categories: ['javascript'],
   company: '',
   tags: ['']
 }
@@ -24,11 +24,6 @@ export default class Form extends Component {
     let { name, value } = e.target,
       newEntry,
       object;
-
-      console.log(name)
-      console.log(category)
-      console.log(value)
-      console.log(index)
 
     // Add new value to a string that's part of an object that's part of an Array within state
     if (category && typeof this.state[category][index] === "object") {
@@ -152,7 +147,7 @@ export default class Form extends Component {
                     example={answerObj['example']}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     allowTabs={this.allowTabs}
-                    key={shortid.generate()}
+                    key={index}
                     index={index}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
@@ -165,7 +160,7 @@ export default class Form extends Component {
                 return (
                   <CategoryInput
                     label="Category"
-                    key={shortid.generate()}
+                    key={index}
                     index={index}
                     value={item}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
