@@ -26,23 +26,41 @@ export default class Form extends Component {
 
     // Add new value to a string that's part of an object that's part of an Array within state
     if (category && typeof this.state[category][index] === "object") {
+      console.log("Updating OBJECT")
+      
       newEntry = [...this.state.answers];
+      console.log(newEntry)
+      
       object = newEntry[index];
-      object[name] = value;
+      console.log(object)
 
+      object[name] = value;
+      console.log(value)
+      console.log(name)
+      console.log(object[name])
+
+      this.setState({
+        [category]: newEntry
+      })
+      
       //Add new value to a string that's part of an Array within state
     } else if (Array.isArray(this.state[category])) {
       newEntry = [...this.state[name]];
       newEntry[index] = value;
 
+      this.setState({
+        [name]: newEntry
+      })
+
       //Add new value to a string within state
     } else {
       newEntry = value;
+      
+      this.setState({
+        [name]: newEntry
+      })
     }
 
-    this.setState({
-      [name]: newEntry
-    })
   }
 
   handleAddNewInputs = (category, index) => {
@@ -72,9 +90,17 @@ export default class Form extends Component {
   }
 
   resetState = () => { 
-    this.setState(
-      INITIALSTATE
-    ) 
+    this.setState({
+      question: '',
+      answers: [{
+        answer: '',
+        example: ''
+      }],
+      links: [''],
+      categories: ['javascript'],
+      company: '',
+      tags: ['']
+    }) 
   }
 
   createCard = (e) => {
@@ -147,12 +173,12 @@ export default class Form extends Component {
                 required={true}
               />
 
-              {this.state.answers.map((answerObj, index) => {
+              {this.state.answers.map((item, index) => {
                 return (
                   <AnswerAndExampleInputs
                     category="answers"
-                    answer={answerObj['answer']}
-                    example={answerObj['example']}
+                    answer={item['answer']}
+                    example={item['example']}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     allowTabs={this.allowTabs}
                     key={index}
