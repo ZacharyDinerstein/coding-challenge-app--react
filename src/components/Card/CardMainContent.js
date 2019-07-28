@@ -41,12 +41,12 @@ const CardMainContent = (props) => {
 
          {tags && cardData.tags.map((tag, index) => {
             return (
-               <p key={index}>{tag}</p>
+               <p key={shortid.generate()}>{tag}</p>
             )
          })}
          {categories && cardData.categories.map((category, index) => {
             return (
-               <p key={index}>{category}</p>
+               <p key={shortid.generate()}>{category}</p>
             )
          })}
       </>

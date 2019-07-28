@@ -15,7 +15,6 @@ const CategoryInput = (props) => {
     const handleChange = (e) => {
         updateSelectedValue(e.target.value);
         updateCardAttribute(e, category, index);
-        // console.log(e.target.value)
     }
 
 

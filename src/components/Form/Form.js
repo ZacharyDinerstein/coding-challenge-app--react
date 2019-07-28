@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import Input from './Input';
 import CategoryInput from './CategoryInput';
+import shortid from 'shortid';
 
 let INITIALSTATE = {
   question: '',
@@ -151,7 +152,7 @@ export default class Form extends Component {
                     example={answerObj['example']}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     allowTabs={this.allowTabs}
-                    key={index}
+                    key={shortid.generate()}
                     index={index}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
@@ -164,7 +165,7 @@ export default class Form extends Component {
                 return (
                   <CategoryInput
                     label="Category"
-                    key={index}
+                    key={shortid.generate()}
                     index={index}
                     value={item}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
@@ -187,7 +188,7 @@ export default class Form extends Component {
                     label="Link"
                     category="links"
                     afterLabel="URL"
-                    key={index}
+                    key={shortid.generate()}
                     index={index}
                     value={item}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
@@ -202,7 +203,7 @@ export default class Form extends Component {
                   <Input
                     label="Tag"
                     category="tags"
-                    key={index}
+                    key={shortid.generate()}
                     index={index}
                     value={item}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
