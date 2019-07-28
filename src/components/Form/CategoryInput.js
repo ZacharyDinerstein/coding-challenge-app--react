@@ -4,7 +4,6 @@ import RemoveInputsBtn from '../Button/RemoveInputsBtn';
 
 const CategoryInput = (props) => {
     let {
-        item,
         updateCardAttribute,
         index,
         label
