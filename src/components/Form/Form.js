@@ -183,7 +183,7 @@ export default class Form extends Component {
                     label="Link"
                     category="links"
                     afterLabel="URL"
-                    key={shortid.generate()}
+                    key={index}
                     index={index}
                     value={item}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
@@ -198,7 +198,7 @@ export default class Form extends Component {
                   <Input
                     label="Tag"
                     category="tags"
-                    key={shortid.generate()}
+                    key={index}
                     index={index}
                     value={item}
                     updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}

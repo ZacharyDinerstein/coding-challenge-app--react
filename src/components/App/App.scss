@@ -1,14 +1,20 @@
-@font-face {
-  font-family: "Manoyri-Regular";
-  font-style: normal;
-  src: local("Manoyri-Regular"), url(./fonts/Manoyri-Regular.otf) format("opentype");
-}
+// @font-face {
+//   font-family: "Manoyri-Regular";
+//   font-style: normal;
+//   src: local("Manoyri-Regular"), url(./fonts/Manoyri-Regular.otf) format("opentype");
+// }
 
-@font-face {
-  font-family: "againts";
-  font-style: normal;
-  src: local("againts"), url(./fonts/againts.otf) format("opentype");
-}
+// @font-face {
+//   font-family: "againts";
+//   font-style: normal;
+//   src: local("againts"), url(./fonts/againts.otf) format("opentype");
+// }
+
+// @font-face {
+//   font-family: "Novar";
+//   font-style: normal;
+//   src: local("Novar"), url(./fonts/Novar.ttf) format("truetype");
+// }
 
 @font-face {
   font-family: "Vontens";
@@ -22,11 +28,6 @@
   src: local("Adam"), url(./fonts/Adam.otf) format("opentype");
 }
 
-@font-face {
-  font-family: "Novar";
-  font-style: normal;
-  src: local("Novar"), url(./fonts/Novar.ttf) format("truetype");
-}
 
 html {
   font-size: 10px;
@@ -70,6 +71,7 @@ header {
     padding: 2rem 3rem;
     border: none;
     font-weight: bold;
+    font-family: Adam;
   }
   .banner-text-container {
     .banner-text {
