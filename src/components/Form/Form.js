@@ -24,7 +24,12 @@ export default class Form extends Component {
       newEntry,
       object;
 
-    //Add new value to a string that's part of an object that's part of an Array within state
+      console.log(name)
+      console.log(category)
+      console.log(value)
+      console.log(index)
+
+    // Add new value to a string that's part of an object that's part of an Array within state
     if (category && typeof this.state[category][index] === "object") {
       newEntry = [...this.state.answers];
       object = newEntry[index];
@@ -96,8 +101,6 @@ export default class Form extends Component {
   allowTabs = (e) => {
     let t = e.target;
 
-    console.log(e.keyCode)
-
     if (e.keyCode === 18) {
       let v = t.value,
         s = t.selectionStart,
@@ -164,7 +167,7 @@ export default class Form extends Component {
                     key={index}
                     index={index}
                     value={item}
-                    updateCardAttribute={(e) => this.updateCardAttribute(e, index)}
+                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
                     handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
                     handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
                   />

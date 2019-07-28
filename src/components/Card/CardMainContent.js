@@ -9,12 +9,13 @@ const CardMainContent = (props) => {
          answers,
          links,
          tags,
-         company
+         company,
+         categories
       } = cardData;
 
    return (
       <>
-         {answers.map((answer, index) => {
+         {answers.map((answer) => {
             return (
                <div key={shortid.generate()} className="card__answer-wrapper">
                   <pre className="card__answer">{answer.answer}</pre>
@@ -41,6 +42,11 @@ const CardMainContent = (props) => {
          {tags && cardData.tags.map((tag, index) => {
             return (
                <p key={index}>{tag}</p>
+            )
+         })}
+         {categories && cardData.categories.map((category, index) => {
+            return (
+               <p key={index}>{category}</p>
             )
          })}
       </>

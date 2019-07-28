@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddInputsBtn from '../Button/AddInputsBtn';
 import RemoveInputsBtn from '../Button/RemoveInputsBtn';
 
 const CategoryInput = (props) => {
     let {
         item,
-        updateCardArrayAttribute,
+        updateCardAttribute,
         index,
         label
     } = props,
         category = "categories";
+
+    const [selectedValue, updateSelectedValue] = useState('javascript');
+
+    const handleChange = (e) => {
+        updateSelectedValue(e.target.value);
+        updateCardAttribute(e, category, index);
+        // console.log(e.target.value)
+    }
+
 
     return (
         <>
@@ -18,11 +27,11 @@ const CategoryInput = (props) => {
                 type="text"
                 placeholder="Optional"
                 name={category}
-                onChange={updateCardArrayAttribute}
-                value={item}
+                onChange={handleChange}
+                value={selectedValue}
                 required
             >
-                <option value="javascript" selected>JavaScript</option>
+                <option value="javascript">JavaScript</option>
                 <option value="react">React</option>
                 <option value="css">CSS</option>
                 <option value="html">HTML</option>
