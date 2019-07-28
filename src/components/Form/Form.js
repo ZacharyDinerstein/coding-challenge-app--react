@@ -26,18 +26,9 @@ export default class Form extends Component {
 
     // Add new value to a string that's part of an object that's part of an Array within state
     if (category && typeof this.state[category][index] === "object") {
-      console.log("Updating OBJECT")
-      
-      newEntry = [...this.state.answers];
-      console.log(newEntry)
-      
+      newEntry = [...this.state[category]];
       object = newEntry[index];
-      console.log(object)
-
       object[name] = value;
-      console.log(value)
-      console.log(name)
-      console.log(object[name])
 
       this.setState({
         [category]: newEntry
