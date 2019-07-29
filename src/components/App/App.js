@@ -12,7 +12,8 @@ export default class App extends Component {
     this.state = {
       cards: cardData,
       organizedCards: {},
-      formVisible: true
+      formVisible: true,
+      search:''
     }
   }
 
@@ -65,7 +66,18 @@ export default class App extends Component {
     })
   }
 
+  searchOrganizedCards = (cards) => {
+    console.log("here");
+  }
 
+  updateSearch = (e) => {
+    let { name, value } = e.target;
+
+    this.setState({
+      [name]: value
+    }, () => this.searchOrganizedCards(this.state.organizedCards)
+    )
+  }
 
 
   render() {
@@ -79,6 +91,13 @@ export default class App extends Component {
             <h1 className="banner-text">Learn From Interview</h1>
             <h1 className="banner-text banner-text--larger">Fails</h1>
             <button onClick={this.toggleComponent}>Create New Card</button>
+            <input
+                type="text"
+                placeholder="Search"
+                name="search"
+                onChange={this.updateSearch}
+                value={this.state.search}
+            />
           </div>
         </header>
 
@@ -99,7 +118,7 @@ export default class App extends Component {
                 <h1 className="dashbord__question-type">{category}</h1>
                 <div className="cards-container cards-container--questions">
 
-                  {cards.map((card, index) => {
+                  {cards.map(card => {
                     return (
                       <Card key={shortid.generate()} cardData={card} />
                     )

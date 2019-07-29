@@ -11,7 +11,8 @@ const Inputs = (props) => {
         category,
         required,
         updateCardAttribute,
-        includeAddRemoveButtons
+        includeAddRemoveButtons,
+        noLabel
     } = props;
 
     let placeholder = required ? "" : "Optional",
@@ -21,7 +22,9 @@ const Inputs = (props) => {
 
     return (
         <>
-            <label htmlFor="">{label} {afterLabel}</label>
+            {!noLabel &&
+                <label htmlFor="">{label} {afterLabel}</label>
+            }
             <input
                 type="text"
                 placeholder={placeholder}
