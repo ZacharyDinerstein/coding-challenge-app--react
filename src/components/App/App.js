@@ -13,7 +13,7 @@ export default class App extends Component {
       cards: cardData,
       organizedCards: {},
       formVisible: true,
-      search:''
+      search: ''
     }
   }
 
@@ -66,72 +66,105 @@ export default class App extends Component {
     })
   }
 
+
   searchOrganizedCards = (cards) => {
-    console.log("here");
-  }
 
-  updateSearch = (e) => {
-    let { name, value } = e.target;
+    let currentList, newList = [],
+        searchTerm = this.state.search;
 
-    this.setState({
-      [name]: value
-    }, () => this.searchOrganizedCards(this.state.organizedCards)
-    )
-  }
+    console.log(searchTerm)
+
+    // if (e.target.value !== "") {
+    //   currentList = this.state.data;
+    // }
+
+  //     newList = currentList.filter(profile => {
+
+  //       let profileAsString = '';
+  //       for (var key in profile) {
+  //         if (key !== "icon" && key !== "profile_image") {
+  //           profileAsString += ' ' + profile[key].toLowerCase();
+  //         }
+  //       }
+
+  //       const filter = e.target.value.toLowerCase();
+
+  //       return profileAsString.includes(filter);
+  //     });
+
+  //   } else {
+
+  //     newList = this.state.data;
+  //   }
+
+  //   this.setState({
+  //     filteredData: newList
+  //   });
+  // }
+}
+
+updateSearch = (e) => {
+  let { name, value } = e.target;
+
+  this.setState({
+    [name]: value
+  }, () => this.searchOrganizedCards(this.state.organizedCards)
+  )
+}
 
 
-  render() {
-    let { organizedCards, formVisible } = this.state;
+render() {
+  let { organizedCards, formVisible } = this.state;
 
-    return (
-      <>
-        {/* <button onClick={this.checkState}>Check State</button> */}
-        <header>
-          <div className="banner-text-container">
-            <h1 className="banner-text">Learn From Interview</h1>
-            <h1 className="banner-text banner-text--larger">Fails</h1>
-            <button onClick={this.toggleComponent}>Create New Card</button>
-            <input
-                type="text"
-                placeholder="Search"
-                name="search"
-                onChange={this.updateSearch}
-                value={this.state.search}
-            />
-          </div>
-        </header>
+  return (
+    <>
+      {/* <button onClick={this.checkState}>Check State</button> */}
+      <header>
+        <div className="banner-text-container">
+          <h1 className="banner-text">Learn From Interview</h1>
+          <h1 className="banner-text banner-text--larger">Fails</h1>
+          <button onClick={this.toggleComponent}>Create New Card</button>
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            onChange={this.updateSearch}
+            value={this.state.search}
+          />
+        </div>
+      </header>
 
 
-        <Form
-          createCard={(newCard) => { this.createCard(newCard) }}
-          toggleComponent={this.toggleComponent}
-          formVisible={formVisible}
-        />
+      <Form
+        createCard={(newCard) => { this.createCard(newCard) }}
+        toggleComponent={this.toggleComponent}
+        formVisible={formVisible}
+      />
 
-        <main>
-          {organizedCards && Object.keys(organizedCards).map((category, index) => {
-            let cards = organizedCards[category];
-            category = category.toUpperCase();
+      <main>
+        {organizedCards && Object.keys(organizedCards).map((category, index) => {
+          let cards = organizedCards[category];
+          category = category.toUpperCase();
 
-            return (
-              <div key={shortid.generate()} className="dashbord__question-section">
-                <h1 className="dashbord__question-type">{category}</h1>
-                <div className="cards-container cards-container--questions">
+          return (
+            <div key={shortid.generate()} className="dashbord__question-section">
+              <h1 className="dashbord__question-type">{category}</h1>
+              <div className="cards-container cards-container--questions">
 
-                  {cards.map(card => {
-                    return (
-                      <Card key={shortid.generate()} cardData={card} />
-                    )
-                  })}
+                {cards.map(card => {
+                  return (
+                    <Card key={shortid.generate()} cardData={card} />
+                  )
+                })}
 
-                </div>
               </div>
-            )
-          })}
-        </main>
+            </div>
+          )
+        })}
+      </main>
 
-      </>
-    );
-  }
+    </>
+  );
+}
 }
 
