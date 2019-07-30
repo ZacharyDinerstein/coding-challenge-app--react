@@ -33,7 +33,7 @@ export default class Form extends Component {
       this.setState({
         [category]: newEntry
       })
-      
+
       //Add new value to a string that's part of an Array within state
     } else if (Array.isArray(this.state[category])) {
       newEntry = [...this.state[name]];
@@ -46,7 +46,7 @@ export default class Form extends Component {
       //Add new value to a string within state
     } else {
       newEntry = value;
-      
+
       this.setState({
         [name]: newEntry
       })
@@ -80,7 +80,7 @@ export default class Form extends Component {
     })
   }
 
-  resetState = () => { 
+  resetState = () => {
     this.setState({
       question: '',
       answers: [{
@@ -91,153 +91,179 @@ export default class Form extends Component {
       categories: ['javascript'],
       company: '',
       tags: ['']
-    }) 
+    })
   }
 
-  createCard = (e) => {
-    e.preventDefault();
+  stringifyCardContents = (card) => {
 
-    let { question, answers, links, tags, categories, company } = this.state,
-      { createCard, toggleComponent } = this.props;
+    // let cardContentsAsString = '';
+    // for (var key in card) {
+    //   // console.log(key)
+    //   // console.log(card)
+    //   console.log(typeof card[key])
+    //   console.log(card[key])
+    //   if (typeof card[key] === "string") {
+    //     cardContentsAsString += ' ' + card[key].toLowerCase();
+    //   }
+    // }
 
-    let newCard = {
-      question: question,
-      answers: answers,
-      links: links,
-      categories: categories,
-      company: company,
-      tags: tags
-    };
+    //   console.log(cardContentsAsString)
+    // const filter = searchTerm.toLowerCase();
 
-    createCard(newCard);
-    toggleComponent();
-    this.resetState();
-  }
-
-  allowTabs = (e) => {
-    let t = e.target;
-
-    if (e.keyCode === 18) {
-      let v = t.value,
-        s = t.selectionStart,
-        e = t.selectionEnd;
-
-      t.value = v.substring(0, s) + '\t' + v.substring(e);
-      t.selectionStart = t.selectionEnd = s + 1;
-      return false;
-    }
-  }
-
-  showState = () => {
-    console.log(this.state)
+    // return cardContentsAsString.includes(filter);
   }
 
 
-  render() {
-    let { formVisible, toggleComponent } = this.props,
-      classes = formVisible ? 'cards-container cards-container--form' : 'cards-container cards-container--form hidden';
+
+createCard = (e) => {
+  e.preventDefault();
+
+  let { question, answers, links, tags, categories, company } = this.state,
+    { createCard, toggleComponent } = this.props,
+    stringifiedCardContents;
 
 
-    return (
-      <div className={classes}>
+  stringifiedCardContents = this.stringifyCardContents(this.state);
 
-        <div className="card card--form">
-          <button onClick={this.showState}>SHOW STATE</button>
-          <form
-            className="form"
-            onSubmit={this.createCard}
-          >
-            <h1>Create New Card</h1>
-            <h1
-              className="form__close-button"
-              onClick={toggleComponent}>
-              X
+  let newCard = {
+    question: question,
+    answers: answers,
+    links: links,
+    categories: categories,
+    company: company,
+    tags: tags,
+    stringifiedCardContents: ''
+  };
+
+  createCard(newCard);
+  toggleComponent();
+  this.resetState();
+}
+
+allowTabs = (e) => {
+  let t = e.target;
+
+  if (e.keyCode === 18) {
+    let v = t.value,
+      s = t.selectionStart,
+      e = t.selectionEnd;
+
+    t.value = v.substring(0, s) + '\t' + v.substring(e);
+    t.selectionStart = t.selectionEnd = s + 1;
+    return false;
+  }
+}
+
+showState = () => {
+  console.log(this.state)
+}
+
+
+render() {
+  let { formVisible, toggleComponent } = this.props,
+    classes = formVisible ? 'cards-container cards-container--form' : 'cards-container cards-container--form hidden';
+
+
+  return (
+    <div className={classes}>
+
+      <div className="card card--form">
+        <button onClick={this.showState}>SHOW STATE</button>
+        <form
+          className="form"
+          onSubmit={this.createCard}
+        >
+          <h1>Create New Card</h1>
+          <h1
+            className="form__close-button"
+            onClick={toggleComponent}>
+            X
             </h1>
-            <p className="sub-header">(Use OPTION key to indent)</p>
-            <div className="form__inputs-wrapper">
-              <Input
-                label="Question"
-                category="question"
-                value={this.state.question}
-                includeAddRemoveButtons={false}
-                updateCardAttribute={(e) => this.updateCardAttribute(e)}
-                required={true}
-              />
+          <p className="sub-header">(Use OPTION key to indent)</p>
+          <div className="form__inputs-wrapper">
+            <Input
+              label="Question"
+              category="question"
+              value={this.state.question}
+              includeAddRemoveButtons={false}
+              updateCardAttribute={(e) => this.updateCardAttribute(e)}
+              required={true}
+            />
 
-              {this.state.answers.map((item, index) => {
-                return (
-                  <AnswerAndExampleInputs
-                    category="answers"
-                    answer={item['answer']}
-                    example={item['example']}
-                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
-                    allowTabs={this.allowTabs}
-                    key={index}
-                    index={index}
-                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
-                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
-                  />
-                )
-              })}
+            {this.state.answers.map((item, index) => {
+              return (
+                <AnswerAndExampleInputs
+                  category="answers"
+                  answer={item['answer']}
+                  example={item['example']}
+                  updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
+                  allowTabs={this.allowTabs}
+                  key={index}
+                  index={index}
+                  handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
+                  handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
+                />
+              )
+            })}
 
 
-              {this.state.categories.map((item, index) => {
-                return (
-                  <CategoryInput
-                    label="Category"
-                    key={index}
-                    index={index}
-                    value={item}
-                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
-                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
-                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
-                  />
-                )
-              })}
+            {this.state.categories.map((item, index) => {
+              return (
+                <CategoryInput
+                  label="Category"
+                  key={index}
+                  index={index}
+                  value={item}
+                  updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
+                  handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
+                  handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
+                />
+              )
+            })}
 
-              <Input
-                label="Company"
-                category="company"
-                value={this.state.company}
-                includeAddRemoveButtons={false}
-                updateCardAttribute={(e) => this.updateCardAttribute(e)}
-              />
+            <Input
+              label="Company"
+              category="company"
+              value={this.state.company}
+              includeAddRemoveButtons={false}
+              updateCardAttribute={(e) => this.updateCardAttribute(e)}
+            />
 
-              {this.state.links.map((item, index) => {
-                return (
-                  <Input
-                    label="Link"
-                    category="links"
-                    afterLabel="URL"
-                    key={index}
-                    index={index}
-                    value={item}
-                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
-                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
-                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
-                  />
-                )
-              })}
+            {this.state.links.map((item, index) => {
+              return (
+                <Input
+                  label="Link"
+                  category="links"
+                  afterLabel="URL"
+                  key={index}
+                  index={index}
+                  value={item}
+                  updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
+                  handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
+                  handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
+                />
+              )
+            })}
 
-              {this.state.tags.map((item, index) => {
-                return (
-                  <Input
-                    label="Tag"
-                    category="tags"
-                    key={index}
-                    index={index}
-                    value={item}
-                    updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
-                    handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
-                    handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
-                  />
-                )
-              })}
-            </div>
-            <button className="hidden" type="submit">Submit</button>
-          </form>
-        </div>
+            {this.state.tags.map((item, index) => {
+              return (
+                <Input
+                  label="Tag"
+                  category="tags"
+                  key={index}
+                  index={index}
+                  value={item}
+                  updateCardAttribute={(e, category) => this.updateCardAttribute(e, category, index)}
+                  handleAddNewInputs={(category) => this.handleAddNewInputs(category, index)}
+                  handleRemoveInputs={(category) => this.handleRemoveInputs(category, index)}
+                />
+              )
+            })}
+          </div>
+          <button className="hidden" type="submit">Submit</button>
+        </form>
       </div>
-    )
-  }
+    </div>
+  )
+}
 }

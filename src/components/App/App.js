@@ -13,7 +13,8 @@ export default class App extends Component {
       cards: cardData,
       organizedCards: {},
       formVisible: true,
-      search: ''
+      search: '',
+      filteredData: []
     }
   }
 
@@ -67,104 +68,134 @@ export default class App extends Component {
   }
 
 
-  searchOrganizedCards = (cards) => {
+  searchCards = (cards) => {
 
     let currentList, newList = [],
-        searchTerm = this.state.search;
+      searchTerm = this.state.search;
 
     console.log(searchTerm)
 
-    // if (e.target.value !== "") {
-    //   currentList = this.state.data;
+    if (searchTerm !== "") {
+
+      let cardContentsAsString = '';
+
+      cards.map(cardContents => {
+        for (var key in cardContents) {
+
+          if (Array.isArray(cardContents[key])) {
+
+            cardContents[key].map(item => {
+              if (typeof item === "string") {
+                cardContentsAsString += ' ' + item.toLowerCase();
+              }
+            });
+
+          } else if (typeof cardContents[key] === "string") {
+            cardContentsAsString += ' ' + cardContents[key].toLowerCase();
+          }
+
+        }
+      });
+      console.log(cardContentsAsString);
+    }
+
+
+
+
+
+    // currentList = this.state.cards;
+    // newList = currentList.filter(cardContents => {
+
+    //   console.log(this.state)
+
+    //   let cardContentsAsString = '';
+    //   for (var key in cardContents) {
+    //     // console.log(key)
+    //     // console.log(cardContents)
+    //     console.log(typeof cardContents[key])
+    //     console.log(cardContents[key])
+    //     if (typeof cardContents[key] === "string"){
+    //       cardContentsAsString += ' ' + cardContents[key].toLowerCase();
+    //     }
+    //   }
+
+
+    //   const filter = searchTerm.toLowerCase();
+
+    //   return cardContentsAsString.includes(filter);
+    // });
     // }
+    // else {
 
-  //     newList = currentList.filter(profile => {
+    //     newList = this.state.data;
+    //   }
 
-  //       let profileAsString = '';
-  //       for (var key in profile) {
-  //         if (key !== "icon" && key !== "profile_image") {
-  //           profileAsString += ' ' + profile[key].toLowerCase();
-  //         }
-  //       }
+    // this.setState({
+    //   filteredData: newList
+    // })
+  }
 
-  //       const filter = e.target.value.toLowerCase();
+  updateSearch = (e) => {
+    let { name, value } = e.target;
 
-  //       return profileAsString.includes(filter);
-  //     });
+    this.setState({
+      [name]: value
+    }, () => this.searchCards(this.state.cards)
+    )
+  }
 
-  //   } else {
+  render() {
+    let { organizedCards, formVisible } = this.state;
 
-  //     newList = this.state.data;
-  //   }
-
-  //   this.setState({
-  //     filteredData: newList
-  //   });
-  // }
-}
-
-updateSearch = (e) => {
-  let { name, value } = e.target;
-
-  this.setState({
-    [name]: value
-  }, () => this.searchOrganizedCards(this.state.organizedCards)
-  )
-}
-
-
-render() {
-  let { organizedCards, formVisible } = this.state;
-
-  return (
-    <>
-      {/* <button onClick={this.checkState}>Check State</button> */}
-      <header>
-        <div className="banner-text-container">
-          <h1 className="banner-text">Learn From Interview</h1>
-          <h1 className="banner-text banner-text--larger">Fails</h1>
-          <button onClick={this.toggleComponent}>Create New Card</button>
-          <input
-            type="text"
-            placeholder="Search"
-            name="search"
-            onChange={this.updateSearch}
-            value={this.state.search}
-          />
-        </div>
-      </header>
+    return (
+      <>
+        {/* <button onClick={this.checkState}>Check State</button> */}
+        <header>
+          <div className="banner-text-container">
+            <h1 className="banner-text">Learn From Interview</h1>
+            <h1 className="banner-text banner-text--larger">Fails</h1>
+            <button onClick={this.toggleComponent}>Create New Card</button>
+            <input
+              type="text"
+              placeholder="Search"
+              name="search"
+              onChange={this.updateSearch}
+              value={this.state.search}
+            />
+          </div>
+        </header>
 
 
-      <Form
-        createCard={(newCard) => { this.createCard(newCard) }}
-        toggleComponent={this.toggleComponent}
-        formVisible={formVisible}
-      />
+        <Form
+          createCard={(newCard) => { this.createCard(newCard) }}
+          toggleComponent={this.toggleComponent}
+          formVisible={formVisible}
+        />
 
-      <main>
-        {organizedCards && Object.keys(organizedCards).map((category, index) => {
-          let cards = organizedCards[category];
-          category = category.toUpperCase();
+        <main>
+          {organizedCards && Object.keys(organizedCards).map((category, index) => {
+            let cards = organizedCards[category];
+            category = category.toUpperCase();
 
-          return (
-            <div key={shortid.generate()} className="dashbord__question-section">
-              <h1 className="dashbord__question-type">{category}</h1>
-              <div className="cards-container cards-container--questions">
+            return (
+              <div key={shortid.generate()} className="dashbord__question-section">
+                <h1 className="dashbord__question-type">{category}</h1>
+                <div className="cards-container cards-container--questions">
 
-                {cards.map(card => {
-                  return (
-                    <Card key={shortid.generate()} cardData={card} />
-                  )
-                })}
+                  {cards.map(card => {
+                    return (
+                      <Card key={shortid.generate()} cardData={card} />
+                    )
+                  })}
 
+                </div>
               </div>
-            </div>
-          )
-        })}
-      </main>
+            )
+          })}
+        </main>
 
-    </>
-  );
-}
+      </>
+    );
+  }
 }
 
