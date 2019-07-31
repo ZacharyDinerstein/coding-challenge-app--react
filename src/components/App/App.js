@@ -67,55 +67,23 @@ export default class App extends Component {
     })
   }
 
-  searchCards = (cards) => {
-
+  searchCards = cards => {
     let currentList, newList = [],
       searchTerm = this.state.search;
 
     if (searchTerm !== "") {
-      cards.map(cardContents => {
-        let cardContentsAsString = '';
-
-        // cardContentsAsString = cardContentsAsString + ' ' + this.returnAllCardValues(cardContents, '');
-        // console.log(cardContentsAsString);
-      });
+      currentList = cards;
+      newList = currentList.filter(item => item['cardContentsStringified'].toLowerCase().includes(searchTerm));
     }
 
-
-    // currentList = this.state.cards;
-    // newList = currentList.filter(cardContents => {
-
-    //   console.log(this.state)
-
-    //   let cardContentsAsString = '';
-    //   for (var key in cardContents) {
-    //     // console.log(key)
-    //     // console.log(cardContents)
-    //     console.log(typeof cardContents[key])
-    //     console.log(cardContents[key])
-    //     if (typeof cardContents[key] === "string"){
-    //       cardContentsAsString += ' ' + cardContents[key].toLowerCase();
-    //     }
-    //   }
-
-
-    //   const filter = searchTerm.toLowerCase();
-
-    //   return cardContentsAsString.includes(filter);
-    // });
-    // }
-    // else {
-
-    //     newList = this.state.data;
-    //   }
-
-    // this.setState({
-    //   filteredData: newList
-    // })
+    this.setState({
+      filteredData: newList
+    })
   }
 
   updateSearch = (e) => {
     let { name, value } = e.target;
+    value = value.toLowerCase();
 
     this.setState({
       [name]: value
@@ -152,6 +120,12 @@ export default class App extends Component {
         />
 
         <main>
+          {this.state.filteredData && 
+            this.state.filteredData.map(card => {
+              return <Card key={shortid.generate()} cardData={card} />
+            })
+          }
+
           {organizedCards && Object.keys(organizedCards).map(category => {
             let cards = organizedCards[category];
             category = category.toUpperCase();

@@ -99,6 +99,7 @@ export default class Form extends Component {
   stringifyCardContents = item => {
 
     if (typeof item === "string") {
+      item = item.toLowerCase();
       this.setState({
         cardContentsStringified: this.state.cardContentsStringified += ' ' + item
       })
