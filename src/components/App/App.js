@@ -14,8 +14,7 @@ export default class App extends Component {
       organizedCards: {},
       formVisible: true,
       search: '',
-      filteredData: [],
-      cardStringified: ''
+      filteredData: []
     }
   }
 
@@ -68,21 +67,6 @@ export default class App extends Component {
     })
   }
 
-
-  returnAllCardValues = item => {
-    if (typeof item === "string") {
-      this.setState({
-        cardStringified: this.state.cardStringified += item 
-      })
-    } else if (item && typeof item === "object") {
-      for (var key in item) {
-        this.returnAllCardValues(item[key]);
-      }
-    }
-    
-    console.log(this.state.cardStringified);
-  }
-
   searchCards = (cards) => {
 
     let currentList, newList = [],
@@ -92,7 +76,7 @@ export default class App extends Component {
       cards.map(cardContents => {
         let cardContentsAsString = '';
 
-        cardContentsAsString = cardContentsAsString + ' ' + this.returnAllCardValues(cardContents, '');
+        // cardContentsAsString = cardContentsAsString + ' ' + this.returnAllCardValues(cardContents, '');
         // console.log(cardContentsAsString);
       });
     }
