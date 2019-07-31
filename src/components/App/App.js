@@ -120,7 +120,7 @@ export default class App extends Component {
         />
 
         <main>
-          {this.state.filteredData.length > 0 &&
+          {this.state.search.length > 0 &&
             <>
               <h1 className="dashbord__question-type">SEARCH RESULTS</h1>
               <div className="cards-container cards-container--questions">
@@ -132,7 +132,7 @@ export default class App extends Component {
             </>
           }
 
-          {this.state.filteredData.length === 0 &&
+          {this.state.search.length === 0 &&
 
             organizedCards && Object.keys(organizedCards).map(category => {
               let cards = organizedCards[category];
