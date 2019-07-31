@@ -112,9 +112,6 @@ export default class Form extends Component {
 
   }
 
-
-
-
   createCard = (e) => {
     e.preventDefault();
 
@@ -122,8 +119,6 @@ export default class Form extends Component {
 
     let { question, answers, links, tags, categories, company, cardContentsStringified } = this.state,
       { createCard, toggleComponent } = this.props;
-
-    console.log(cardContentsStringified);
 
     let newCard = {
       question: question,
@@ -168,7 +163,7 @@ export default class Form extends Component {
       <div className={classes}>
 
         <div className="card card--form">
-          {/* <button onClick={this.showState}>SHOW STATE</button> */}
+          <button onClick={this.showState}>SHOW STATE</button>
           <form
             className="form"
             onSubmit={this.createCard}

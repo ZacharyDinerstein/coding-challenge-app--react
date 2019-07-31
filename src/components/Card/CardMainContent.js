@@ -10,7 +10,8 @@ const CardMainContent = (props) => {
          links,
          tags,
          company,
-         categories
+         categories,
+         cardContentsStringified
       } = cardData;
 
    return (
@@ -49,6 +50,7 @@ const CardMainContent = (props) => {
                <p key={shortid.generate()}>{category}</p>
             )
          })}
+         <p>{cardContentsStringified}</p>
       </>
    )
 }
