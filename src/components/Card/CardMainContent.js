@@ -16,7 +16,7 @@ const CardMainContent = (props) => {
 
    return (
       <>
-         {answers.map((answer, index) => {
+         {answers.map( answer => {
             return (
                <div key={shortid.generate()} className="card__answer-wrapper">
                   <pre className="card__answer">{answer.answer}</pre>
@@ -40,12 +40,12 @@ const CardMainContent = (props) => {
          })}
          {company && <p>{company}</p>}
 
-         {tags && cardData.tags.map((tag, index) => {
+         {tags && cardData.tags.map(tag => {
             return (
                <p key={shortid.generate()}>{tag}</p>
             )
          })}
-         {categories && cardData.categories.map((category, index) => {
+         {categories && cardData.categories.map(category => {
             return (
                <p key={shortid.generate()}>{category}</p>
             )

@@ -13,9 +13,9 @@
         ],
         "links": [],
         "categories": [
-            "JavaScript",
-            "Simple Question"
-        ]
+            "JavaScript"
+        ],
+        "cardContentsStringified":"What's the difference between Null & Undefined? Undefined is applied to a variable when that variable is not assigned any value. var x;\nconsole.log(x);\t//Undefined Null is a value that means 'Nothing', which you can actively attach to a variable. var x = null;\nconsole.log(x);\t//null"
     },
     {
         "question": "Describe React State",
@@ -28,7 +28,8 @@
         "categories": [
             "JavaScript",
             "React"
-        ]
+        ],
+        "cardContentsStringified": "Describe React State State is an object that holds all of our app's data JavaScript React"
     },
     {
         "question": "What is a JavaScript Promise?",
@@ -43,6 +44,7 @@
         ],
         "categories": [
             "JavaScript"
-        ]
+        ],
+        "cardContentsStringified": "What is a JavaScript Promise? A JS Promise is essentially a callback that's used in partnership with asyncronous functions. Let's say you have a function that is fetching JSON from an API. You want to fire one response when the data returns and another if the data is not returned. Promises handle this for you. var greetingPromise = sayHello();\ngreetingPromise.then(function (greeting) {\n\t\tconsole.log(greeting);\t\t//'hello world’\n\t},\n\n\tfunction (error) {\n\t\tconsole.error('uh oh: ', error);\t//'uh oh: something bad happened’ \n\t}\n); https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about JavaScript"
     }
 ]
