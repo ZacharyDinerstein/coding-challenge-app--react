@@ -152,7 +152,7 @@ export default class App extends Component {
         />
 
         <main>
-          {organizedCards && Object.keys(organizedCards).map((category, index) => {
+          {organizedCards && Object.keys(organizedCards).map(category => {
             let cards = organizedCards[category];
             category = category.toUpperCase();
 

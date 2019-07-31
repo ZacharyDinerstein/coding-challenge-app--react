@@ -114,12 +114,13 @@ export default class Form extends Component {
 
   createCard = (e) => {
     e.preventDefault();
-
+    
     this.stringifyCardContents(this.state);
 
     let { question, answers, links, tags, categories, company, cardContentsStringified } = this.state,
-      { createCard, toggleComponent } = this.props;
-
+    { createCard, toggleComponent } = this.props;
+    
+    
     let newCard = {
       question: question,
       answers: answers,
