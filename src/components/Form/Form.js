@@ -168,7 +168,7 @@ render() {
     <div className={classes}>
 
       <div className="card card--form">
-        <button onClick={this.showState}>SHOW STATE</button>
+        {/* <button onClick={this.showState}>SHOW STATE</button> */}
         <form
           className="form"
           onSubmit={this.createCard}
