@@ -12,7 +12,7 @@ export default class App extends Component {
     this.state = {
       cards: cardData,
       organizedCards: {},
-      formVisible: true,
+      formVisible: false,
       search: '',
       filteredData: []
     }
@@ -120,31 +120,40 @@ export default class App extends Component {
         />
 
         <main>
-          {this.state.filteredData && 
-            this.state.filteredData.map(card => {
-              return <Card key={shortid.generate()} cardData={card} />
-            })
+          {this.state.filteredData.length > 0 &&
+            <>
+              <h1 className="dashbord__question-type">SEARCH RESULTS</h1>
+              <div className="cards-container cards-container--questions">
+
+                {this.state.filteredData.map(card => {
+                  return <Card key={shortid.generate()} cardData={card} />
+                })}
+              </div>
+            </>
           }
 
-          {organizedCards && Object.keys(organizedCards).map(category => {
-            let cards = organizedCards[category];
-            category = category.toUpperCase();
+          {this.state.filteredData.length === 0 &&
 
-            return (
-              <div key={shortid.generate()} className="dashbord__question-section">
-                <h1 className="dashbord__question-type">{category}</h1>
-                <div className="cards-container cards-container--questions">
+            organizedCards && Object.keys(organizedCards).map(category => {
+              let cards = organizedCards[category];
+              category = category.toUpperCase();
 
-                  {cards.map(card => {
-                    return (
-                      <Card key={shortid.generate()} cardData={card} />
-                    )
-                  })}
+              return (
+                <div key={shortid.generate()} className="dashbord__question-section">
+                  <h1 className="dashbord__question-type">{category}</h1>
+                  <div className="cards-container cards-container--questions">
 
+                    {cards.map(card => {
+                      return (
+                        <Card key={shortid.generate()} cardData={card} />
+                      )
+                    })}
+
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })
+          }
         </main>
 
       </>
