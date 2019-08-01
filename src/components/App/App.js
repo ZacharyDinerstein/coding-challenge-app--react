@@ -3,7 +3,6 @@ import './App.scss';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
 import cardData from '../../data/cardData.json';
-import shortid from 'shortid';
 
 
 export default class App extends Component {
