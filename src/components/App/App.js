@@ -91,6 +91,15 @@ export default class App extends Component {
     )
   }
 
+  handleDeleteItem = (id) => {
+    let newCardsArr = this.state.cards.filter(card => card.id !== id);
+    
+    this.setState({
+      cards: newCardsArr
+    }, () => this.organizeCards(this.state.cards)
+    );
+  }
+
   render() {
     let { organizedCards, formVisible } = this.state;
 
@@ -125,8 +134,15 @@ export default class App extends Component {
               <h1 className="dashbord__question-type">SEARCH RESULTS</h1>
               <div className="cards-container cards-container--questions">
 
-                {this.state.filteredData.map(card => {
-                  return <Card key={shortid.generate()} cardData={card} />
+                {this.state.filteredData.map((card, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      id={index}
+                      cardData={card}
+                      handleDeleteItem={(id) => this.handleDeleteItem(id)}
+                    />
+                  )
                 })}
               </div>
             </>
@@ -134,18 +150,23 @@ export default class App extends Component {
 
           {this.state.search.length === 0 &&
 
-            organizedCards && Object.keys(organizedCards).map(category => {
+            organizedCards && Object.keys(organizedCards).map((category, index) => {
               let cards = organizedCards[category];
               category = category.toUpperCase();
 
               return (
-                <div key={shortid.generate()} className="dashbord__question-section">
+                <div key={index} className="dashbord__question-section">
                   <h1 className="dashbord__question-type">{category}</h1>
                   <div className="cards-container cards-container--questions">
 
-                    {cards.map(card => {
+                    {cards.map((card, index) => {
                       return (
-                        <Card key={shortid.generate()} cardData={card} />
+                        <Card
+                          key={index}
+                          id={index}
+                          cardData={card}
+                          handleDeleteItem={(id) => this.handleDeleteItem(id)}
+                        />
                       )
                     })}
 

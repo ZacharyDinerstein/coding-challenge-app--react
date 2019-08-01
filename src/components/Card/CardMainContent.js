@@ -4,14 +4,13 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const CardMainContent = (props) => {
-   let { cardData } = props,
+   let { cardData, handleDeleteItem } = props,
       {
          answers,
          links,
          tags,
          company,
-         categories,
-         cardContentsStringified
+         categories
       } = cardData;
 
    return (
@@ -50,7 +49,7 @@ const CardMainContent = (props) => {
                <p key={shortid.generate()}>{category}</p>
             )
          })}
-         <p>{cardContentsStringified}</p>
+         <button onClick={handleDeleteItem}>DELETE</button>
       </>
    )
 }
