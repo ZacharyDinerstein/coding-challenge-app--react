@@ -14,7 +14,8 @@ export default class App extends Component {
       organizedCards: {},
       formVisible: false,
       search: '',
-      filteredData: []
+      filteredData: [],
+      newCardIdNum: cardData.length
     }
   }
 
@@ -27,7 +28,14 @@ export default class App extends Component {
   }
 
   createCard = (newCard) => {
+    let { newCardIdNum } = this.state,
+      increasedCardId;
+
+    newCard.id = newCardIdNum;
+    increasedCardId = newCardIdNum + 1;
+
     this.setState({
+      newCardIdNum: increasedCardId,
       cards: [...this.state.cards, newCard]
     }, () => {
       this.organizeCards(this.state.cards)
@@ -93,7 +101,7 @@ export default class App extends Component {
 
   handleDeleteItem = (id) => {
     let newCardsArr = this.state.cards.filter(card => card.id !== id);
-    
+
     this.setState({
       cards: newCardsArr
     }, () => this.organizeCards(this.state.cards)
@@ -137,8 +145,8 @@ export default class App extends Component {
                 {this.state.filteredData.map((card, index) => {
                   return (
                     <Card
-                      key={index}
-                      id={index}
+                      key={card.id}
+                      id={card.id}
                       cardData={card}
                       handleDeleteItem={(id) => this.handleDeleteItem(id)}
                     />
@@ -162,8 +170,8 @@ export default class App extends Component {
                     {cards.map((card, index) => {
                       return (
                         <Card
-                          key={index}
-                          id={index}
+                          key={card.id}
+                          id={card.id}
                           cardData={card}
                           handleDeleteItem={(id) => this.handleDeleteItem(id)}
                         />
