@@ -6,10 +6,8 @@ const Card = (props) => {
 
   const [fullWidth, toggleCardFullWidth] = useState(false);
 
-  let { cardData, handleDeleteItem, id } = props,
+  let { cardData, handleDeleteItem, handleEditItem, id } = props,
       classes = fullWidth ? "card card--question card--full-width" : "card card--question";
-
-  console.log(id);
 
   return (
     <div onClick={() => toggleCardFullWidth(!fullWidth)} className={classes} >
@@ -19,6 +17,7 @@ const Card = (props) => {
         <CardMainContent
           cardData={cardData}
           handleDeleteItem={() => handleDeleteItem(id)}
+          handleEditItem={() => handleEditItem(id)}
         />
       }
 

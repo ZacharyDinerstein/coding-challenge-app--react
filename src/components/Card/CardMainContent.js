@@ -4,7 +4,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const CardMainContent = (props) => {
-   let { cardData, handleDeleteItem } = props,
+   let { cardData, handleDeleteItem, handleEditItem } = props,
       {
          answers,
          links,
@@ -50,6 +50,7 @@ const CardMainContent = (props) => {
             )
          })}
          <button onClick={handleDeleteItem}>DELETE</button>
+         <button onClick={handleEditItem}>Edit</button>
       </>
    )
 }

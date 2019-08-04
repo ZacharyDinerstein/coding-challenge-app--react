@@ -5,17 +5,28 @@ import Form from '../Form/Form';
 import cardData from '../../data/cardData.json';
 
 
+let INITIALFORMCONTENTS = {
+  question: '',
+  answers: [{
+    answer: '',
+    example: ''
+  }],
+  links: [''],
+  categories: ['javascript'],
+  company: '',
+  tags: [''],
+  cardContentsStringified: ''
+}
+
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cards: cardData,
-      organizedCards: {},
-      formVisible: false,
-      search: '',
-      filteredData: [],
-      newCardIdNum: cardData.length
-    }
+  state = {
+    cards: cardData,
+    organizedCards: {},
+    formVisible: false,
+    formContents: INITIALFORMCONTENTS,
+    search: '',
+    filteredData: [],
+    newCardIdNum: cardData.length
   }
 
   componentDidMount = () => {
@@ -107,8 +118,28 @@ export default class App extends Component {
     );
   }
 
+  handleEditItem = (id) => {
+
+    this.setState({
+      formVisible: true,
+      formContents: this.state.cards[id]
+    })
+
+    /* 
+    openForm
+    add data from card to that form
+    submit the form 
+    update the card with the new data
+    */
+
+  }
+
+  showState = () => {
+    console.log(this.state)
+  }
+
   render() {
-    let { organizedCards, formVisible } = this.state;
+    let { organizedCards, formVisible, formContents } = this.state;
 
     return (
       <>
@@ -125,6 +156,7 @@ export default class App extends Component {
               onChange={this.updateSearch}
               value={this.state.search}
             />
+            <button onClick={this.showState}>SHOW STATE</button>
           </div>
         </header>
 
@@ -133,6 +165,7 @@ export default class App extends Component {
           createCard={(newCard) => { this.createCard(newCard) }}
           toggleComponent={this.toggleComponent}
           formVisible={formVisible}
+          formContents={formContents}
         />
 
         <main>
@@ -173,6 +206,7 @@ export default class App extends Component {
                           id={card.id}
                           cardData={card}
                           handleDeleteItem={(id) => this.handleDeleteItem(id)}
+                          handleEditItem={(id) => this.handleEditItem(id)}
                         />
                       )
                     })}

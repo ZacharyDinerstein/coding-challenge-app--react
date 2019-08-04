@@ -3,22 +3,21 @@ import AnswerAndExampleInputs from './AnswerAndExampleInputs';
 import Input from './Input';
 import CategoryInput from './CategoryInput';
 
-let INITIALSTATE = {
-  question: '',
-  answers: [{
-    answer: '',
-    example: ''
-  }],
-  links: [''],
-  categories: ['javascript'],
-  company: '',
-  tags: [''],
-  cardContentsStringified: ''
-}
-
-
 export default class Form extends Component {
-  state = INITIALSTATE;
+  state = {
+    formContents: {
+      question: '',
+      answers: [{
+        answer: '',
+        example: ''
+      }],
+      links: [''],
+      categories: ['javascript'],
+      company: '',
+      tags: [''],
+      cardContentsStringified: ''
+    }
+  };
 
   updateCardAttribute = (e, category, index) => {
     let { name, value } = e.target,
@@ -26,8 +25,8 @@ export default class Form extends Component {
       object;
 
     // Add new value to a string that's part of an object that's part of an Array within state
-    if (category && typeof this.state[category][index] === "object") {
-      newEntry = [...this.state[category]];
+    if (category && typeof this.state.formContents[category][index] === "object") {
+      newEntry = [...this.state.formContents[category]];
       object = newEntry[index];
       object[name] = value;
 
@@ -36,7 +35,7 @@ export default class Form extends Component {
       })
 
       //Add new value to a string that's part of an Array within state
-    } else if (Array.isArray(this.state[category])) {
+    } else if (Array.isArray(this.state.formContents[category])) {
       newEntry = [...this.state[name]];
       newEntry[index] = value;
 
@@ -56,7 +55,7 @@ export default class Form extends Component {
   }
 
   handleAddNewInputs = (category, index) => {
-    let field = this.state[category],
+    let field = this.state.formContents[category],
       newFields = (category === "answers") ? { answer: '', example: '' } : '',
       newArray;
 
@@ -72,7 +71,7 @@ export default class Form extends Component {
   }
 
   handleRemoveInputs = (category, indexOfClickedBtn) => {
-    let newArray = this.state[category].filter((item, itemIndex) =>
+    let newArray = this.state.formContents[category].filter((item, itemIndex) =>
       itemIndex !== indexOfClickedBtn
     );
 
@@ -101,11 +100,11 @@ export default class Form extends Component {
     if (typeof item === "string") {
       item = item.toLowerCase();
       this.setState({
-        cardContentsStringified: this.state.cardContentsStringified += ' ' + item
+        cardContentsStringified: this.state.formContents.cardContentsStringified += ' ' + item
       })
     } else if (item && typeof item === "object") {
       for (var key in item) {
-        if (key !== "cardContentsStringified"){
+        if (key !== "cardContentsStringified") {
           this.stringifyCardContents(item[key]);
         }
       }
@@ -115,13 +114,13 @@ export default class Form extends Component {
 
   createCard = (e) => {
     e.preventDefault();
-    
-    this.stringifyCardContents(this.state);
 
-    let { question, answers, links, tags, categories, company, cardContentsStringified } = this.state,
-    { createCard, toggleComponent } = this.props;
-    
-    
+    this.stringifyCardContents(this.state.formContents);
+
+    let { question, answers, links, tags, categories, company, cardContentsStringified } = this.state.formContents,
+      { createCard, toggleComponent } = this.props;
+
+
     let newCard = {
       question: question,
       answers: answers,
@@ -152,14 +151,21 @@ export default class Form extends Component {
   }
 
   showState = () => {
-    console.log(this.state)
+    console.log(this.state.formContents)
+  }
+
+  componentWillReceiveProps = () => {
+    console.log(this.props.formContents)
+
+    this.setState({
+      formContents: this.props.formContents
+    })
   }
 
 
   render() {
-    let { formVisible, toggleComponent } = this.props,
+    let { formVisible, toggleComponent, formContents } = this.props,
       classes = formVisible ? 'cards-container cards-container--form' : 'cards-container cards-container--form hidden';
-
 
     return (
       <div className={classes}>
@@ -181,13 +187,13 @@ export default class Form extends Component {
               <Input
                 label="Question"
                 category="question"
-                value={this.state.question}
+                value={this.state.formContents.question}
                 includeAddRemoveButtons={false}
                 updateCardAttribute={(e) => this.updateCardAttribute(e)}
                 required={true}
               />
 
-              {this.state.answers.map((item, index) => {
+              {this.state.formContents.answers.map((item, index) => {
                 return (
                   <AnswerAndExampleInputs
                     category="answers"
@@ -204,7 +210,7 @@ export default class Form extends Component {
               })}
 
 
-              {this.state.categories.map((item, index) => {
+              {this.state.formContents.categories.map((item, index) => {
                 return (
                   <CategoryInput
                     label="Category"
@@ -221,12 +227,12 @@ export default class Form extends Component {
               <Input
                 label="Company"
                 category="company"
-                value={this.state.company}
+                value={this.state.formContents.company}
                 includeAddRemoveButtons={false}
                 updateCardAttribute={(e) => this.updateCardAttribute(e)}
               />
 
-              {this.state.links.map((item, index) => {
+              {this.state.formContents.links.map((item, index) => {
                 return (
                   <Input
                     label="Link"
@@ -242,7 +248,7 @@ export default class Form extends Component {
                 )
               })}
 
-              {this.state.tags.map((item, index) => {
+              {this.state.formContents.tags.map((item, index) => {
                 return (
                   <Input
                     label="Tag"
