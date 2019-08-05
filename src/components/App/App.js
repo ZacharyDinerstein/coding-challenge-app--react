@@ -50,8 +50,6 @@ export default class App extends Component {
     newCard.id = newCardIdNum;
     increasedCardId = newCardIdNum + 1;
 
-    console.log(newCard.id);
-
     this.setState({
       newCardIdNum: increasedCardId,
       cards: [...this.state.cards, newCard]
@@ -62,25 +60,21 @@ export default class App extends Component {
 
   updateExistingCard = (newCard) => {
     console.log("Updating existing card")
-    // console.log(newCard.id)
 
     let newCardArray = [...this.state.cards],
-        indexOfChosenCard;
+      indexOfChosenCard;
 
-    for (let i = 0; i <= newCardArray.length; i++){
+    for (let i = 0; i <= newCardArray.length; i++) {
       let card = newCardArray[i];
       // console.log(card.id);
 
-      if (card.id === newCard.id){
+      if (card.id === newCard.id) {
         indexOfChosenCard = i;
         break;
       }
     }
 
-    // console.log(newCardArray);
-    console.log(indexOfChosenCard);
     newCardArray[indexOfChosenCard] = newCard;
-
 
     this.setState({
       cards: newCardArray
@@ -157,7 +151,6 @@ export default class App extends Component {
 
   handleEditItem = (id) => {
     let selectedCard = this.state.cards.filter(card => card.id === id)[0];
-    console.log(selectedCard)
 
     this.setState({
       formVisible: true,
@@ -165,15 +158,6 @@ export default class App extends Component {
     }, () => {
       this.showState();
     })
-
-    /* 
-    add data from card to that form
-    -- Add a single value to the Form
-
-    submit the form 
-    update the card with the new data
-    */
-
   }
 
   showState = () => {
