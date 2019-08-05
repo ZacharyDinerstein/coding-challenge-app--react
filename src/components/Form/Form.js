@@ -88,6 +88,7 @@ export default class Form extends Component {
         example: ''
       }],
       links: [''],
+      id: undefined,
       categories: ['javascript'],
       company: '',
       tags: [''],
