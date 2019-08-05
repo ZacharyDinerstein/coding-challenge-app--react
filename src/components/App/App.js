@@ -33,16 +33,57 @@ export default class App extends Component {
     this.organizeCards(this.state.cards)
   }
 
+  handleCreateCard = (newCard) => {
+    if (newCard.id === undefined) {
+      this.createCard(newCard);
+    } else {
+      this.updateExistingCard(newCard);
+    }
+  }
+
   createCard = (newCard) => {
+    console.log("Creating New Card");
+
     let { newCardIdNum } = this.state,
       increasedCardId;
 
     newCard.id = newCardIdNum;
     increasedCardId = newCardIdNum + 1;
 
+    console.log(newCard.id);
+
     this.setState({
       newCardIdNum: increasedCardId,
       cards: [...this.state.cards, newCard]
+    }, () => {
+      this.organizeCards(this.state.cards)
+    })
+  }
+
+  updateExistingCard = (newCard) => {
+    console.log("Updating existing card")
+    // console.log(newCard.id)
+
+    let newCardArray = [...this.state.cards],
+        indexOfChosenCard;
+
+    for (let i = 0; i <= newCardArray.length; i++){
+      let card = newCardArray[i];
+      // console.log(card.id);
+
+      if (card.id === newCard.id){
+        indexOfChosenCard = i;
+        break;
+      }
+    }
+
+    // console.log(newCardArray);
+    console.log(indexOfChosenCard);
+    newCardArray[indexOfChosenCard] = newCard;
+
+
+    this.setState({
+      cards: newCardArray
     }, () => {
       this.organizeCards(this.state.cards)
     })
@@ -161,7 +202,7 @@ export default class App extends Component {
 
 
         <Form
-          createCard={(newCard) => { this.createCard(newCard) }}
+          createCard={(newCard) => { this.handleCreateCard(newCard) }}
           toggleComponent={this.toggleComponent}
           formVisible={formVisible}
           formContents={formContents}

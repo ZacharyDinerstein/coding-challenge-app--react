@@ -117,7 +117,7 @@ export default class Form extends Component {
 
     this.stringifyCardContents(this.state);
 
-    let { question, answers, links, tags, categories, company, cardContentsStringified } = this.state,
+    let { question, answers, links, tags, categories, company, cardContentsStringified, id } = this.state,
       { createCard, toggleComponent } = this.props;
 
 
@@ -128,7 +128,8 @@ export default class Form extends Component {
       categories: categories,
       company: company,
       tags: tags,
-      cardContentsStringified: cardContentsStringified
+      cardContentsStringified: cardContentsStringified,
+      id: id
     };
 
     createCard(newCard);
@@ -157,17 +158,15 @@ export default class Form extends Component {
   componentDidUpdate(prevProps) {
     let { formContents } = this.props;
 
-    console.log(formContents)
-
-    //Typical usage, don't forget to compare the props
+    //We compare the props so we don't end up running an infinate loop
     if (formContents.question !== prevProps.formContents.question) {
+      this.resetState();
 
       for (var key in formContents) {
         this.setState({
           [key]: formContents[key]
         })  
       }
-    
     }
   }
 
