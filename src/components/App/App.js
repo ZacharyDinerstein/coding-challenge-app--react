@@ -33,10 +33,6 @@ export default class App extends Component {
     this.organizeCards(this.state.cards)
   }
 
-  checkState = () => {
-    console.log(this.state)
-  }
-
   createCard = (newCard) => {
     let { newCardIdNum } = this.state,
       increasedCardId;
@@ -123,11 +119,14 @@ export default class App extends Component {
     this.setState({
       formVisible: true,
       formContents: this.state.cards[id]
+    }, () => {
+      this.showState();
     })
 
     /* 
-    openForm
     add data from card to that form
+    -- Add a single value to the Form
+
     submit the form 
     update the card with the new data
     */
