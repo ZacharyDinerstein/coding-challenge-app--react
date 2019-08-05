@@ -104,7 +104,7 @@ export default class Form extends Component {
       })
     } else if (item && typeof item === "object") {
       for (var key in item) {
-        if (key !== "cardContentsStringified"){
+        if (key !== "cardContentsStringified") {
           this.stringifyCardContents(item[key]);
         }
       }
@@ -114,13 +114,13 @@ export default class Form extends Component {
 
   createCard = (e) => {
     e.preventDefault();
-    
+
     this.stringifyCardContents(this.state);
 
     let { question, answers, links, tags, categories, company, cardContentsStringified } = this.state,
-    { createCard, toggleComponent } = this.props;
-    
-    
+      { createCard, toggleComponent } = this.props;
+
+
     let newCard = {
       question: question,
       answers: answers,
@@ -155,14 +155,21 @@ export default class Form extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.props.formContents.question)
+    let { formContents } = this.props;
+
+    console.log(formContents)
+
     //Typical usage, don't forget to compare the props
-    if (this.props.formContents.question !== prevProps.formContents.question) {
-      this.setState({
-        question: 'hi'
-      })
+    if (formContents.question !== prevProps.formContents.question) {
+
+      for (var key in formContents) {
+        this.setState({
+          [key]: formContents[key]
+        })  
+      }
+    
     }
-   }
+  }
 
 
   render() {
