@@ -156,10 +156,12 @@ export default class App extends Component {
   }
 
   handleEditItem = (id) => {
+    let selectedCard = this.state.cards.filter(card => card.id === id)[0];
+    console.log(selectedCard)
 
     this.setState({
       formVisible: true,
-      formContents: this.state.cards[id]
+      formContents: selectedCard
     }, () => {
       this.showState();
     })
