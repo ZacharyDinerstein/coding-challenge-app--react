@@ -49,5 +49,40 @@
         ],
         "id": 2,
         "cardContentsStringified": "What is a JavaScript Promise? A JS Promise is essentially a callback that's used in partnership with asyncronous functions. Let's say you have a function that is fetching JSON from an API. You want to fire one response when the data returns and another if the data is not returned. Promises handle this for you. var greetingPromise = sayHello();\ngreetingPromise.then(function (greeting) {\n\t\tconsole.log(greeting);\t\t//'hello world’\n\t},\n\n\tfunction (error) {\n\t\tconsole.error('uh oh: ', error);\t//'uh oh: something bad happened’ \n\t}\n); https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about JavaScript"
+    },{
+        "question": "What is a pure funcitonal component?",
+        "answers": [
+            {
+                "answer": "?",
+                "example": ""
+            }
+        ],
+        "links": [
+            ""
+        ],
+        "categories": [
+            "JavaScript",
+            "Unanswered Questions"
+        ],
+        "id": 3,
+        "cardContentsStringified": "What is a pure funcitonal component?",
+        "company":"Perceptive AI"
+    },{
+        "question": "What kind of data structure is the DOM?",
+        "answers": [
+            {
+                "answer": "A Node tree",
+                "example": ""
+            }
+        ],
+        "links": [
+            ""
+        ],
+        "categories": [
+            "JavaScript"
+        ],
+        "id": 4,
+        "cardContentsStringified": "What kind of data structure is the DOM?",
+        "company":"Perceptive AI"
     }
 ]
