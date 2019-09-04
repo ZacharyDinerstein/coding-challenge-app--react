@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/coding-challenge-app--react/precache-manifest.b075dad116026cd65c69871e85e4a7cf.js"
+  "/coding-challenge-app--react/precache-manifest.fbe27a05e1327fa85ff1a7933025cafb.js"
 );
 
 self.addEventListener('message', (event) => {
