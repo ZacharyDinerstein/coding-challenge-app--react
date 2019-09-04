@@ -1,5 +1,10 @@
 To view the live project, visit [This Page](http://ZacharyDinerstein.github.io/coding-challenge-app--react)
 
+To deploy new changes:
+1. Commit and push changes to the program's master branch.
+2. In Terminal, CD into the program's root folder.
+3. Run the command, *npm run deploy* . This will push all new changes to our app's 'gh-pages' branch on github. That branch generate's what the user sees at the site's URL.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
