@@ -182,7 +182,7 @@ export default class App extends Component {
               onChange={this.updateSearch}
               value={this.state.search}
             />
-            <button onClick={this.showState}>SHOW STATE</button>
+            {/* <button onClick={this.showState}>SHOW STATE</button> */}
           </div>
         </header>
 

@@ -58,6 +58,16 @@ header {
     color: #111;
     box-shadow: 2px 2px 3px 1px rgba(0,0,0,.1);
     border-radius: .2rem;
+    display: block;
+    margin: 0 auto 2rem auto;
+  }
+  input {
+    border-radius: .5rem;
+    padding: 2rem;
+    border: none;
+    min-width: 40rem;
+    font-size: 2rem;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
   }
   .banner-text-container {
     .banner-text {
