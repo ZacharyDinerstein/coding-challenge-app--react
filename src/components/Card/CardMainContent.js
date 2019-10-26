@@ -15,7 +15,7 @@ const CardMainContent = (props) => {
 
    return (
       <>
-         {answers.map( answer => {
+         {answers.map(answer => {
             return (
                <div key={shortid.generate()} className="card__answer-wrapper">
                   <pre className="card__answer">{answer.answer}</pre>
@@ -37,17 +37,21 @@ const CardMainContent = (props) => {
                <a key={shortid.generate()} href={link}>{linkName}</a>
             )
          })}
-         {company && <p>{company}</p>}
+         {company &&
+            <>
+               <h4>Company</h4>
+               <p>{company}</p>
+            </>
+         }
 
+         {tags && <h4>Tags</h4>}
          {tags && cardData.tags.map(tag => {
-            return (
-               <p key={shortid.generate()}>{tag}</p>
-            )
+            return <p key={shortid.generate()}>{tag}</p>
          })}
+
+         {categories && <h4>Categories</h4>}
          {categories && cardData.categories.map(category => {
-            return (
-               <p key={shortid.generate()}>{category}</p>
-            )
+            return <p key={shortid.generate()}>{category}</p>
          })}
          <button onClick={handleDeleteItem}>DELETE</button>
          <button onClick={handleEditItem}>Edit</button>

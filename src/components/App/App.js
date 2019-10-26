@@ -186,7 +186,6 @@ export default class App extends Component {
           </div>
         </header>
 
-
         <Form
           createCard={(newCard) => { this.handleCreateCard(newCard) }}
           toggleComponent={this.toggleComponent}
