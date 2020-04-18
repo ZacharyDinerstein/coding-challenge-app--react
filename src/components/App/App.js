@@ -4,8 +4,7 @@ import Card from '../Card/Card';
 import Form from '../Form/Form';
 import cardData from '../../data/cardData.json';
 
-
-let INITIALFORMCONTENTS = {
+let INITIAL_FORM_CONTENTS = {
   question: '',
   answers: [{
     answer: '',
@@ -16,22 +15,22 @@ let INITIALFORMCONTENTS = {
   company: '',
   tags: [''],
   cardContentsStringified: ''
-}
+};
 
 export default class App extends Component {
   state = {
     cards: cardData,
     organizedCards: {},
     formVisible: false,
-    formContents: INITIALFORMCONTENTS,
+    formContents: INITIAL_FORM_CONTENTS,
     search: '',
     filteredData: [],
     newCardIdNum: cardData.length
-  }
+  };
 
   componentDidMount = () => {
     this.organizeCards(this.state.cards)
-  }
+  };
 
   handleCreateCard = (newCard) => {
     if (newCard.id === undefined) {
@@ -39,7 +38,7 @@ export default class App extends Component {
     } else {
       this.updateExistingCard(newCard);
     }
-  }
+  };
 
   createCard = (newCard) => {
     console.log("Creating New Card");
@@ -56,10 +55,10 @@ export default class App extends Component {
     }, () => {
       this.organizeCards(this.state.cards)
     })
-  }
+  };
 
   updateExistingCard = (newCard) => {
-    console.log("Updating existing card")
+    console.log("Updating existing card");
 
     let newCardArray = [...this.state.cards],
       indexOfChosenCard;
@@ -81,7 +80,7 @@ export default class App extends Component {
     }, () => {
       this.organizeCards(this.state.cards)
     })
-  }
+  };
 
   toggleComponent = () => {
     let { formVisible } = this.state;
@@ -89,9 +88,7 @@ export default class App extends Component {
     this.setState({
       formVisible: !formVisible
     })
-  }
-
-
+  };
 
   organizeCards = (cards) => {
     let organizedCards = {};
@@ -107,14 +104,14 @@ export default class App extends Component {
           organizedCards[category] = [card];
         }
         return '';
-      })
+      });
       return '';
-    })
+    });
 
     this.setState({
       organizedCards: organizedCards
     })
-  }
+  };
 
   searchCards = cards => {
     let currentList, newList = [],
@@ -128,7 +125,7 @@ export default class App extends Component {
     this.setState({
       filteredData: newList
     })
-  }
+  };
 
   updateSearch = (e) => {
     let { name, value } = e.target;
@@ -138,7 +135,7 @@ export default class App extends Component {
       [name]: value
     }, () => this.searchCards(this.state.cards)
     )
-  }
+  };
 
   handleDeleteItem = (id) => {
     let newCardsArr = this.state.cards.filter(card => card.id !== id);
@@ -147,7 +144,7 @@ export default class App extends Component {
       cards: newCardsArr
     }, () => this.organizeCards(this.state.cards)
     );
-  }
+  };
 
   handleEditItem = (id) => {
     let selectedCard = this.state.cards.filter(card => card.id === id)[0];
@@ -158,11 +155,11 @@ export default class App extends Component {
     }, () => {
       this.showState();
     })
-  }
+  };
 
   showState = () => {
     console.log(this.state)
-  }
+  };
 
   render() {
     let { organizedCards, formVisible, formContents } = this.state;
@@ -199,7 +196,7 @@ export default class App extends Component {
               <h1 className="dashbord__question-type">SEARCH RESULTS</h1>
               <div className="cards-container cards-container--questions">
 
-                {this.state.filteredData.map((card, index) => {
+                {this.state.filteredData.map((card) => {
                   return (
                     <Card
                       key={card.id}
@@ -224,7 +221,7 @@ export default class App extends Component {
                   <h1 className="dashbord__question-type">{category}</h1>
                   <div className="cards-container cards-container--questions">
 
-                    {cards.map((card, index) => {
+                    {cards.map((card) => {
                       return (
                         <Card
                           key={card.id}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CardMainContent from './CardMainContent';
+import CardMainContent from './CardMainContent.jsx';
 import './Card.scss';
 
 const Card = (props) => {

@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Vontens";
   font-style: normal;
-  src: local("Vontens"), url(./fonts/Vontens.otf) format("opentype");
+  src: local("Vontens"), url(../../assets/fonts/Vontens.otf) format("opentype");
 }
 
 @font-face {
   font-family: "Adam";
   font-style: normal;
-  src: local("Adam"), url(./fonts/Adam.otf) format("opentype");
+  src: local("Adam"), url(../../assets/fonts/Adam.otf) format("opentype");
 }
 
 
@@ -44,8 +44,8 @@ code {
 header {
   background: url("./imgs/second-batch/sahil.jpg");
   background-size: cover;
-  padding: 13rem 0rem 36rem 0rem;
-  background-position: 0px 0rem;
+  padding: 13rem 0 36rem 0;
+  background-position: 0 0;
   text-align: center;
   button {
     cursor: pointer;
@@ -76,7 +76,7 @@ header {
       text-align: center;
       font-size: 11rem;
       color: white;
-      margin: 0rem;
+      margin: 0;
     }
     .banner-text--larger {
       font-size: 15rem;
@@ -88,7 +88,7 @@ header {
 }
 
 main {
-  padding: 0rem 4rem;
+  padding: 0 4rem;
 }
 
 .dashbord__question-type {
