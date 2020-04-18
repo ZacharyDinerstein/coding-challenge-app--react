@@ -193,7 +193,7 @@ export default class App extends Component {
         <main>
           {this.state.search.length > 0 &&
             <>
-              <h1 className="dashbord__question-type">SEARCH RESULTS</h1>
+              <h1 className="dashboard__question-type">SEARCH RESULTS</h1>
               <div className="cards-container cards-container--questions">
 
                 {this.state.filteredData.map((card) => {
@@ -217,8 +217,8 @@ export default class App extends Component {
               category = category.toUpperCase();
 
               return (
-                <div key={index} className="dashbord__question-section">
-                  <h1 className="dashbord__question-type">{category}</h1>
+                <div key={index} className="dashboard__question-section">
+                  <h1 className="dashboard__question-type">{category}</h1>
                   <div className="cards-container cards-container--questions">
 
                     {cards.map((card) => {
